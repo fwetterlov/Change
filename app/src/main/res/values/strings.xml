@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Change</string>
+
+    <string name="title_morning_evaluation">Morning evaluation</string>
+    <string name="title_evening_evaluation">Evening evaluation</string>
+    <string name="title_monthly_evaluation">Monthly evaluation</string>
+    <string name="title_expectations">Expectations</string>
+    <string name="title_reflections">Reflections</string>
+
+
 </resources>
