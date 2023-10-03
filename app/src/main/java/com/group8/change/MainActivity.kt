@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = stringResource(id = R.string.title_reflections),
+        text = stringResource(id = R.string.card_title_reflections),
         modifier = modifier
     )
 }
