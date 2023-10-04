@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Change</string>
+
+    <string name="card_title_morning_evaluation">Morning evaluation</string>
+    <string name="card_title_evening_evaluation">Evening evaluation</string>
+    <string name="card_title_monthly_evaluation">Monthly evaluation</string>
+    <string name="card_title_expectations">Expectations</string>
+    <string name="card_title_reflections">Reflections</string>
+    <string name="card_title_red_button">Red button</string>
+
+    <string name = "reflections_title">Title</string>
+    <string name = "reflections_textbox">Your reflection</string>
+    <string name = "reflections_question">How did it make you feel?</string>
+    <string name = "reflections_good">Good</string>
+    <string name = "reflections_bad">Bad</string>
+
+
+
 </resources>

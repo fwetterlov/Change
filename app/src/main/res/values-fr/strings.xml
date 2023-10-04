@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Change</string>
+
+    <string name="card_title_morning_evaluation">Évaluation du matin</string>
+    <string name="card_title_evening_evaluation">Évaluation du soir</string>
+    <string name="card_title_monthly_evaluation">Évaluation mensuelle</string>
+    <string name="card_title_expectations">Attentes</string>
+    <string name="card_title_reflections">Réflexions</string>
+    <string name="card_title_red_button">Bouton rouge</string>
+
+    <string name = "reflections_title">Titre</string>
+    <string name = "reflections_textbox">Votre réflexion</string>
+    <string name = "reflections_question">Qu’est-ce que cela vous a fait ressentir?</string>
+    <string name = "reflections_good">Bien</string>
+    <string name = "reflections_bad">Triste</string>
+
+
+</resources>
