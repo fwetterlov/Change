@@ -15,7 +15,7 @@ import androidx.compose.ui.platform.LocalContext
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun topAppBar(content: @Composable () -> Unit) {
+fun TopAppBar(content: @Composable () -> Unit) {
     val context = LocalContext.current
     // Scaffold required for formatting or something
     Scaffold(
