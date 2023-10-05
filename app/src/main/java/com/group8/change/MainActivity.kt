@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.group8.change.api.viewmodel.MyViewModel
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
 
@@ -22,7 +22,7 @@ import com.group8.change.api.GetUsers
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MyViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

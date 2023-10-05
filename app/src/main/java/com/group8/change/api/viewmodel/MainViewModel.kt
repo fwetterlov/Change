@@ -8,17 +8,17 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.group8.change.api.models.User
-import com.group8.change.api.sealed.MyDataState
+import com.group8.change.api.sealed.DataState
 
-class MyViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
-    val res: MutableState<MyDataState> = mutableStateOf(MyDataState.Empty);
+    val res: MutableState<DataState> = mutableStateOf(DataState.Empty);
 
     init { fetchFirebaseData() }
 
     private fun fetchFirebaseData() {
         val tempList = mutableListOf<User>();
-        res.value = MyDataState.Loading;
+        res.value = DataState.Loading;
         FirebaseDatabase.getInstance().getReference("Users")
             .addListenerForSingleValueEvent(object : ValueEventListener {
 
@@ -30,11 +30,11 @@ class MyViewModel : ViewModel() {
                             tempList.add(usr);
                     }
 
-                    res.value = MyDataState.Success(tempList);
+                    res.value = DataState.Success(tempList);
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    res.value = MyDataState.Failure(error.message);
+                    res.value = DataState.Failure(error.message);
                 }
 
             });

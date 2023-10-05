@@ -10,16 +10,16 @@ import androidx.compose.ui.Modifier;
 import androidx.compose.ui.graphics.Color;
 
 import com.group8.change.api.models.User
-import com.group8.change.api.sealed.MyDataState
-import com.group8.change.api.viewmodel.MyViewModel
+import com.group8.change.api.sealed.DataState
+import com.group8.change.api.viewmodel.MainViewModel
 
 
 @Composable
-fun GetUsers(viewModel: MyViewModel) {
+fun GetUsers(viewModel: MainViewModel) {
 
     when (val result = viewModel.res.value) {
 
-        is MyDataState.Loading -> {
+        is DataState.Loading -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -27,10 +27,10 @@ fun GetUsers(viewModel: MyViewModel) {
                 CircularProgressIndicator();
             }
         }
-        is MyDataState.Success -> {
+        is DataState.Success -> {
             DisplayList(result.data);
         }
-        is MyDataState.Failure -> {
+        is DataState.Failure -> {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
