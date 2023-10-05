@@ -12,7 +12,10 @@
     <string name = "reflections_textbox">Your reflection</string>
     <string name = "reflections_question">How did it make you feel?</string>
     <string name = "reflections_good">Good</string>
+    <string name = "reflections_very_good">Very good</string>
     <string name = "reflections_bad">Bad</string>
+    <string name = "reflections_very_bad">Very bad</string>
+    <string name = "reflections_neutral">Neutral</string>
 
 
 

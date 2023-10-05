@@ -39,7 +39,7 @@ import com.group8.change.ui.theme.ChangeTheme
 fun ReflectionScreen() {
     ChangeTheme {
         var textState by remember { mutableStateOf(TextFieldValue("")) }
-        var sliderPosition by remember{ mutableStateOf(0f) }
+        var sliderPosition by remember{ mutableStateOf(5f) }
 
         Surface(
             modifier = Modifier.fillMaxSize()
@@ -88,24 +88,24 @@ fun ExperienceTexts() {
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = "Bad")
-        Text(text = "Good")
+        Text(text = stringResource(id = R.string.reflections_bad))
+        Text(text = stringResource(id = R.string.reflections_good))
     }
 }
 
 
 @Composable
 fun SelectedPositionText(sliderPosition: Float) {
-    val label = if (sliderPosition >= 1 && sliderPosition <= 2) {
-        "Very bad"
+    val label = if (sliderPosition >= 0 && sliderPosition <= 2) {
+        stringResource(id = R.string.reflections_very_bad)
     } else if (sliderPosition >= 3 && sliderPosition <= 4) {
-        "Bad"
+        stringResource(id = R.string.reflections_bad)
     } else if (sliderPosition.toInt() == 5) {
-        "OK"
+        stringResource(id = R.string.reflections_neutral)
     } else if (sliderPosition >= 6 && sliderPosition <= 8) {
-        "Good"
+        stringResource(id = R.string.reflections_good)
     } else if (sliderPosition >= 9 && sliderPosition <= 10) {
-        "Very good"
+        stringResource(id = R.string.reflections_very_good)
     } else {
         ""
     }
