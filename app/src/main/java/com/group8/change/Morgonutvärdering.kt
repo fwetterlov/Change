@@ -6,13 +6,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -33,11 +31,15 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun morgonutvärdering() {
-    Column {
+    Column (
+        modifier = Modifier
+            .background(Color.White)
+    ){
         topBarWithLogo()
         Column(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxSize()
+                .background(Color.White),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -62,7 +64,7 @@ fun morgonutvärdering() {
             textField()
 
             Text(
-                text = "Imorse besstämde jag",
+                text = "Imorse bestämde jag",
                 style = TextStyle(fontSize = 16.sp)
             )
 
@@ -86,8 +88,10 @@ fun morgonutvärdering() {
 
 @Composable
 fun topBarWithLogo() {
+    // Denna ska bytas ut till Adams topBar
     Column(
-        modifier = Modifier,
+        modifier = Modifier
+            .padding(8.dp),
         verticalArrangement = Arrangement.Top
     ) {
         Image(
