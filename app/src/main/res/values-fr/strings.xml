@@ -12,7 +12,13 @@
     <string name = "reflections_textbox">Votre réflexion</string>
     <string name = "reflections_question">Qu’est-ce que cela vous a fait ressentir?</string>
     <string name = "reflections_good">Bien</string>
+    <string name = "reflections_very_good">Tres bien</string>
     <string name = "reflections_bad">Triste</string>
+    <string name = "reflections_very_bad">Tres triste</string>
+    <string name = "reflections_neutral">Neutre</string>
 
+    <string name = "login_username">Nom d utilisateur</string>
+    <string name = "login_password">Mot de passe</string>
+    <string name = "login_buttontext">Se connecter</string>
 
 </resources>
