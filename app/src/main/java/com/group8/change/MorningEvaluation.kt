@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun morgonutvärdering() {
+fun morningEvaluation() {
     Column (
         modifier = Modifier
             .background(Color.White)
@@ -119,6 +119,6 @@ fun textField() {
 
 @Preview
 @Composable
-fun morgonutvärderingPreview() {
-    morgonutvärdering()
+fun morningEvaluationPreview() {
+    morningEvaluation()
 }

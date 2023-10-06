@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun kvällsutvärdering() {
+fun monthEvaluation() {
     Column (
         modifier = Modifier
             .background(Color.White)
@@ -35,49 +35,30 @@ fun kvällsutvärdering() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Kvällsutvärdering",
+                text = "Månadsutvärdering",
                 style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Det viktigaste som har hänt för mig idag är",
+                modifier = Modifier.padding(horizontal = 64.dp),
+                text = "Under denna månad har jag gjort följande förändringar:",
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Därför var det så viktigt för mig",
+                modifier = Modifier.padding(horizontal = 64.dp),
+                text = "Det viktigaste som jag behöver göra och ta ansvar över:",
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Det kändes bra när jag",
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField()
-
-            Text(
-                text = "Idag är jag nöjd med",
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField()
-
-            Text(
-                text = "Idag är jag missnöjd med",
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField()
-
-            Text(
-                text = "Idag är jag tacksam för",
+                text = "Därför är det så viktigt för mig:",
                 style = TextStyle(fontSize = 16.sp)
             )
 
@@ -101,6 +82,6 @@ fun kvällsutvärdering() {
 
 @Preview
 @Composable
-fun kvällstvärderingPreview() {
-    kvällsutvärdering()
+fun monthEvaluationPreview() {
+    monthEvaluation()
 }
