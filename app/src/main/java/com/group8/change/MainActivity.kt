@@ -35,37 +35,43 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
-                    TopAppBar {
-                        Structure(
-                            "short",
-                            "loooooooooooooooooooooooooooong",
-                            "adeagagda",
-                            "wow",
-                            "SUUUIII"
-                        )
-                    }
-                    //Greeting("Android")
-                    //GetUsers(viewModel)
+                    TopAppBar(
+                        content = {
+                            Structure(
+                                "short",
+                                "loooooooooooooooooooooooooooong",
+                                "adeagagda",
+                                "wow",
+                                "SUUUIII"
+                            )
+                        },
+                        title = "Main Screen"
+                    )
                 }
+                //Greeting("Android")
+                //GetUsers(viewModel)
             }
         }
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun StructurePreview() {
     ChangeTheme {
-        TopAppBar {
-            Structure(
-                "short",
-                "loooooooooooooooooooooooooooong",
-                "adeagagda",
-                "wow",
-                "SUUUIII"
-            )
-        }
+        TopAppBar(
+            content = {
+                Structure(
+                    "short",
+                    "loooooooooooooooooooooooooooong",
+                    "adeagagda",
+                    "wow",
+                    "SUUUIII"
+                )
+            },
+            title = "Main Screen"
+        )
     }
 }
 
