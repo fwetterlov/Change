@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TopAppBar(content: @Composable () -> Unit, title: String) {
+fun TopAppBar(content: @Composable () -> Unit, title: String, customButton: @Composable () -> Unit) {
     val context = LocalContext.current
     // Scaffold required for formatting or something
     Scaffold(
@@ -33,13 +33,14 @@ fun TopAppBar(content: @Composable () -> Unit, title: String) {
                 },
                 // Here is where you add buttons and stuff
                 actions = {
-                    Button(
-                        onClick = {
-                            Toast.makeText(context, "Hey!", Toast.LENGTH_SHORT).show()
-                        }
-                    ) {
-                        Text(text = "Click")
-                    }
+                          customButton()
+//                    Button(
+//                        onClick = {
+//                            Toast.makeText(context, "Hey!", Toast.LENGTH_SHORT).show()
+//                        }
+//                    ) {
+//                        Text(text = "Click")
+//                    }
                 },
                 // Here you adjust the colors of the topbar
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
@@ -49,7 +50,7 @@ fun TopAppBar(content: @Composable () -> Unit, title: String) {
         },
         // Here is where you put the additional contents of the app
         content = {
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(60.dp))
             content()
         }
     )

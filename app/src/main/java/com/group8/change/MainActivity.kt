@@ -3,14 +3,18 @@ package com.group8.change
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
@@ -45,7 +49,10 @@ class MainActivity : ComponentActivity() {
                                 "SUUUIII"
                             )
                         },
-                        title = "Main Screen"
+                        title = "Main Screen",
+                        customButton = {
+                            customButton()
+                        }
                     )
                 }
                 //Greeting("Android")
@@ -55,10 +62,26 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun customButton() {
+    val context = LocalContext.current
+    Button(
+        onClick = {
+            Toast.makeText(
+                context,
+                "This is the custom button!",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    ) {
+        Text(text = "Button")
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
-fun StructurePreview() {
+fun MainPreview() {
     ChangeTheme {
         TopAppBar(
             content = {
@@ -70,7 +93,10 @@ fun StructurePreview() {
                     "SUUUIII"
                 )
             },
-            title = "Main Screen"
+            title = "Main Screen",
+            customButton = {
+                customButton()
+            }
         )
     }
 }
