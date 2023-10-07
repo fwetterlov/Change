@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
@@ -40,14 +41,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    // TopAppBar syntax
                     TopAppBar(
                         content = {
                             Structure(
-                                "short",
-                                "loooooooooooooooooooooooooooong",
-                                "adeagagda",
-                                "wow",
-                                "SUUUIII"
+                                stringResource(id = R.string.card_title_reflections),
+                                stringResource(id = R.string.card_title_expectations),
+                                stringResource(id = R.string.card_title_morning_evaluation),
+                                stringResource(id = R.string.card_title_evening_evaluation),
+                                stringResource(id = R.string.card_title_monthly_evaluation)
                             )
                         },
                         title = "Main Screen"
@@ -83,11 +85,11 @@ fun MainPreview() {
         TopAppBar(
             content = {
                 Structure(
-                    "short",
-                    "loooooooooooooooooooooooooooong",
-                    "adeagagda",
-                    "wow",
-                    "SUUUIII"
+                    stringResource(id = R.string.card_title_expectations),
+                    stringResource(id = R.string.card_title_expectations),
+                    stringResource(id = R.string.card_title_morning_evaluation),
+                    stringResource(id = R.string.card_title_evening_evaluation),
+                    stringResource(id = R.string.card_title_monthly_evaluation)
                 )
             },
             title = "Main Screen"

@@ -41,9 +41,9 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
             Text(
                 // Text look and text alignment
                 text = text,
-                fontSize = 15.sp,
+                fontSize = 12.sp,
                 modifier = modifier
-                    .padding(10.dp)
+                    .padding(start = 5.dp, end = 5.dp, top = 10.dp, bottom = 10.dp)
                     .align(Alignment.BottomCenter)
             )
         }
