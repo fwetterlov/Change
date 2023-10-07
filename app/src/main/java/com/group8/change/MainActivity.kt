@@ -18,6 +18,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
+import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
 
@@ -49,32 +50,28 @@ class MainActivity : ComponentActivity() {
                                 "SUUUIII"
                             )
                         },
-                        title = "Main Screen",
-                        customButton = {
-                            customButton()
-                        }
+                        title = "Main Screen"
                     )
+
+                    // TopAppBarPlus syntax
+//                    TopAppBarPlus(
+//                        content = {
+//                            Structure(
+//                                "short",
+//                                "loooooooooooooooooooooooooooong",
+//                                "adeagagda",
+//                                "wow",
+//                                "SUUUIII"
+//                            )
+//                        },
+//                        title = "Main Screen",
+//                        secondButton = {buttonComposable()}
+//                    )
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
             }
         }
-    }
-}
-
-@Composable
-fun customButton() {
-    val context = LocalContext.current
-    Button(
-        onClick = {
-            Toast.makeText(
-                context,
-                "This is the custom button!",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    ) {
-        Text(text = "Button")
     }
 }
 
@@ -93,10 +90,7 @@ fun MainPreview() {
                     "SUUUIII"
                 )
             },
-            title = "Main Screen",
-            customButton = {
-                customButton()
-            }
+            title = "Main Screen"
         )
     }
 }
