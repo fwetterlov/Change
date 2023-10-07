@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,27 +18,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 // Composable for the home screen buttons
 @Composable
 fun CardClickable(text: String, modifier: Modifier = Modifier) {
     Card(
         // Defining how the cards look
-        modifier = Modifier
+        modifier = modifier
             .padding(20.dp)
             .width(130.dp)
             .height(130.dp),
-        border = BorderStroke(2.dp, Color.Green)    // Placeholder color
+        border = BorderStroke(2.dp, Color.Green),   // Placeholder color
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)   // Placeholder color
     ) {
         Box(
             // Centers the contents
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 // Text look and text alignment
                 text = text,
-                modifier = Modifier
+                fontSize = 15.sp,
+                modifier = modifier
                     .padding(10.dp)
                     .align(Alignment.BottomCenter)
             )
@@ -56,40 +61,46 @@ fun Structure(
     modifier: Modifier = Modifier
 ) {
     Box(
-        Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
         contentAlignment = Alignment.Center
     ) {
-        Row(
-            Modifier.align(Alignment.Center)
-        ) {
-            Column {
+        Column {
+            Row(
+            ) {
+                Column {
+                    // First row left card
+                    CardClickable(
+                        text = text1
+                    )
+                    // Second row left card
+                    CardClickable(
+                        text = text3
+                    )
+                }
+                Column {
+                    // First row right card
+                    CardClickable(
+                        text = text2
+                    )
+                    // Second row right card
+                    CardClickable(
+                        text = text4
+                    )
+                }
+            }
+            // Used when an uneven number of clickables are used.
+            // If number of clickables are even, add to previous columns
+            // and comment this out.
+            Column(
+                modifier = modifier.align(Alignment.CenterHorizontally)
+            ) {
+                // Bottom most card
                 CardClickable(
-                    text = text1
-                )
-                CardClickable(
-                    text = text3
+                    text = text5
                 )
             }
-            Column {
-                CardClickable(
-                    text = text2
-                )
-                CardClickable(
-                    text = text4
-                )
-            }
-        }
-        Row(
-            Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 100.dp)
-        ) {
-            // Add your elements for the new row here
-            CardClickable(
-                text = text5
-            )
         }
     }
 }
