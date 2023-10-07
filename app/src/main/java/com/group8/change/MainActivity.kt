@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.group8.change.api.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
                         },
                         title = "Main Screen"
                     )
-
+                    MyScreen(viewModel);
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(
 //                        content = {
