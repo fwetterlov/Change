@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun månadsutvärdering() {
+fun eveningEvaluation() {
     Column (
         modifier = Modifier
             .background(Color.White)
@@ -35,30 +35,49 @@ fun månadsutvärdering() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Månadsutvärdering",
+                text = "Kvällsutvärdering",
                 style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                modifier = Modifier.padding(horizontal = 64.dp),
-                text = "Under denna månad har jag gjort följande förändringar:",
+                text = "Det viktigaste som har hänt för mig idag är",
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                modifier = Modifier.padding(horizontal = 64.dp),
-                text = "Det viktigaste som jag behöver göra och ta ansvar över:",
+                text = "Därför var det så viktigt för mig",
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Därför är det så viktigt för mig:",
+                text = "Det kändes bra när jag",
+                style = TextStyle(fontSize = 16.sp)
+            )
+
+            textField()
+
+            Text(
+                text = "Idag är jag nöjd med",
+                style = TextStyle(fontSize = 16.sp)
+            )
+
+            textField()
+
+            Text(
+                text = "Idag är jag missnöjd med",
+                style = TextStyle(fontSize = 16.sp)
+            )
+
+            textField()
+
+            Text(
+                text = "Idag är jag tacksam för",
                 style = TextStyle(fontSize = 16.sp)
             )
 
@@ -82,6 +101,6 @@ fun månadsutvärdering() {
 
 @Preview
 @Composable
-fun månadstvärderingPreview() {
-    månadsutvärdering()
+fun eveningEvaluationPreview() {
+    eveningEvaluation()
 }
