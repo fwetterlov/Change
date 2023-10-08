@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
                         },
                         title = "Main Screen"
                     )
-                    MyScreen(viewModel);
+
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(
 //                        content = {
