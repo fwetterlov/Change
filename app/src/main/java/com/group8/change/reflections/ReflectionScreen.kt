@@ -141,8 +141,6 @@ fun SubmitButton(startPosition: Float, textState: String) {
 @Preview
 @Composable
 fun ReflectionsPreview() {
-    com.group8.change.ui.design.TopAppBar{
-        ReflectionScreen()
-    }
+
 
 }
