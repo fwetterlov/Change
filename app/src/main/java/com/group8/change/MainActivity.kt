@@ -3,30 +3,38 @@ package com.group8.change
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-<<<<<<< Updated upstream
-=======
 import android.util.Log
->>>>>>> Stashed changes
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-<<<<<<< Updated upstream
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-=======
-import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.GetUsers
-import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
->>>>>>> Stashed changes
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
+import com.group8.change.api.MyScreen
+import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.QuestionWithTextField
+import com.group8.change.expectations.ExpectationsScreen
+import com.group8.change.expectations.viewmodel.ExpectationsViewModel
+import com.group8.change.ui.design.TopAppBar
+import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
+    val expectationsViewModel: ExpectationsViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -35,38 +43,68 @@ class MainActivity : ComponentActivity() {
             val languageCode = "en"
             setLocale(this, languageCode)
 
+
+
             ChangeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    TopAppBar(
+                        content = {
+                            Structure(
+                                "short",
+                                "loooooooooooooooooooooooooooong",
+                                "adeagagda",
+                                "wow",
+                                "SUUUIII"
+                            )
+                        },
+                        title = "Main Screen"
+                    )
+
+
+                    // TopAppBarPlus syntax
+//                    TopAppBarPlus(
+//                        content = {
+//                            Structure(
+//                                "short",
+//                                "loooooooooooooooooooooooooooong",
+//                                "adeagagda",
+//                                "wow",
+//                                "SUUUIII"
+//                            )
+//                        },
+//                        title = "Main Screen",
+//                        secondButton = {buttonComposable()}
+//                    )
                 }
-<<<<<<< Updated upstream
-=======
                 //Greeting("Android")
                 //GetUsers(viewModel)
                 //LoginScreen(this)
->>>>>>> Stashed changes
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = stringResource(id = R.string.card_title_reflections),
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainPreview() {
     ChangeTheme {
-        Greeting("Android")
+        TopAppBar(
+            content = {
+                Structure(
+                    "short",
+                    "loooooooooooooooooooooooooooong",
+                    "adeagagda",
+                    "wow",
+                    "SUUUIII"
+                )
+            },
+            title = "Main Screen"
+        )
     }
 }
 
