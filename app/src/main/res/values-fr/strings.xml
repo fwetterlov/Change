@@ -21,8 +21,19 @@
     <string name = "login_password">Mot de passe</string>
     <string name = "login_buttontext">Se connecter</string>
 
-    <string name = "morning_title1">Le sentiment le plus fort d\'hier</string>
-    <string name = "morning_title2">Ce matin, j\'ai senti</string>
-    <string name = "morning_title3">Ce matin, j\'ai décidé</string>
+    <string name = "morning_title1">Le sentiment le plus fort d’hier</string>
+    <string name = "morning_title2">Ce matin, j’ai senti</string>
+    <string name = "morning_title3">Ce matin, j’ai décidé</string>
+
+    <string name = "evening_title1">La chose la plus importante qui me soit arrivée aujourd’hui est</string>
+    <string name = "evening_title2">C’est pourquoi c’était si important pour moi</string>
+    <string name = "evening_title3">C’était bien quand je</string>
+    <string name = "evening_title4">Aujourd’hui, je suis satisfait de</string>
+    <string name = "evening_title5">Aujourd’hui, je suis insatisfait avec</string>
+    <string name = "evening_title6">Aujourd’hui, je suis reconnaissant pour</string>
+
+    <string name = "month_title1">Au cours de ce mois, j’ai apporté les modifications suivantes:</string>
+    <string name = "month_title2">La chose la plus importante que je dois faire et dont j’assume la responsabilité:</string>
+    <string name = "month_title3">C’est pourquoi c’est si important pour moi:</string>
 
 </resources>
