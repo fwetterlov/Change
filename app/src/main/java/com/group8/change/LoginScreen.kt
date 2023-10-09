@@ -1,7 +1,10 @@
 package com.group8.change
 
+import android.content.Context
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -25,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,7 +37,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(context: Context) {
     var usernameValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
 
@@ -66,8 +70,11 @@ fun LoginScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
+                    Spacer(modifier = Modifier.padding(15.dp))
+                }
+                item {
                     Text(
-                        text = "Sign In",
+                        text = stringResource(id = R.string.login_buttontext),
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 2.sp
@@ -77,15 +84,15 @@ fun LoginScreen() {
                 }
 
                 item {
-                    Spacer(modifier = Modifier.padding(20.dp))
+                    Spacer(modifier = Modifier.padding(10.dp))
                 }
 
                 item {
                     OutlinedTextField(
                         value = usernameValue,
                         onValueChange = { usernameValue = it },
-                        label = { Text(text = "Username") },
-                        placeholder = { Text(text = "Username") },
+                        label = { Text(text = stringResource(id = R.string.login_username)) },
+                        placeholder = { Text(text = stringResource(id = R.string.login_username)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(0.8f)
                     )
@@ -95,8 +102,8 @@ fun LoginScreen() {
                     OutlinedTextField(
                         value = passwordValue,
                         onValueChange = { passwordValue = it },
-                        label = { Text(text = "Password") },
-                        placeholder = { Text(text = "Password") },
+                        label = { Text(text = stringResource(id = R.string.login_password)) },
+                        placeholder = { Text(text = stringResource(id = R.string.login_password)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(0.8f)
                     )
@@ -111,7 +118,7 @@ fun LoginScreen() {
                             .fillMaxWidth(0.8f)
                             .padding(vertical = 16.dp),
                     ) {
-                        Text(text = "Sign In")
+                        Text(text = stringResource(id = R.string.login_buttontext))
                     }
                 }
 
@@ -132,6 +139,9 @@ fun LoginScreen() {
                             modifier = Modifier
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
+                                .clickable {
+                                    setLocale(context, "en")
+                                }
                         )
 
                         Image(
@@ -140,6 +150,9 @@ fun LoginScreen() {
                             modifier = Modifier
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
+                                .clickable {
+                                    setLocale(context, "sv")
+                                }
                         )
 
                         Image(
@@ -148,6 +161,9 @@ fun LoginScreen() {
                             modifier = Modifier
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
+                                .clickable {
+                                    setLocale(context, "fr")
+                                }
                         )
                     }
                 }
@@ -156,9 +172,4 @@ fun LoginScreen() {
     }
 }
 
-@Preview
-@Composable
-fun LoginPreview() {
-    LoginScreen()
-}
 

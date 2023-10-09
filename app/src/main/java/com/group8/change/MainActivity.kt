@@ -12,9 +12,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.group8.change.api.GetUsers
+import com.group8.change.ui.design.TopAppBar
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.MyScreen
@@ -79,6 +82,7 @@ class MainActivity : ComponentActivity() {
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
+                //LoginScreen(this)
             }
         }
     }
@@ -105,7 +109,8 @@ fun MainPreview() {
 }
 
 
-private fun setLocale(context: Context, languageCode: String) {
+fun setLocale(context: Context, languageCode: String) {
+    Log.d("langCode", languageCode)
     val locale = Locale(languageCode)
     Locale.setDefault(locale)
 
