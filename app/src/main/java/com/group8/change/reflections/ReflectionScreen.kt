@@ -65,8 +65,6 @@ fun ReflectionScreen() {
                             .background(Color.White)
                             .padding(16.dp)
                             .fillMaxWidth()
-                            .border(1.dp, Color.Gray)
-                            .padding(16.dp)
                     )
                     Column (modifier = Modifier.padding(16.dp)){
                         ExperienceTexts()
