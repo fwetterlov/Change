@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -43,28 +44,28 @@ fun morningEvaluation() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Morgonutvärdering",
+                text = stringResource(id = R.string.card_title_morning_evaluation),
                 style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Starkaste känslan från igår",
+                text = stringResource(id = R.string.morning_title1),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Imorse kände jag",
+                text = stringResource(id = R.string.morning_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Imorse bestämde jag",
+                text = stringResource(id = R.string.morning_title3),
                 style = TextStyle(fontSize = 16.sp)
             )
 
@@ -108,7 +109,7 @@ fun topBarWithLogo() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun textField() {
-    var text by remember { mutableStateOf("Hello") }
+    var text by remember { mutableStateOf("") }
 
     TextField(
         value = text,
