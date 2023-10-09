@@ -2,6 +2,7 @@ package com.group8.change.reflections
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.group8.change.R
+import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,7 +47,9 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-
+                TopAppBarPlus(content = { /*TODO*/ }, title = stringResource(id = R.string.card_title_reflections)) {
+                    SubmitReflection(sliderPosition, textState.toString())
+                }
                 Column (modifier = Modifier.padding(top=60.dp)){
                     /*Text(text = stringResource(id = R.string.card_title_reflections),
                         style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
@@ -73,7 +77,6 @@ fun ReflectionScreen() {
                             steps = 9
                         )
                         SelectedPositionText(sliderPosition)
-                        SubmitButton(sliderPosition, textState.toString())
                     }
 
                 }
@@ -99,14 +102,14 @@ fun ExperienceTexts() {
 @Composable
 
 fun SelectedPositionText(sliderPosition: Float) {
-    val label = if (sliderPosition >= 0 && sliderPosition <= 2) {
+    val label = if (sliderPosition >= 0 && sliderPosition <= 1) {
         stringResource(id = R.string.reflections_very_bad)
-    } else if (sliderPosition >= 3 && sliderPosition <= 4) {
+    } else if (sliderPosition >= 2 && sliderPosition <= 4) {
         stringResource(id = R.string.reflections_bad)
+    } else if (sliderPosition >= 5.9 && sliderPosition <= 8) {
+        stringResource(id = R.string.reflections_good)
     } else if (sliderPosition.toInt() == 5) {
         stringResource(id = R.string.reflections_neutral)
-    } else if (sliderPosition >= 6 && sliderPosition <= 8) {
-        stringResource(id = R.string.reflections_good)
     } else if (sliderPosition >= 9 && sliderPosition <= 10) {
         stringResource(id = R.string.reflections_very_good)
     } else {
@@ -128,14 +131,16 @@ fun SelectedPositionText(sliderPosition: Float) {
                     .align(Alignment.CenterHorizontally)
             )
         }
+
     }
 }
 
 @Composable
-fun SubmitButton(startPosition: Float, textState: String) {
-    Button(modifier = Modifier.padding(), onClick = { /*TODO*/ }) {
-        Text("Submit")
-    }
+fun SubmitReflection(startPosition: Float, textState: String) {
+    Text(
+        text = "Submit",
+        modifier = Modifier.clickable { /* TODO */ }
+    )
 }
 
 @Preview
