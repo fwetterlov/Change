@@ -21,7 +21,8 @@
     <string name = "login_password">Password</string>
     <string name = "login_buttontext">Sign in</string>
 
-
-
+    <string name = "morning_title1">Strongest feeling from yesterday</string>
+    <string name = "morning_title2">This morning I felt</string>
+    <string name = "morning_title3">This morning I decided</string>
 
 </resources>
