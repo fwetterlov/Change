@@ -3,16 +3,22 @@ package com.group8.change
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.QuestionWithTextField
+import com.group8.change.expectations.ExpectationsScreen
+import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
@@ -20,6 +26,7 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+    val expectationsViewModel: ExpectationsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +36,8 @@ class MainActivity : ComponentActivity() {
             val languageCode = "en"
             setLocale(this, languageCode)
 
+
+
             ChangeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -36,17 +45,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    TopAppBar {
-                        Structure(
-                            "short",
-                            "loooooooooooooooooooooooooooong",
-                            "adeagagda",
-                            "wow",
-                            "SUUUIII"
-                        )
-                    }
-                    //Greeting("Android")
-                    //GetUsers(viewModel)
+                    ExpectationsScreen(expectationsViewModel = expectationsViewModel)
+                }
+                Button(onClick = { Log.d("btnPress","${expectationsViewModel.questions.value.toString()}") }) {
+
                 }
             }
         }
@@ -57,15 +59,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun StructurePreview() {
     ChangeTheme {
-        TopAppBar {
-            Structure(
-                "short",
-                "loooooooooooooooooooooooooooong",
-                "adeagagda",
-                "wow",
-                "SUUUIII"
-            )
-        }
+
     }
 }
 
