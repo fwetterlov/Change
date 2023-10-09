@@ -3,6 +3,7 @@ package com.group8.change
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.QuestionWithTextField
+import com.group8.change.expectations.ExpectationsScreen
+import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
@@ -26,6 +30,7 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+    val expectationsViewModel: ExpectationsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,8 @@ class MainActivity : ComponentActivity() {
             *  Can setLocale be called from the login button? */
             val languageCode = "en"
             setLocale(this, languageCode)
+
+
 
             ChangeTheme {
                 // A surface container using the 'background' color from the theme
@@ -53,6 +60,7 @@ class MainActivity : ComponentActivity() {
                         },
                         title = "Main Screen"
                     )
+
 
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(

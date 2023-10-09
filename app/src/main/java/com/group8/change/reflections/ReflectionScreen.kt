@@ -15,6 +15,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,38 +45,40 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            Column (){
-                Text(text = stringResource(id = R.string.card_title_reflections),
-                    style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
-                    modifier = Modifier.padding(16.dp))
-                TextField(
-                    value = textState,
-                    onValueChange = { newText ->
-                        textState = newText
-                    },
-                    label ={ Text(text = stringResource(id = R.string.reflections_textbox))} ,
-                    textStyle = TextStyle(fontSize = 20.sp),
-                    modifier = Modifier
-                        .background(Color.White)
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .border(1.dp, Color.Gray)
-                        .padding(16.dp)
-                )
-                Column (modifier = Modifier.padding(16.dp)){
-                    ExperienceTexts()
-                    Slider(
-                        value = sliderPosition,
-                        onValueChange = {sliderPosition = it},
-                        valueRange= 0f..10f,
-                        steps = 9
+
+                Column (modifier = Modifier.padding(top=60.dp)){
+                    /*Text(text = stringResource(id = R.string.card_title_reflections),
+                        style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
+                        modifier = Modifier.padding(16.dp))*/
+                    TextField(
+                        value = textState,
+                        onValueChange = { newText ->
+                            textState = newText
+                        },
+                        label ={ Text(text = stringResource(id = R.string.reflections_textbox))} ,
+                        textStyle = TextStyle(fontSize = 20.sp),
+                        modifier = Modifier
+                            .background(Color.White)
+                            .padding(16.dp)
+                            .fillMaxWidth()
+                            .border(1.dp, Color.Gray)
+                            .padding(16.dp)
                     )
-                    SelectedPositionText(sliderPosition)
-                    SubmitButton(sliderPosition, textState.toString())
+                    Column (modifier = Modifier.padding(16.dp)){
+                        ExperienceTexts()
+                        Slider(
+                            value = sliderPosition,
+                            onValueChange = {sliderPosition = it},
+                            valueRange= 0f..10f,
+                            steps = 9
+                        )
+                        SelectedPositionText(sliderPosition)
+                        SubmitButton(sliderPosition, textState.toString())
+                    }
+
                 }
 
 
-            }
         }
     }
 
@@ -93,8 +96,8 @@ fun ExperienceTexts() {
     }
 }
 
-
 @Composable
+
 fun SelectedPositionText(sliderPosition: Float) {
     val label = if (sliderPosition >= 0 && sliderPosition <= 2) {
         stringResource(id = R.string.reflections_very_bad)
@@ -138,5 +141,8 @@ fun SubmitButton(startPosition: Float, textState: String) {
 @Preview
 @Composable
 fun ReflectionsPreview() {
-    ReflectionScreen()
+    com.group8.change.ui.design.TopAppBar{
+        ReflectionScreen()
+    }
+
 }
