@@ -36,9 +36,7 @@ fun QuestionWithTextField(
     viewModel: ExpectationsViewModel
 ) {
     val questions by viewModel.questions.collectAsState()
-    TopAppBarPlus(content = { /*TODO*/ }, title = "Expectations Screen", ) {
-        SubmitButton()
-    }
+
     LazyColumn(modifier = Modifier.padding(60.dp)) {
         items(questions) { question ->
             var answer by remember { mutableStateOf(question.answer) }
@@ -64,12 +62,3 @@ fun QuestionWithTextField(
     }
 }
 
-
-@Composable
-fun SubmitButton() {
-    Text(
-        text = "Submit",
-        modifier = Modifier.clickable { /* TODO */ }
-    )
-
-}
