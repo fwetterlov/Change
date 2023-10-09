@@ -47,10 +47,8 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-                TopAppBarPlus(content = { /*TODO*/ }, title = stringResource(id = R.string.card_title_reflections)) {
-                    SubmitReflection(sliderPosition, textState.toString())
-                }
-                Column (modifier = Modifier.padding(top=60.dp)){
+                TopAppBarPlus(content = {
+                    Column (modifier = Modifier.padding(top=60.dp)){
                     /*Text(text = stringResource(id = R.string.card_title_reflections),
                         style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
                         modifier = Modifier.padding(16.dp))*/
@@ -77,7 +75,10 @@ fun ReflectionScreen() {
                         SelectedPositionText(sliderPosition)
                     }
 
+                } }, title = stringResource(id = R.string.card_title_reflections)) {
+                    SubmitReflection(sliderPosition, textState.toString())
                 }
+
 
 
         }
