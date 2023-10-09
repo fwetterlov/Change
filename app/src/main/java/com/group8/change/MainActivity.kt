@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -14,12 +15,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.group8.change.api.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.QuestionWithTextField
 import com.group8.change.expectations.ExpectationsScreen
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
+import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
 
@@ -44,22 +48,59 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    TopAppBar(
+                        content = {
+                            Structure(
+                                "short",
+                                "loooooooooooooooooooooooooooong",
+                                "adeagagda",
+                                "wow",
+                                "SUUUIII"
+                            )
+                        },
+                        title = "Main Screen"
+                    )
 
-                    ExpectationsScreen(expectationsViewModel = expectationsViewModel)
-                }
-                Button(onClick = { Log.d("btnPress","${expectationsViewModel.questions.value.toString()}") }) {
 
+                    // TopAppBarPlus syntax
+//                    TopAppBarPlus(
+//                        content = {
+//                            Structure(
+//                                "short",
+//                                "loooooooooooooooooooooooooooong",
+//                                "adeagagda",
+//                                "wow",
+//                                "SUUUIII"
+//                            )
+//                        },
+//                        title = "Main Screen",
+//                        secondButton = {buttonComposable()}
+//                    )
                 }
+                //Greeting("Android")
+                //GetUsers(viewModel)
             }
         }
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun StructurePreview() {
+fun MainPreview() {
     ChangeTheme {
-
+        TopAppBar(
+            content = {
+                Structure(
+                    "short",
+                    "loooooooooooooooooooooooooooong",
+                    "adeagagda",
+                    "wow",
+                    "SUUUIII"
+                )
+            },
+            title = "Main Screen"
+        )
     }
 }
 

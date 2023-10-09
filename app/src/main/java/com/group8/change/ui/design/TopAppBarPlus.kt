@@ -19,7 +19,11 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TopAppBar(content: @Composable () -> Unit, title: String) {
+fun TopAppBarPlus(
+    content: @Composable () -> Unit,
+    title: String,
+    secondButton: @Composable () -> Unit
+) {
     val context = LocalContext.current
     // Scaffold required for formatting or something
     Scaffold(
@@ -30,6 +34,10 @@ fun TopAppBar(content: @Composable () -> Unit, title: String) {
                 title = {
                     Text(text = title)
 
+                },
+                // This is the right aligned button (taken as argument)
+                actions = {
+                    secondButton()
                 },
                 // This is the left aligned button (Home button)
                 navigationIcon = {
