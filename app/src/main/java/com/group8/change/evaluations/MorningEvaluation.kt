@@ -34,6 +34,9 @@ import com.group8.change.ui.design.TopAppBar
 
 @Composable
 fun morningEvaluation() {
+    var text1 by remember { mutableStateOf("") }
+    var text2 by remember { mutableStateOf("") }
+    var text3 by remember { mutableStateOf("") }
 
         TopAppBar(content = {
             Column(
@@ -49,21 +52,30 @@ fun morningEvaluation() {
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text1,
+                onValueChange = { newValue -> text1 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.morning_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text2,
+                onValueChange = { newValue -> text2 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.morning_title3),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text3,
+                onValueChange = { newValue -> text3 = newValue }
+            )
 
             Button(
                 onClick = {
@@ -99,12 +111,15 @@ fun topBarWithLogo() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun textField() {
-    var text by remember { mutableStateOf("") }
+fun textField(initialValue: String, onValueChange: (String) -> Unit) {
+    var text by remember { mutableStateOf(initialValue) }
 
     TextField(
         value = text,
-        onValueChange = { text = it },
+        onValueChange = {
+            text = it
+            onValueChange(it)
+        },
         modifier = Modifier.padding(28.dp)
     )
 }
