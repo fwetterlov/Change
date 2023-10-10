@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier;
 import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
 import com.group8.change.api.models.User
+import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
 import com.group8.change.api.viewmodel.MainViewModel
 
@@ -42,22 +43,27 @@ object DBApi {
     fun getUser(viewModel: MainViewModel) {
 
         when (val result = viewModel.userState.value) {
-
-            is UserState.Loading -> {
-
-            }
-
+            is UserState.Loading -> {}
             is UserState.Success -> {
                 logUserList(result.data);
             }
-
-            is UserState.Failure -> {
-            }
-
-            else -> {
-            }
-
+            is UserState.Failure -> {}
+            else -> {}
         }
+
+    }
+
+    fun getAppData(viewModel: MainViewModel) {
+
+        when (val result = viewModel.appDataState.value) {
+            is AppDataState.Loading -> {}
+            is AppDataState.Success -> {
+                logAppDataList(result.data);
+            }
+            is AppDataState.Failure -> {}
+            else -> {}
+        }
+
     }
 
     fun logUserList(users: MutableList<User>) {
@@ -71,18 +77,18 @@ object DBApi {
         for (appData in appDataList) {
             println("Client: Role=${appData.client.role}, Username=${appData.client.username}")
             println("Evening Evaluations:")
-            for (evaluation in appData.eveningEvaluations) {
+            for (evaluation in appData.evening_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
             println("Expectations: ${appData.expectations.joinToString(", ")}")
             println("Monthly Evaluations:")
-            for (evaluation in appData.monthlyEvaluations) {
+            for (evaluation in appData.monthly_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
             println("Morning Evaluations:")
-            for (evaluation in appData.morningEvaluations) {
+            for (evaluation in appData.morning_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
@@ -105,7 +111,10 @@ object DBApi {
         ) {
             Button(
                 onClick = {
-                    getUser(viewModel)
+                    //getUser(viewModel)
+                    getAppData(viewModel)
+
+                    //println(login(viewModel, "client1", "1234"))
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -129,13 +138,9 @@ object DBApi {
                 //DisplayList(result.data);
             }
 
-            is UserState.Failure -> {
+            is UserState.Failure -> {}
+            else -> {}
 
-            }
-
-            else -> {
-
-            }
         }
 
     }
