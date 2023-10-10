@@ -16,13 +16,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.group8.change.api.GetUsers
+//import com.group8.change.api.GetUsers
 import com.group8.change.ui.design.TopAppBar
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.group8.change.api.MyScreen
+import com.group8.change.api.DBApi.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.QuestionWithTextField
 import com.group8.change.expectations.ExpectationsScreen
@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
                         composable("login"){ LoginScreen(this@MainActivity, navController) }
                         composable("main-menu"){ MainScreen(modifier = Modifier, navController) }
                     }
-
+//MyScreen(viewModel)
 
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(
