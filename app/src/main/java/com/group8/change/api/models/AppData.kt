@@ -1,15 +1,15 @@
 package com.group8.change.api.models
 
 data class AppData(
-    val client: Client,
-    val evening_evaluations: List<Evaluation>,
-    val expectations: List<String>,
-    val monthly_evaluations: List<Evaluation>,
-    val morning_evaluations: List<Evaluation>,
-    val reflections: List<Reflection>,
-    val therapist: Therapist
+    var client: Client,
+    var evening_evaluations: List<Evaluation>,
+    var expectations: List<String>,
+    var monthly_evaluations: List<Evaluation>,
+    var morning_evaluations: List<Evaluation>,
+    var reflections: List<Reflection>,
+    var therapist: Therapist
 ){
-    constructor() : this(Client("", ""), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), Therapist(""))
+    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), Therapist("therap1"))
 }
 
 data class Client(
@@ -38,4 +38,20 @@ data class Therapist(
     val username: String
 ){
     constructor() : this("")
+}
+
+object CurrentAppData {
+    // singleton of AppData with some default values again!
+    var data: AppData = AppData()
+
+    fun update(newAppData: AppData) {
+        data.client = newAppData.client
+        data.evening_evaluations = newAppData.evening_evaluations
+        data.expectations = newAppData.expectations
+        data.monthly_evaluations = newAppData.monthly_evaluations
+        data.morning_evaluations = newAppData.morning_evaluations
+        data.reflections = newAppData.reflections
+        data.therapist = newAppData.therapist
+    }
+
 }
