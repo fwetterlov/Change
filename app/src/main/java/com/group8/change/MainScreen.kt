@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.compose.change_background
 
 // Composable for the home screen buttons
 @Composable
@@ -29,12 +30,14 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
     Card(
         // Defining how the cards look
         modifier = modifier
-            .padding(20.dp)
-            .width(150.dp)
-            .height(150.dp)
-            .background(MaterialTheme.colorScheme.background ),
-        border = BorderStroke(2.dp, Color.Green),   // Placeholder color
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+            .padding(10.dp)
+            .width(140.dp)
+            .height(140.dp),
+        border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),   // Placeholder color
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        /*colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.background
+        )*/
     ) {
         Box(
             // Centers the contents

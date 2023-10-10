@@ -4,32 +4,20 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import com.group8.change.api.GetUsers
-import com.group8.change.ui.design.TopAppBar
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.group8.change.api.MyScreen
+import com.example.compose.AppTheme
 import com.group8.change.api.viewmodel.MainViewModel
-import com.group8.change.components.QuestionWithTextField
-import com.group8.change.expectations.ExpectationsScreen
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
-import com.group8.change.ui.design.TopAppBarPlus
-import com.group8.change.ui.theme.ChangeTheme
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
@@ -48,7 +36,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-            ChangeTheme {
+            AppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -56,7 +44,12 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login"){ LoginScreen(this@MainActivity, navController) }
-                        composable("main-menu"){ MainScreen(modifier = Modifier, navController) }
+                        composable("main-menu"){
+                            TopAppBar(
+                                content = {MainScreen(modifier = Modifier, navController)},
+                                title = "Main Screen"       // HARDCODED
+                            )
+                        }
                     }
 
 
