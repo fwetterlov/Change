@@ -19,6 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.group8.change.api.GetUsers
 import com.group8.change.ui.design.TopAppBar
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.group8.change.api.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.QuestionWithTextField
@@ -41,6 +44,7 @@ class MainActivity : ComponentActivity() {
             *  Can setLocale be called from the login button? */
             val languageCode = "en"
             setLocale(this, languageCode)
+            val navController = rememberNavController()
 
 
 
@@ -50,14 +54,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ChangeTheme {
-                        // TopAppBar syntax
-                        TopAppBar(
-                            content = {
-                                MainScreen()
-                            },
-                            title = "Main Screen"
-                        )
+                    NavHost(navController = navController, startDestination = "login") {
+                        composable("login"){ LoginScreen(this@MainActivity, navController) }
+                        composable("main-menu"){ MainScreen(modifier = Modifier, navController) }
                     }
 
 
@@ -78,23 +77,8 @@ class MainActivity : ComponentActivity() {
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
-                //LoginScreen(this)
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun MainPreview() {
-    ChangeTheme {
-        TopAppBar(
-            content = {
-                MainScreen()
-            },
-            title = "Main Screen"
-        )
     }
 }
 

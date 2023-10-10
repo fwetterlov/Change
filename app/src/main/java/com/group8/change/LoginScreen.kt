@@ -1,7 +1,5 @@
 package com.group8.change
 
-import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -9,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +22,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,25 +35,25 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-
-fun showToast(context: Context, message: String) {
-    val duration = Toast.LENGTH_SHORT
-    val toast = Toast.makeText(context, message, duration)
-    toast.show()
-}
+import androidx.navigation.NavController
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(context: Context) {
+fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: NavController) {
     var usernameValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
     val passwordVisibility = remember { mutableStateOf(false) }
+
+    fun changeLanguage(languageCode: String) {
+        setLocale(mainActivity, languageCode)
+        navController.navigate("login")
+    }
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
         Box(
@@ -139,7 +139,7 @@ fun LoginScreen(context: Context) {
                 item {
                     Button(
                         onClick = {
-                            // Handle sign-in logic here
+                            navController.navigate("main-menu")
                         },
                         modifier = Modifier
                             .fillMaxWidth(0.8f)
@@ -167,8 +167,7 @@ fun LoginScreen(context: Context) {
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
                                 .clickable {
-                                    setLocale(context, "en")
-                                    showToast(context, "English selected.")
+                                    changeLanguage("en")
                                 }
                         )
 
@@ -179,8 +178,7 @@ fun LoginScreen(context: Context) {
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
                                 .clickable {
-                                    setLocale(context, "sv")
-                                    showToast(context, "Swedish selected.")
+                                    changeLanguage("sv")
                                 }
                         )
 
@@ -191,8 +189,7 @@ fun LoginScreen(context: Context) {
                                 .size(50.dp)
                                 .align(Alignment.CenterVertically)
                                 .clickable {
-                                    setLocale(context, "fr")
-                                    showToast(context, "French selected.")
+                                    changeLanguage("fr")
                                 }
                         )
                     }
