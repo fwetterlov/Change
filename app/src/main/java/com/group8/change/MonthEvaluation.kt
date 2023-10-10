@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,7 +36,7 @@ fun monthEvaluation() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Månadsutvärdering",
+                text = stringResource(id = R.string.card_title_monthly_evaluation),
                 style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
             )
 
@@ -43,7 +44,7 @@ fun monthEvaluation() {
 
             Text(
                 modifier = Modifier.padding(horizontal = 64.dp),
-                text = "Under denna månad har jag gjort följande förändringar:",
+                text = stringResource(id = R.string.month_title1),
                 style = TextStyle(fontSize = 16.sp)
             )
 
@@ -51,14 +52,14 @@ fun monthEvaluation() {
 
             Text(
                 modifier = Modifier.padding(horizontal = 64.dp),
-                text = "Det viktigaste som jag behöver göra och ta ansvar över:",
+                text = stringResource(id = R.string.month_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Därför är det så viktigt för mig:",
+                text = stringResource(id = R.string.month_title3),
                 style = TextStyle(fontSize = 16.sp)
             )
 

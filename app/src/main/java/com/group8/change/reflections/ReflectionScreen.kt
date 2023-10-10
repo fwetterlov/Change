@@ -2,6 +2,7 @@ package com.group8.change.reflections
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.group8.change.R
+import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,38 +47,40 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            Column (){
-                Text(text = stringResource(id = R.string.card_title_reflections),
-                    style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
-                    modifier = Modifier.padding(16.dp))
-                TextField(
-                    value = textState,
-                    onValueChange = { newText ->
-                        textState = newText
-                    },
-                    label ={ Text(text = stringResource(id = R.string.reflections_textbox))} ,
-                    textStyle = TextStyle(fontSize = 20.sp),
-                    modifier = Modifier
-                        .background(Color.White)
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .border(1.dp, Color.Gray)
-                        .padding(16.dp)
-                )
-                Column (modifier = Modifier.padding(16.dp)){
-                    ExperienceTexts()
-                    Slider(
-                        value = sliderPosition,
-                        onValueChange = {sliderPosition = it},
-                        valueRange= 0f..10f,
-                        steps = 9
+                TopAppBarPlus(content = {
+                    Column (modifier = Modifier.padding(top=60.dp)){
+                    /*Text(text = stringResource(id = R.string.card_title_reflections),
+                        style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
+                        modifier = Modifier.padding(16.dp))*/
+                    TextField(
+                        value = textState,
+                        onValueChange = { newText ->
+                            textState = newText
+                        },
+                        label ={ Text(text = stringResource(id = R.string.reflections_textbox))} ,
+                        textStyle = TextStyle(fontSize = 20.sp),
+                        modifier = Modifier
+                            .background(Color.White)
+                            .padding(16.dp)
+                            .fillMaxWidth()
                     )
-                    SelectedPositionText(sliderPosition)
-                    SubmitButton(sliderPosition, textState.toString())
+                    Column (modifier = Modifier.padding(16.dp)){
+                        ExperienceTexts()
+                        Slider(
+                            value = sliderPosition,
+                            onValueChange = {sliderPosition = it},
+                            valueRange= 0f..10f,
+                            steps = 9
+                        )
+                        SelectedPositionText(sliderPosition)
+                    }
+
+                } }, title = stringResource(id = R.string.card_title_reflections)) {
+                    SubmitReflection(sliderPosition, textState.toString())
                 }
 
 
-            }
+
         }
     }
 
@@ -93,17 +98,17 @@ fun ExperienceTexts() {
     }
 }
 
-
 @Composable
+
 fun SelectedPositionText(sliderPosition: Float) {
-    val label = if (sliderPosition >= 0 && sliderPosition <= 2) {
+    val label = if (sliderPosition >= 0 && sliderPosition <= 1) {
         stringResource(id = R.string.reflections_very_bad)
-    } else if (sliderPosition >= 3 && sliderPosition <= 4) {
+    } else if (sliderPosition >= 2 && sliderPosition <= 4) {
         stringResource(id = R.string.reflections_bad)
+    } else if (sliderPosition >= 5.9 && sliderPosition <= 8) {
+        stringResource(id = R.string.reflections_good)
     } else if (sliderPosition.toInt() == 5) {
         stringResource(id = R.string.reflections_neutral)
-    } else if (sliderPosition >= 6 && sliderPosition <= 8) {
-        stringResource(id = R.string.reflections_good)
     } else if (sliderPosition >= 9 && sliderPosition <= 10) {
         stringResource(id = R.string.reflections_very_good)
     } else {
@@ -125,18 +130,21 @@ fun SelectedPositionText(sliderPosition: Float) {
                     .align(Alignment.CenterHorizontally)
             )
         }
+
     }
 }
 
 @Composable
-fun SubmitButton(startPosition: Float, textState: String) {
-    Button(modifier = Modifier.padding(), onClick = { /*TODO*/ }) {
-        Text("Submit")
-    }
+fun SubmitReflection(startPosition: Float, textState: String) {
+    Text(
+        text = "Submit",
+        modifier = Modifier.clickable { /* TODO */ }
+    )
 }
 
 @Preview
 @Composable
 fun ReflectionsPreview() {
-    ReflectionScreen()
+
+
 }

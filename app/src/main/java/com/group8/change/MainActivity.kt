@@ -3,6 +3,7 @@ package com.group8.change
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,13 +12,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.group8.change.api.GetUsers
+import com.group8.change.ui.design.TopAppBar
+import androidx.compose.ui.platform.LocalContext
+import com.group8.change.api.MyScreen
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.QuestionWithTextField
+import com.group8.change.expectations.ExpectationsScreen
+import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.ui.theme.ChangeTheme
@@ -26,6 +32,7 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+    val expectationsViewModel: ExpectationsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,8 @@ class MainActivity : ComponentActivity() {
             *  Can setLocale be called from the login button? */
             val languageCode = "fr"
             setLocale(this, languageCode)
+
+
 
             ChangeTheme {
                 // A surface container using the 'background' color from the theme
@@ -57,6 +66,7 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
+
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(
 //                        content = {
@@ -74,6 +84,7 @@ class MainActivity : ComponentActivity() {
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
+                //LoginScreen(this)
             }
         }
     }
@@ -100,7 +111,8 @@ fun MainPreview() {
 }
 
 
-private fun setLocale(context: Context, languageCode: String) {
+fun setLocale(context: Context, languageCode: String) {
+    Log.d("langCode", languageCode)
     val locale = Locale(languageCode)
     Locale.setDefault(locale)
 

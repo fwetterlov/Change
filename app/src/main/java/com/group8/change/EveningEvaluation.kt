@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,49 +36,50 @@ fun eveningEvaluation() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Kvällsutvärdering",
+                text = stringResource(id = R.string.card_title_evening_evaluation),
                 style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "Det viktigaste som har hänt för mig idag är",
+                modifier = Modifier.padding(horizontal = 64.dp),
+                text = stringResource(id = R.string.evening_title1),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Därför var det så viktigt för mig",
+                text = stringResource(id = R.string.evening_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Det kändes bra när jag",
+                text = stringResource(id = R.string.evening_title3),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Idag är jag nöjd med",
+                text = stringResource(id = R.string.evening_title4),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Idag är jag missnöjd med",
+                text = stringResource(id = R.string.evening_title5),
                 style = TextStyle(fontSize = 16.sp)
             )
 
             textField()
 
             Text(
-                text = "Idag är jag tacksam för",
+                text = stringResource(id = R.string.evening_title6),
                 style = TextStyle(fontSize = 16.sp)
             )
 
