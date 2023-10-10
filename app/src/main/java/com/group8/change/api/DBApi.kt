@@ -175,7 +175,7 @@ object DBApi {
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator();
+                    //CircularProgressIndicator();
                 }
             }
 

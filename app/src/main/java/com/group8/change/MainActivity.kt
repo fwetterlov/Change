@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                         composable("login"){ LoginScreen(this@MainActivity, navController) }
                         composable("main-menu"){
                             TopAppBar(
-                                content = {MainScreen(modifier = Modifier, navController)},
+                                content = {MainScreen(modifier = Modifier, navController, viewModel)},
                                 title = "Main Screen"       // HARDCODED
                             )
                         }
