@@ -43,7 +43,7 @@ fun TopAppBar(content: @Composable () -> Unit, title: String) {
                 },
                 // Here you adjust the colors of the topbar
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.secondary
+                    containerColor = MaterialTheme.colorScheme.tertiary
                 )
             )
         },

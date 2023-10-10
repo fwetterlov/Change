@@ -1,11 +1,7 @@
-package com.group8.change.ui.theme
-
+package com.example.compose
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFC7AD2A)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-
-val Purple40 = Color(0xFFFF0101)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val change_green = Color(0xFFA7C950)
+val change_yellow = Color(0xFFF2E694)
+val change_blue = Color(0xFF7FB4DC)
+val change_background = Color(0xFFFFFF)

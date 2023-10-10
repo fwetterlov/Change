@@ -51,7 +51,7 @@ fun TopAppBarPlus(
                 },
                 // Here you adjust the colors of the topbar
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = MaterialTheme.colorScheme.tertiary
                 )
             )
         },
