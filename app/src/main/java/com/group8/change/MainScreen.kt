@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +24,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.change_background
+import com.group8.change.api.sealed.AppDataState
+import com.group8.change.api.sealed.UserState
+import com.group8.change.api.viewmodel.MainViewModel
 
 // Composable for the home screen buttons
 @Composable
@@ -61,49 +65,70 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController, viewModel: MainViewModel
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
-        contentAlignment = Alignment.Center
-    ) {
-        Column {
-            Row(
+
+    when (val result = viewModel.appDataState.value) {
+
+        is AppDataState.Loading -> {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
             ) {
-                Column {
-                    // First row left card
-                    CardClickable(
-                        text = stringResource(id = R.string.card_title_reflections)
-                    )
-                    // Second row left card
-                    CardClickable(
-                        text = stringResource(id = R.string.card_title_morning_evaluation)
-                    )
-                }
-                Column {
-                    // First row right card
-                    CardClickable(
-                        text = stringResource(id = R.string.card_title_expectations)
-                    )
-                    // Second row right card
-                    CardClickable(
-                        text = stringResource(id = R.string.card_title_evening_evaluation)
-                    )
-                }
-            }
-            // Used when an uneven number of clickables are used.
-            // If number of clickables are even, add to previous columns
-            // and comment this out.
-            Column(
-                modifier = modifier.align(Alignment.CenterHorizontally)
-            ) {
-                // Bottom most card
-                CardClickable(
-                    text = stringResource(id = R.string.card_title_monthly_evaluation)
-                )
+                CircularProgressIndicator();
             }
         }
+
+        is AppDataState.Success -> {
+
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
+                contentAlignment = Alignment.Center
+            ) {
+                Column {
+                    Row(
+                    ) {
+                        Column {
+                            // First row left card
+                            CardClickable(
+                                text = stringResource(id = R.string.card_title_reflections)
+                            )
+                            // Second row left card
+                            CardClickable(
+                                text = stringResource(id = R.string.card_title_morning_evaluation)
+                            )
+                        }
+                        Column {
+                            // First row right card
+                            CardClickable(
+                                text = stringResource(id = R.string.card_title_expectations)
+                            )
+                            // Second row right card
+                            CardClickable(
+                                text = stringResource(id = R.string.card_title_evening_evaluation)
+                            )
+                        }
+                    }
+                    // Used when an uneven number of clickables are used.
+                    // If number of clickables are even, add to previous columns
+                    // and comment this out.
+                    Column(
+                        modifier = modifier.align(Alignment.CenterHorizontally)
+                    ) {
+                        // Bottom most card
+                        CardClickable(
+                            text = stringResource(id = R.string.card_title_monthly_evaluation)
+                        )
+                    }
+                }
+            }
+
+        }
+        is AppDataState.Failure -> {}
+        else -> {}
+
     }
+
 }
