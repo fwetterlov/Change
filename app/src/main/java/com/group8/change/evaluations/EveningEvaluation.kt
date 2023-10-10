@@ -11,6 +11,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,6 +29,13 @@ import com.group8.change.ui.design.TopAppBar
 
 @Composable
 fun eveningEvaluation() {
+    var text1 by remember { mutableStateOf("") }
+    var text2 by remember { mutableStateOf("") }
+    var text3 by remember { mutableStateOf("") }
+    var text4 by remember { mutableStateOf("") }
+    var text5 by remember { mutableStateOf("") }
+    var text6 by remember { mutableStateOf("") }
+
         TopAppBar(content = {
             Column(
             modifier = Modifier
@@ -41,42 +52,60 @@ fun eveningEvaluation() {
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text1,
+                onValueChange = { newValue -> text1 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.evening_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text2,
+                onValueChange = { newValue -> text2 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.evening_title3),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text3,
+                onValueChange = { newValue -> text3 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.evening_title4),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text4,
+                onValueChange = { newValue -> text4 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.evening_title5),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text5,
+                onValueChange = { newValue -> text5 = newValue }
+            )
 
             Text(
                 text = stringResource(id = R.string.evening_title6),
                 style = TextStyle(fontSize = 16.sp)
             )
 
-            textField()
+            textField(
+                initialValue = text6,
+                onValueChange = { newValue -> text6 = newValue }
+            )
 
             Button(
                 onClick = {

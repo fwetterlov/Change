@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
+import com.group8.change.ui.design.TopAppBar
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.ui.design.TopAppBar
@@ -51,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
-
+//MyScreen(viewModel)
 
                     // TopAppBarPlus syntax
 //                    TopAppBarPlus(
