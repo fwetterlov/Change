@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment;
 import androidx.compose.ui.Modifier;
 import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
+import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
@@ -22,8 +23,10 @@ object DBApi {
     fun login(viewModel: MainViewModel, username: String, password: String): User? {
 
         var userList: List<User>
+        var appDataList: List<AppData>
 
         userList = emptyList()
+        appDataList = emptyList()
 
         when (val result = viewModel.userState.value) {
             is UserState.Loading -> {}
@@ -36,7 +39,36 @@ object DBApi {
 
         val foundUser = userList.find { it.username == username && it.password == password }
 
-        if(foundUser != null) CurrentUser.update(foundUser) // set singleton CurrentUser!
+        if(foundUser != null) {
+
+            CurrentUser.update(foundUser) // set singleton CurrentUser!
+
+            // also set singleton CurrentAppData
+            //viewModel.fetchAppData();
+
+            when (val result = viewModel.appDataState.value) {
+                is AppDataState.Loading -> {}
+                is AppDataState.Success -> {
+                    appDataList = result.data
+                }
+                is AppDataState.Failure -> {}
+                else -> {}
+            }
+
+            val foundAppData = appDataList.find { it.client.username == username }
+
+            if(foundAppData != null) {
+
+                println("HAPPY DAY")
+
+                CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
+
+                println(CurrentAppData.data.client.username)
+
+            }
+            else println("AppData not found!")
+
+        }
 
         return foundUser;
 
@@ -115,9 +147,18 @@ object DBApi {
             Button(
                 onClick = {
                     //getUser(viewModel)
-                    getAppData(viewModel)
+                    //getAppData(viewModel)
 
-                    //println(login(viewModel, "client1", "1234"))
+                    println(login(viewModel, "client1", "1234"))
+                },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(text = "Login (Hans)")
+            }
+            Button(
+                onClick = {
+                    viewModel.fetchAppData()
+                    println("fetched datalito")
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
