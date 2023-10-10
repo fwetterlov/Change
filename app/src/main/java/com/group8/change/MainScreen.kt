@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 // Composable for the home screen buttons
 @Composable
@@ -56,7 +57,8 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
 // Composable building the home screen
 @Composable
 fun MainScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavController
 ) {
     Box(
         modifier = modifier
