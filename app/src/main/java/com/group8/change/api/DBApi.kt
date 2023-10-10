@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment;
 import androidx.compose.ui.Modifier;
 import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
+import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
@@ -34,6 +35,8 @@ object DBApi {
         }
 
         val foundUser = userList.find { it.username == username && it.password == password }
+
+        if(foundUser != null) CurrentUser.update(foundUser) // set singleton CurrentUser!
 
         return foundUser;
 
@@ -118,7 +121,7 @@ object DBApi {
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text(text = "Get")
+                Text(text = "Get (Hans)")
             }
 
         }
