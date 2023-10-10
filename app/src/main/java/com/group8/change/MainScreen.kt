@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -27,11 +28,11 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
         // Defining how the cards look
         modifier = modifier
             .padding(20.dp)
-            .width(130.dp)
-            .height(130.dp),
+            .width(150.dp)
+            .height(150.dp)
+            .background(MaterialTheme.colorScheme.background ),
         border = BorderStroke(2.dp, Color.Green),   // Placeholder color
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)   // Placeholder color
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Box(
             // Centers the contents
@@ -42,6 +43,7 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
                 // Text look and text alignment
                 text = text,
                 fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
                 modifier = modifier
                     .padding(start = 5.dp, end = 5.dp, top = 10.dp, bottom = 10.dp)
                     .align(Alignment.BottomCenter)
