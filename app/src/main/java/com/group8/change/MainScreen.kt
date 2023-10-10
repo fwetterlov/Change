@@ -17,6 +17,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -27,11 +29,11 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
         // Defining how the cards look
         modifier = modifier
             .padding(20.dp)
-            .width(130.dp)
-            .height(130.dp),
+            .width(150.dp)
+            .height(150.dp)
+            .background(MaterialTheme.colorScheme.background ),
         border = BorderStroke(2.dp, Color.Green),   // Placeholder color
-        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)   // Placeholder color
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Box(
             // Centers the contents
@@ -41,9 +43,10 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
             Text(
                 // Text look and text alignment
                 text = text,
-                fontSize = 15.sp,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
                 modifier = modifier
-                    .padding(10.dp)
+                    .padding(start = 5.dp, end = 5.dp, top = 10.dp, bottom = 10.dp)
                     .align(Alignment.BottomCenter)
             )
         }
@@ -52,12 +55,7 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
 
 // Composable building the home screen
 @Composable
-fun Structure(
-    text1: String,
-    text2: String,
-    text3: String,
-    text4: String,
-    text5: String,
+fun MainScreen(
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -72,21 +70,21 @@ fun Structure(
                 Column {
                     // First row left card
                     CardClickable(
-                        text = text1
+                        text = stringResource(id = R.string.card_title_reflections)
                     )
                     // Second row left card
                     CardClickable(
-                        text = text3
+                        text = stringResource(id = R.string.card_title_morning_evaluation)
                     )
                 }
                 Column {
                     // First row right card
                     CardClickable(
-                        text = text2
+                        text = stringResource(id = R.string.card_title_expectations)
                     )
                     // Second row right card
                     CardClickable(
-                        text = text4
+                        text = stringResource(id = R.string.card_title_evening_evaluation)
                     )
                 }
             }
@@ -98,7 +96,7 @@ fun Structure(
             ) {
                 // Bottom most card
                 CardClickable(
-                    text = text5
+                    text = stringResource(id = R.string.card_title_monthly_evaluation)
                 )
             }
         }

@@ -50,18 +50,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TopAppBar(
-                        content = {
-                            Structure(
-                                "short",
-                                "loooooooooooooooooooooooooooong",
-                                "adeagagda",
-                                "wow",
-                                "SUUUIII"
-                            )
-                        },
-                        title = "Main Screen"
-                    )
+                    ChangeTheme {
+                        // TopAppBar syntax
+                        TopAppBar(
+                            content = {
+                                MainScreen()
+                            },
+                            title = "Main Screen"
+                        )
+                    }
 
 
                     // TopAppBarPlus syntax
@@ -94,13 +91,7 @@ fun MainPreview() {
     ChangeTheme {
         TopAppBar(
             content = {
-                Structure(
-                    "short",
-                    "loooooooooooooooooooooooooooong",
-                    "adeagagda",
-                    "wow",
-                    "SUUUIII"
-                )
+                MainScreen()
             },
             title = "Main Screen"
         )
