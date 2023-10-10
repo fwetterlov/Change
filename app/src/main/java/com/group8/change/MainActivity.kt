@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             /* language code should be taken from the login screen
             *  Can setLocale be called from the login button? */
-            val languageCode = "fr"
+            val languageCode = "en"
             setLocale(this, languageCode)
 
 
@@ -54,13 +54,7 @@ class MainActivity : ComponentActivity() {
                         // TopAppBar syntax
                         TopAppBar(
                             content = {
-                                Structure(
-                                    stringResource(id = R.string.card_title_reflections),
-                                    stringResource(id = R.string.card_title_expectations),
-                                    stringResource(id = R.string.card_title_morning_evaluation),
-                                    stringResource(id = R.string.card_title_evening_evaluation),
-                                    stringResource(id = R.string.card_title_monthly_evaluation)
-                                )
+                                MainScreen()
                             },
                             title = "Main Screen"
                         )
@@ -97,13 +91,7 @@ fun MainPreview() {
     ChangeTheme {
         TopAppBar(
             content = {
-                Structure(
-                    stringResource(id = R.string.card_title_expectations),
-                    stringResource(id = R.string.card_title_expectations),
-                    stringResource(id = R.string.card_title_morning_evaluation),
-                    stringResource(id = R.string.card_title_evening_evaluation),
-                    stringResource(id = R.string.card_title_monthly_evaluation)
-                )
+                MainScreen()
             },
             title = "Main Screen"
         )
