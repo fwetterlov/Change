@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
 
     init {
         fetchUserData()
-        fetchAppData()
+        //fetchAppData()
     }
 
     private fun fetchUserData() {
@@ -46,7 +46,7 @@ class MainViewModel : ViewModel() {
             })
     }
 
-    private fun fetchAppData() {
+    fun fetchAppData() {
         val tempList = mutableListOf<AppData>()
         appDataState.value = AppDataState.Loading
 
