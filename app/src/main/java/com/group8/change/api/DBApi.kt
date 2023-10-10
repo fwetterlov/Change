@@ -24,10 +24,8 @@ object DBApi {
     fun login(viewModel: MainViewModel, username: String, password: String): User? {
 
         var userList: List<User>
-        var appDataList: List<AppData>
 
         userList = emptyList()
-        appDataList = emptyList()
 
         when (val result = viewModel.userState.value) {
             is UserState.Loading -> {}
@@ -43,31 +41,7 @@ object DBApi {
         if(foundUser != null) {
 
             CurrentUser.update(foundUser) // set singleton CurrentUser!
-
-            // also set singleton CurrentAppData
-            //viewModel.fetchAppData();
-
-            when (val result = viewModel.appDataState.value) {
-                is AppDataState.Loading -> {}
-                is AppDataState.Success -> {
-                    appDataList = result.data
-                }
-                is AppDataState.Failure -> {}
-                else -> {}
-            }
-
-            val foundAppData = appDataList.find { it.client.username == username }
-
-            if(foundAppData != null) {
-
-                println("HAPPY DAY")
-
-                CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
-
-                println(CurrentAppData.data.client.username)
-
-            }
-            else println("AppData not found!")
+            viewModel.fetchAppData();     // start fetching the AppData list
 
         }
 
@@ -75,6 +49,34 @@ object DBApi {
 
     }
 
+    fun setCurrentAppData(viewModel: MainViewModel) {
+
+        var appDataList: List<AppData>
+        appDataList = emptyList()
+
+        when (val result = viewModel.appDataState.value) {
+            is AppDataState.Loading -> {}
+            is AppDataState.Success -> {
+                appDataList = result.data
+            }
+            is AppDataState.Failure -> {}
+            else -> {}
+        }
+
+        val foundAppData = appDataList.find { it.client.username == CurrentUser.data.username }
+
+        if(foundAppData != null) {
+
+            println("HAPPY DAY")
+
+            CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
+
+            println(CurrentAppData.data.client.username)
+
+        }
+        else println("AppData not found!")
+
+    }
 
     fun getUser(viewModel: MainViewModel) {
 
@@ -158,8 +160,9 @@ object DBApi {
             }
             Button(
                 onClick = {
-                    viewModel.fetchAppData()
-                    println("fetched datalito")
+                    //viewModel.fetchAppData()
+                    //println("fetched datalito")
+                    println(CurrentAppData.data.client.username)
                 },
                 modifier = Modifier.padding(16.dp)
             ) {

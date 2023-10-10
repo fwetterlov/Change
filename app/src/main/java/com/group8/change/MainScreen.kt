@@ -24,6 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.change_background
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
 import com.group8.change.api.viewmodel.MainViewModel
@@ -80,6 +82,8 @@ fun MainScreen(
         }
 
         is AppDataState.Success -> {
+
+            DBApi.setCurrentAppData(viewModel)   // set the singleton to current appData
 
             Box(
                 modifier = modifier
