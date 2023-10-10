@@ -2,6 +2,7 @@ package com.group8.change
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +18,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -34,12 +38,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+
+fun showToast(context: Context, message: String) {
+    val duration = Toast.LENGTH_SHORT
+    val toast = Toast.makeText(context, message, duration)
+    toast.show()
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(context: Context) {
     var usernameValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
+    val passwordVisibility = remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
         Box(
@@ -77,7 +91,8 @@ fun LoginScreen(context: Context) {
                         text = stringResource(id = R.string.login_buttontext),
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
-                            letterSpacing = 2.sp
+                            letterSpacing = 2.sp,
+                            color = Color.DarkGray
                         ),
                         fontSize = 30.sp
                     )
@@ -102,9 +117,21 @@ fun LoginScreen(context: Context) {
                     OutlinedTextField(
                         value = passwordValue,
                         onValueChange = { passwordValue = it },
+                        trailingIcon = {
+                            IconButton(onClick = {
+                                passwordVisibility.value = !passwordVisibility.value
+                            }) {
+                                Icon(
+                                    imageVector = ImageVector.vectorResource(id = R.drawable.password_eye),
+                                    contentDescription = "password_eye",
+                                    tint = if (passwordVisibility.value) Color.DarkGray else Color.Gray
+                                )
+                            }
+                        },
                         label = { Text(text = stringResource(id = R.string.login_password)) },
                         placeholder = { Text(text = stringResource(id = R.string.login_password)) },
                         singleLine = true,
+                        visualTransformation = if (passwordVisibility.value) VisualTransformation.None else PasswordVisualTransformation(),
                         modifier = Modifier.fillMaxWidth(0.8f)
                     )
                 }
@@ -141,6 +168,7 @@ fun LoginScreen(context: Context) {
                                 .align(Alignment.CenterVertically)
                                 .clickable {
                                     setLocale(context, "en")
+                                    showToast(context, "English selected.")
                                 }
                         )
 
@@ -152,6 +180,7 @@ fun LoginScreen(context: Context) {
                                 .align(Alignment.CenterVertically)
                                 .clickable {
                                     setLocale(context, "sv")
+                                    showToast(context, "Swedish selected.")
                                 }
                         )
 
@@ -163,6 +192,7 @@ fun LoginScreen(context: Context) {
                                 .align(Alignment.CenterVertically)
                                 .clickable {
                                     setLocale(context, "fr")
+                                    showToast(context, "French selected.")
                                 }
                         )
                     }
