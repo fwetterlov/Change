@@ -2,9 +2,11 @@ package com.group8.change.expectations
 
 import android.util.Log
 import androidx.compose.foundation.clickable
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.group8.change.R
@@ -27,13 +29,14 @@ fun ExpectationsScreen(expectationsViewModel: ExpectationsViewModel, navControll
 
 @Composable
 fun SubmitButton(expectationsViewModel: ExpectationsViewModel, navController: NavController) {
-    Text(
-        text = "Submit",
-        modifier = Modifier.clickable {
-            Log.d("btnPress", "${expectationsViewModel.questions.value}")
+    Button(
+        onClick = {
             navController.navigate("main-menu")
         }
-    )
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
+    }
 
 }
 
