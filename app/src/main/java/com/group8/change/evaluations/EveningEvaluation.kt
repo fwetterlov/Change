@@ -43,13 +43,13 @@ fun eveningEvaluation(navController: NavController) {
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
-                .background(Color.White),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(Color.White)
+                .padding(start = 56.dp)
         ) {
             Spacer(modifier = Modifier.height(90.dp))
 
             Text(
-                modifier = Modifier.padding(horizontal = 64.dp),
+                modifier = Modifier.padding(end = 40.dp),
                 text = stringResource(id = R.string.evening_title1),
                 style = TextStyle(fontSize = 16.sp)
             )
@@ -108,15 +108,6 @@ fun eveningEvaluation(navController: NavController) {
                 initialValue = text6,
                 onValueChange = { newValue -> text6 = newValue }
             )
-
-            Button(
-                onClick = {
-
-                },
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text(text = "Submit")
-            }
 
         } }, title = stringResource(id = R.string.card_title_evening_evaluation),
             secondButton = { SubmitEveningEvaluation(navController = navController) },

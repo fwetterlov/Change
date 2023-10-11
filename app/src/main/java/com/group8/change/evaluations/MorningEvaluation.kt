@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -26,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,8 +46,8 @@ fun morningEvaluation(navController: NavController) {
             Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(Color.White)
+                .padding(start = 56.dp)
         ) {
                 Spacer(modifier = Modifier.height(90.dp))
 
@@ -61,7 +63,8 @@ fun morningEvaluation(navController: NavController) {
 
             Text(
                 text = stringResource(id = R.string.morning_title2),
-                style = TextStyle(fontSize = 16.sp)
+                style = TextStyle(fontSize = 16.sp),
+                textAlign = TextAlign.Start
             )
 
             textField(
@@ -78,15 +81,6 @@ fun morningEvaluation(navController: NavController) {
                 initialValue = text3,
                 onValueChange = { newValue -> text3 = newValue }
             )
-
-            Button(
-                onClick = {
-
-                },
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text(text = "Submit")
-            }
 
         } }, title = stringResource(id = R.string.card_title_morning_evaluation),
             secondButton = { SubmitMorningEvaluation(navController = navController) },
@@ -118,13 +112,13 @@ fun topBarWithLogo() {
 fun textField(initialValue: String, onValueChange: (String) -> Unit) {
     var text by remember { mutableStateOf(initialValue) }
 
-    TextField(
+    OutlinedTextField(
         value = text,
         onValueChange = {
             text = it
             onValueChange(it)
         },
-        modifier = Modifier.padding(28.dp)
+        modifier = Modifier.padding(top = 6.dp, bottom = 42.dp)
     )
 }
 

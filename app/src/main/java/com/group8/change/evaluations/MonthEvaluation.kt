@@ -39,13 +39,13 @@ fun monthEvaluation(navController: NavController) {
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
-                .background(Color.White),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(Color.White)
+                .padding(start = 56.dp)
         ) {
             Spacer(modifier = Modifier.height(90.dp))
 
             Text(
-                modifier = Modifier.padding(horizontal = 64.dp),
+                modifier = Modifier.padding(end = 40.dp),
                 text = stringResource(id = R.string.month_title1),
                 style = TextStyle(fontSize = 16.sp)
             )
@@ -56,7 +56,7 @@ fun monthEvaluation(navController: NavController) {
             )
 
             Text(
-                modifier = Modifier.padding(horizontal = 64.dp),
+                modifier = Modifier.padding(end = 40.dp),
                 text = stringResource(id = R.string.month_title2),
                 style = TextStyle(fontSize = 16.sp)
             )
@@ -75,15 +75,6 @@ fun monthEvaluation(navController: NavController) {
                 initialValue = text3,
                 onValueChange = { newValue -> text3 = newValue }
             )
-
-            Button(
-                onClick = {
-
-                },
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text(text = "Submit")
-            }
 
         } }, title = stringResource(id = R.string.card_title_monthly_evaluation),
             secondButton = { SubmitMonthEvaluation(navController = navController) },
