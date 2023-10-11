@@ -86,24 +86,8 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
-                    Spacer(modifier = Modifier.padding(15.dp))
+                    Spacer(modifier = Modifier.padding(30.dp))
                 }
-                item {
-                    Text(
-                        text = stringResource(id = R.string.login_buttontext),
-                        style = TextStyle(
-                            fontWeight = FontWeight.Bold,
-                            letterSpacing = 2.sp,
-                            color = Color.DarkGray
-                        ),
-                        fontSize = 30.sp
-                    )
-                }
-
-                item {
-                    Spacer(modifier = Modifier.padding(10.dp))
-                }
-
                 item {
                     OutlinedTextField(
                         value = usernameValue,
