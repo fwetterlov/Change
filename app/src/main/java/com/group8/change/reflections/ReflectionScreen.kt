@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,13 +50,13 @@ fun ReflectionScreen(navController: NavController) {
                 TopAppBarPlus(
                     content = {
                     Column (modifier = Modifier
-                        .padding(top=60.dp)
+                        .padding(top = 60.dp)
                         .fillMaxSize()
                         .background(Color.White)){
                     /*Text(text = stringResource(id = R.string.card_title_reflections),
                         style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
                         modifier = Modifier.padding(16.dp))*/
-                    TextField(
+                    OutlinedTextField(
                         value = textState,
                         onValueChange = { newText ->
                             textState = newText
@@ -138,10 +140,14 @@ fun SelectedPositionText(sliderPosition: Float) {
 
 @Composable
 fun SubmitReflection(startPosition: Float, textState: String,navController: NavController) {
-    Text(
-        text = "Submit",
-        modifier = Modifier.clickable { navController.navigate("main-menu") }
-    )
+    Button(
+        onClick = {
+            navController.navigate("main-menu")
+        }
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
+    }
 }
 
 @Preview
