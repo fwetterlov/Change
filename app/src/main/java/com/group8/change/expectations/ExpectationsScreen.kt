@@ -1,5 +1,6 @@
 package com.group8.change.expectations
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -21,17 +22,17 @@ import com.group8.change.ui.design.TopAppBarPlus
 fun ExpectationsScreen(expectationsViewModel: ExpectationsViewModel) {
 
         TopAppBarPlus(content = { QuestionWithTextField(expectationsViewModel) }, title = stringResource(id = R.string.card_title_expectations)) {
-            SubmitButton()
+            SubmitButton(expectationsViewModel)
         }
 
 
 }
 
 @Composable
-fun SubmitButton() {
+fun SubmitButton(expectationsViewModel: ExpectationsViewModel) {
     Text(
         text = "Submit",
-        modifier = Modifier.clickable { /* TODO */ }
+        modifier = Modifier.clickable { Log.d("btnPress", "${expectationsViewModel.questions.value}")}
     )
 
 }

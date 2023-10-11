@@ -1,10 +1,12 @@
 package com.group8.change.expectations.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
+import com.group8.change.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class ExpectationsViewModel : ViewModel() {
+class ExpectationsViewModel(context: Context) : ViewModel() {
     data class Question(
         val id: Int,
         val text: String,
@@ -16,12 +18,17 @@ class ExpectationsViewModel : ViewModel() {
 
     init {
         val initialQuestions = listOf(
-            Question(1, "What is love?"),
-            Question(2, "What is Something?"),
-            Question(3, "What is time ?"),
-            Question(4, "What is This ?"),
-            Question(5, "What is That ?"),
-            Question(6, "What are those ?"),
+            Question(1, context.getString(R.string.expectations_title1)),
+            Question(2, context.getString(R.string.expectations_title2)),
+            Question(3, context.getString(R.string.expectations_title3)),
+            Question(4, context.getString(R.string.expectations_title4)),
+            Question(5, context.getString(R.string.expectations_title5)),
+            Question(6, context.getString(R.string.expectations_title6)),
+            Question(7, context.getString(R.string.expectations_title7)),
+            Question(8, context.getString(R.string.expectations_title8)),
+            Question(9, context.getString(R.string.expectations_title9)),
+            Question(10, context.getString(R.string.expectations_title10)),
+
 
         )
         _questions.value = initialQuestions
