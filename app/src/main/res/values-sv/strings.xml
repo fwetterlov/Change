@@ -20,6 +20,7 @@
     <string name = "login_username">Användarnamn</string>
     <string name = "login_password">Lösenord</string>
     <string name = "login_buttontext">Logga in</string>
+    <string name = "login_errormessage">Inloggningen misslyckades.</string>
 
     <string name = "morning_title1">Starkaste känslasn från igår</string>
     <string name = "morning_title2">Imorse kände jag</string>
