@@ -18,7 +18,12 @@ import com.example.compose.AppTheme
 import com.group8.change.api.DBApi.MyScreen
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.evaluations.eveningEvaluation
+import com.group8.change.evaluations.monthEvaluation
+import com.group8.change.evaluations.morningEvaluation
+import com.group8.change.expectations.ExpectationsScreen
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
+import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
@@ -53,6 +58,21 @@ class MainActivity : ComponentActivity() {
                                 content = {MainScreen(modifier = Modifier, navController, viewModel)},
                                 title = "Main Screen"       // HARDCODED
                             )
+                        }
+                        composable("reflections"){
+                            ReflectionScreen()
+                        }
+                        composable("expectations"){
+                            ExpectationsScreen(expectationsViewModel)
+                        }
+                        composable("morning"){
+                            morningEvaluation()
+                        }
+                        composable("evening"){
+                            eveningEvaluation()
+                        }
+                        composable("monthly"){
+                            monthEvaluation()
                         }
                     }
                 }
