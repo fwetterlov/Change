@@ -52,22 +52,6 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
-//MyScreen(viewModel)
-
-                    // TopAppBarPlus syntax
-//                    TopAppBarPlus(
-//                        content = {
-//                            Structure(
-//                                "short",
-//                                "loooooooooooooooooooooooooooong",
-//                                "adeagagda",
-//                                "wow",
-//                                "SUUUIII"
-//                            )
-//                        },
-//                        title = "Main Screen",
-//                        secondButton = {buttonComposable()}
-//                    )
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
