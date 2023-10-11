@@ -45,7 +45,10 @@ fun ReflectionScreen() {
             modifier = Modifier.fillMaxSize()
         ) {
                 TopAppBarPlus(content = {
-                    Column (modifier = Modifier.padding(top=60.dp)){
+                    Column (modifier = Modifier
+                        .padding(top=60.dp)
+                        .fillMaxSize()
+                        .background(Color.White)){
                     /*Text(text = stringResource(id = R.string.card_title_reflections),
                         style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
                         modifier = Modifier.padding(16.dp))*/
