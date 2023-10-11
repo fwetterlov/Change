@@ -41,11 +41,13 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
+import com.group8.change.api.DBApi
+import com.group8.change.api.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: NavController) {
+fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: NavController, viewModel: MainViewModel) {
     var usernameValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
     val passwordVisibility = remember { mutableStateOf(false) }
@@ -139,7 +141,12 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                 item {
                     Button(
                         onClick = {
-                            navController.navigate("main-menu")
+                            val user = DBApi.login(viewModel, usernameValue, passwordValue)
+                            if (user != null) {
+                                navController.navigate("main-menu")
+                            } else {
+                                Toast.makeText(mainActivity, "Invalid username or password.", Toast.LENGTH_SHORT).show()
+                            }
                         },
                         modifier = Modifier
                             .fillMaxWidth(0.8f)
