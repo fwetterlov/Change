@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     NavHost(navController = navController, startDestination = "login") {
-                        composable("login"){ LoginScreen(this@MainActivity, navController) }
+                        composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
                             TopAppBar(
                                 content = {MainScreen(modifier = Modifier, navController, viewModel)},
