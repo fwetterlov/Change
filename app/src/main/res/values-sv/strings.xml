@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Change</string>
+
+    <string name="card_title_morning_evaluation">Morgonutvärdering</string>
+    <string name="card_title_evening_evaluation">Kvällsutvärdering</string>
+    <string name="card_title_monthly_evaluation">Månadsutvärdering</string>
+    <string name="card_title_expectations">Förväntningar</string>
+    <string name="card_title_reflections">Reflektion</string>
+    <string name="card_title_red_button">Röda knappen</string>
+
+    <string name = "reflections_title">Titel</string>
+    <string name = "reflections_textbox">Din reflektion</string>
+    <string name = "reflections_question">Hur kändes det?</string>
+    <string name = "reflections_good">Bra</string>
+    <string name = "reflections_very_good">Mycket bra</string>
+    <string name = "reflections_bad">Dåligt</string>
+    <string name = "reflections_very_bad">Mycket dåligt</string>
+    <string name = "reflections_neutral">Neutralt</string>
+
+    <string name = "login_username">Användarnamn</string>
+    <string name = "login_password">Lösenord</string>
+    <string name = "login_buttontext">Logga in</string>
+
+    <string name = "morning_title1">Starkaste känslasn från igår</string>
+    <string name = "morning_title2">Imorse kände jag</string>
+    <string name = "morning_title3">Imorse bestämde jag</string>
+
+    <string name = "evening_title1">Det viktigaste som hänt mig idag är</string>
+    <string name = "evening_title2">Därför var det så viktigt för mig</string>
+    <string name = "evening_title3">Det kändes bra när jag</string>
+    <string name = "evening_title4">Idag är jag nöjd med</string>
+    <string name = "evening_title5">Idag är jag missnöjd med</string>
+    <string name = "evening_title6">Idag är jag tacksam för</string>
+
+    <string name = "month_title1">Under denna månad har jag gjort följande förändringar:</string>
+    <string name = "month_title2">Det viktigaste som jag behöver göra och ta ansvar för:</string>
+    <string name = "month_title3">Därför är det så viktigt för mig:</string>
+
+</resources>
