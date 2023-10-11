@@ -2,6 +2,7 @@ package com.group8.change
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -32,7 +34,7 @@ import com.group8.change.api.viewmodel.MainViewModel
 // Composable for the home screen buttons
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardClickable(text: String, id: String, navController: NavController, modifier: Modifier = Modifier) {
+fun CardClickable(text: String, drawableId: Int, id: String, navController: NavController, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     Card(
         // Defining how the cards look
@@ -70,6 +72,12 @@ fun CardClickable(text: String, id: String, navController: NavController, modifi
             modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
+            Image(
+                painter = painterResource(drawableId),
+                contentDescription = null,
+                alignment = Alignment.Center,
+                modifier = Modifier.padding(top = 10.dp, bottom = 30.dp, start = 20.dp, end = 20.dp)
+            )
             Text(
                 // Text look and text alignment
                 text = text,
@@ -111,7 +119,9 @@ fun MainScreen(
                     .background(MaterialTheme.colorScheme.background),
                 contentAlignment = Alignment.Center
             ) {
-                Column {
+                Column (
+                    modifier = modifier.padding(top = 70.dp)
+                ) {
                     Row(
                     ) {
                         Column {
@@ -119,12 +129,14 @@ fun MainScreen(
                             CardClickable(
                                 text = stringResource(id = R.string.card_title_reflections),
                                 id = "Reflections",
+                                drawableId = R.drawable.reflection,
                                 navController = navController
                             )
                             // Second row left card
                             CardClickable(
                                 text = stringResource(id = R.string.card_title_morning_evaluation),
                                 id = "Morning",
+                                drawableId = R.drawable.morning,
                                 navController = navController
                             )
                         }
@@ -133,12 +145,14 @@ fun MainScreen(
                             CardClickable(
                                 text = stringResource(id = R.string.card_title_expectations),
                                 id = "Expectations",
+                                drawableId = R.drawable.expectation,
                                 navController = navController
                             )
                             // Second row right card
                             CardClickable(
                                 text = stringResource(id = R.string.card_title_evening_evaluation),
                                 id = "Evening",
+                                drawableId = R.drawable.evening,
                                 navController = navController
                             )
                         }
@@ -153,6 +167,7 @@ fun MainScreen(
                         CardClickable(
                             text = stringResource(id = R.string.card_title_monthly_evaluation),
                             id = "Monthly",
+                            drawableId = R.drawable.month,
                             navController = navController
                         )
                     }
