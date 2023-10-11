@@ -20,6 +20,7 @@
     <string name = "login_username">Username</string>
     <string name = "login_password">Password</string>
     <string name = "login_buttontext">Sign in</string>
+    <string name = "login_errormessage">Login failed.</string>
 
     <string name = "morning_title1">Strongest feeling from yesterday</string>
     <string name = "morning_title2">This morning I felt</string>

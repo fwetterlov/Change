@@ -129,7 +129,7 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                             if (user != null) {
                                 navController.navigate("main-menu")
                             } else {
-                                Toast.makeText(mainActivity, "Invalid username or password.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mainActivity, R.string.login_errormessage, Toast.LENGTH_SHORT).show()
                             }
                         },
                         modifier = Modifier
