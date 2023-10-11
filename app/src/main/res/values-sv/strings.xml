@@ -36,4 +36,16 @@
     <string name = "month_title2">Det viktigaste som jag behöver göra och ta ansvar för:</string>
     <string name = "month_title3">Därför är det så viktigt för mig:</string>
 
+    <string name = "expectations_title1">Varför har du sökt hjälp just nu?</string>
+    <string name = "expectations_title2">Vilka är dina huvudsakliga problem?</string>
+    <string name = "expectations_title3">Vad tror du behöver förändras i ditt liv?</string>
+    <string name = "expectations_title4">Vilka mål har du med ditt liv?</string>
+    <string name = "expectations_title5">Vilka förväntningar har du inför rehabiliteringen?</string>
+    <string name = "expectations_title6">Vad är du beredd att göra för ditt tillfrisknande?</string>
+    <string name = "expectations_title7">Vilka förväntningar tror du din arbetsgivare har på dig?</string>
+    <string name = "expectations_title8">Vilka förväntningar har din familj på dig?</string>
+    <string name = "expectations_title9">Vad behöver du göra för att leva upp till dessa förväntningar?</string>
+    <string name = "expectations_title10">Övrigt</string>
+
+
 </resources>

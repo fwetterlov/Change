@@ -36,4 +36,15 @@
     <string name = "month_title2">The most important thing that I need to do and take responsibility for:</string>
     <string name = "month_title3">That’s why it’s so important to me:</string>
 
+    <string name = "expectations_title1">Why are you reaching out for help now?</string>
+    <string name = "expectations_title2">What are your main problems?</string>
+    <string name = "expectations_title3">What do you think needs to be changed in your life?</string>
+    <string name = "expectations_title4">What goals do you have with your life??</string>
+    <string name = "expectations_title5">What expectations do you have before the rehabilitation?</string>
+    <string name = "expectations_title6">What are you willing to do for your recovery?</string>
+    <string name = "expectations_title7">What expectations do you think your employer has of you?</string>
+    <string name = "expectations_title8">What expectations does your family have of you?</string>
+    <string name = "expectations_title9">What do you need to do in order to live up to these expectations?</string>
+    <string name = "expectations_title10">Other</string>
+
 </resources>
