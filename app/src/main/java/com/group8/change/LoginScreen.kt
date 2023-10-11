@@ -156,7 +156,7 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                             .padding(vertical = 16.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        val image1 = painterResource(id = R.drawable.united_states)
+                        val image1 = painterResource(id = R.drawable.united_kingdom)
                         val image2 = painterResource(id = R.drawable.sweden)
                         val image3 = painterResource(id = R.drawable.france)
 
