@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Change</string>
+
+    <string name="card_title_morning_evaluation">Morning evaluation</string>
+    <string name="card_title_evening_evaluation">Evening evaluation</string>
+    <string name="card_title_monthly_evaluation">Monthly evaluation</string>
+    <string name="card_title_expectations">Expectations</string>
+    <string name="card_title_reflections">Reflections</string>
+    <string name="card_title_red_button">Red button</string>
+
+    <string name = "reflections_title">Title</string>
+    <string name = "reflections_textbox">Your reflection</string>
+    <string name = "reflections_question">How did it make you feel?</string>
+    <string name = "reflections_good">Good</string>
+    <string name = "reflections_very_good">Very good</string>
+    <string name = "reflections_bad">Bad</string>
+    <string name = "reflections_very_bad">Very bad</string>
+    <string name = "reflections_neutral">Neutral</string>
+
+    <string name = "login_username">Username</string>
+    <string name = "login_password">Password</string>
+    <string name = "login_buttontext">Sign in</string>
+
+    <string name = "morning_title1">Strongest feeling from yesterday</string>
+    <string name = "morning_title2">This morning I felt</string>
+    <string name = "morning_title3">This morning I decided</string>
+
+    <string name = "evening_title1">The most important thing that has happened to me today is</string>
+    <string name = "evening_title2">That’s why it was so important to me</string>
+    <string name = "evening_title3">It felt good when I</string>
+    <string name = "evening_title4">Today I am satisfied with</string>
+    <string name = "evening_title5">Today I am dissatisfied with</string>
+    <string name = "evening_title6">Today I am grateful for</string>
+
+    <string name = "month_title1">During this month I made the following changes:</string>
+    <string name = "month_title2">The most important thing that I need to do and take responsibility for:</string>
+    <string name = "month_title3">That’s why it’s so important to me:</string>
+
+</resources>
