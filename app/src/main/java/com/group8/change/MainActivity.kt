@@ -25,11 +25,13 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
-    val expectationsViewModel: ExpectationsViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val expectationsViewModel = ExpectationsViewModel(this@MainActivity)
+            
             /* language code should be taken from the login screen
             *  Can setLocale be called from the login button? */
             val languageCode = "en"
