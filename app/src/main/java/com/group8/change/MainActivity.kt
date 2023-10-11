@@ -60,10 +60,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable("reflections"){
-                            ReflectionScreen()
+                            ReflectionScreen(navController)
                         }
                         composable("expectations"){
-                            ExpectationsScreen(expectationsViewModel)
+                            ExpectationsScreen(expectationsViewModel, navController)
                         }
                         composable("morning"){
                             morningEvaluation()

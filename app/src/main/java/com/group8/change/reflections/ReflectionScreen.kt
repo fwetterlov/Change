@@ -30,13 +30,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.R
 import com.group8.change.ui.design.TopAppBarPlus
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReflectionScreen() {
+fun ReflectionScreen(navController: NavController) {
     AppTheme {
         var textState by remember { mutableStateOf(TextFieldValue("")) }
         var sliderPosition by remember{ mutableStateOf(5f) }
@@ -44,7 +45,8 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-                TopAppBarPlus(content = {
+                TopAppBarPlus(
+                    content = {
                     Column (modifier = Modifier
                         .padding(top=60.dp)
                         .fillMaxSize()
@@ -75,10 +77,10 @@ fun ReflectionScreen() {
                         SelectedPositionText(sliderPosition)
                     }
 
-                } }, title = stringResource(id = R.string.card_title_reflections)) {
-                    SubmitReflection(sliderPosition, textState.toString())
-                }
-
+                } }, title = stringResource(id = R.string.card_title_reflections),
+                    navController = navController,
+                    secondButton = { SubmitReflection(sliderPosition, textState.toString(),navController) }
+                    )
 
 
         }
@@ -135,10 +137,10 @@ fun SelectedPositionText(sliderPosition: Float) {
 }
 
 @Composable
-fun SubmitReflection(startPosition: Float, textState: String) {
+fun SubmitReflection(startPosition: Float, textState: String,navController: NavController) {
     Text(
         text = "Submit",
-        modifier = Modifier.clickable { /* TODO */ }
+        modifier = Modifier.clickable { navController.navigate("main-menu") }
     )
 }
 
