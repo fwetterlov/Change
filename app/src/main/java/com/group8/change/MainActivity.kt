@@ -66,13 +66,13 @@ class MainActivity : ComponentActivity() {
                             ExpectationsScreen(expectationsViewModel, navController)
                         }
                         composable("morning"){
-                            morningEvaluation()
+                            morningEvaluation(navController)
                         }
                         composable("evening"){
-                            eveningEvaluation()
+                            eveningEvaluation(navController)
                         }
                         composable("monthly"){
-                            monthEvaluation()
+                            monthEvaluation(navController)
                         }
                     }
                 }

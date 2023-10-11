@@ -29,16 +29,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.ui.design.TopAppBar
+import com.group8.change.ui.design.TopAppBarPlus
 
 @Composable
-fun morningEvaluation() {
+fun morningEvaluation(navController: NavController) {
     var text1 by remember { mutableStateOf("") }
     var text2 by remember { mutableStateOf("") }
     var text3 by remember { mutableStateOf("") }
 
-        TopAppBar(content = {
+        TopAppBarPlus(content = {
             Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -86,10 +88,12 @@ fun morningEvaluation() {
                 Text(text = "Submit")
             }
 
-        } }, title = stringResource(id = R.string.card_title_morning_evaluation))
+        } }, title = stringResource(id = R.string.card_title_morning_evaluation),
+            secondButton = { SubmitMorningEvaluation(navController = navController) },
+            navController = navController)
 
     }
-
+/*
 @Composable
 fun topBarWithLogo() {
     // Denna ska bytas ut till Adams topBar
@@ -107,7 +111,7 @@ fun topBarWithLogo() {
             contentScale = ContentScale.Fit
         )
     }
-}
+}*/
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -124,8 +128,22 @@ fun textField(initialValue: String, onValueChange: (String) -> Unit) {
     )
 }
 
+/*
 @Preview
 @Composable
 fun morningEvaluationPreview() {
     morningEvaluation()
+}*/
+
+
+@Composable
+fun SubmitMorningEvaluation(navController: NavController) {
+    Button(
+        onClick = {
+            navController.navigate("main-menu")
+        }
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
+    }
 }
