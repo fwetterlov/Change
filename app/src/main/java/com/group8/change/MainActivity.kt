@@ -54,10 +54,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
-                            TopAppBar(
-                                content = {MainScreen(modifier = Modifier, navController, viewModel)},
-                                title = "Main Screen"       // HARDCODED
-                            )
+                            MainScreen(modifier = Modifier, navController, viewModel)
                         }
                         composable("reflections"){
                             ReflectionScreen(navController)
@@ -76,7 +73,6 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
-                //Greeting("Android")
                 //GetUsers(viewModel)
             }
         }

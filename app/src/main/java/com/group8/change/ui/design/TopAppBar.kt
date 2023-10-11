@@ -31,16 +31,6 @@ fun TopAppBar(content: @Composable () -> Unit, title: String) {
                     Text(text = title)
 
                 },
-                // This is the left aligned button (Home button)
-                navigationIcon = {
-                    Button(
-                        onClick = {
-                            Toast.makeText(context, "Hey!", Toast.LENGTH_SHORT).show()
-                        },
-                    ) {
-                        Text(text = "Home")
-                    }
-                },
                 // Here you adjust the colors of the topbar
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.tertiary
