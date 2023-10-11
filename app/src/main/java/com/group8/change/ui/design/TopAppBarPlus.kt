@@ -1,20 +1,25 @@
 package com.group8.change.ui.design
 
 import android.annotation.SuppressLint
-import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -22,7 +27,8 @@ import androidx.compose.ui.unit.dp
 fun TopAppBarPlus(
     content: @Composable () -> Unit,
     title: String,
-    secondButton: @Composable () -> Unit
+    secondButton: @Composable () -> Unit,
+    navController: NavController
 ) {
     val context = LocalContext.current
     // Scaffold required for formatting or something
@@ -41,12 +47,12 @@ fun TopAppBarPlus(
                 },
                 // This is the left aligned button (Home button)
                 navigationIcon = {
-                    Button(
+                    IconButton(
                         onClick = {
-                            Toast.makeText(context, "Hey!", Toast.LENGTH_SHORT).show()
+                            navController.navigate("main-menu")
                         },
                     ) {
-                        Text(text = "Home")
+                        Icon(imageVector = Icons.Default.Home, contentDescription = "Home", tint = Color.White)
                     }
                 },
                 // Here you adjust the colors of the topbar

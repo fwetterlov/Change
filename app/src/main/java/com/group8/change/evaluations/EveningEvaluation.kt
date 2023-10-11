@@ -24,11 +24,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.ui.design.TopAppBar
+import com.group8.change.ui.design.TopAppBarPlus
 
 @Composable
-fun eveningEvaluation() {
+fun eveningEvaluation(navController: NavController) {
     var text1 by remember { mutableStateOf("") }
     var text2 by remember { mutableStateOf("") }
     var text3 by remember { mutableStateOf("") }
@@ -36,7 +38,7 @@ fun eveningEvaluation() {
     var text5 by remember { mutableStateOf("") }
     var text6 by remember { mutableStateOf("") }
 
-        TopAppBar(content = {
+        TopAppBarPlus(content = {
             Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
@@ -116,12 +118,28 @@ fun eveningEvaluation() {
                 Text(text = "Submit")
             }
 
-        } }, title = stringResource(id = R.string.card_title_evening_evaluation))
+        } }, title = stringResource(id = R.string.card_title_evening_evaluation),
+            secondButton = { SubmitEveningEvaluation(navController = navController) },
+            navController = navController)
 
     }
 
+
+/*
 @Preview
 @Composable
 fun eveningEvaluationPreview() {
-    eveningEvaluation()
+    eveningEvaluation(navController = )
+}*/
+
+@Composable
+fun SubmitEveningEvaluation(navController: NavController) {
+    Button(
+        onClick = {
+            navController.navigate("main-menu")
+        }
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
+    }
 }

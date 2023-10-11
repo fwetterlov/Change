@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -30,13 +32,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.R
 import com.group8.change.ui.design.TopAppBarPlus
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReflectionScreen() {
+fun ReflectionScreen(navController: NavController) {
     AppTheme {
         var textState by remember { mutableStateOf(TextFieldValue("")) }
         var sliderPosition by remember{ mutableStateOf(5f) }
@@ -44,12 +47,16 @@ fun ReflectionScreen() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-                TopAppBarPlus(content = {
-                    Column (modifier = Modifier.padding(top=60.dp)){
+                TopAppBarPlus(
+                    content = {
+                    Column (modifier = Modifier
+                        .padding(top = 60.dp)
+                        .fillMaxSize()
+                        .background(Color.White)){
                     /*Text(text = stringResource(id = R.string.card_title_reflections),
                         style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
                         modifier = Modifier.padding(16.dp))*/
-                    TextField(
+                    OutlinedTextField(
                         value = textState,
                         onValueChange = { newText ->
                             textState = newText
@@ -72,10 +79,10 @@ fun ReflectionScreen() {
                         SelectedPositionText(sliderPosition)
                     }
 
-                } }, title = stringResource(id = R.string.card_title_reflections)) {
-                    SubmitReflection(sliderPosition, textState.toString())
-                }
-
+                } }, title = stringResource(id = R.string.card_title_reflections),
+                    navController = navController,
+                    secondButton = { SubmitReflection(sliderPosition, textState.toString(),navController) }
+                    )
 
 
         }
@@ -132,11 +139,15 @@ fun SelectedPositionText(sliderPosition: Float) {
 }
 
 @Composable
-fun SubmitReflection(startPosition: Float, textState: String) {
-    Text(
-        text = "Submit",
-        modifier = Modifier.clickable { /* TODO */ }
-    )
+fun SubmitReflection(startPosition: Float, textState: String,navController: NavController) {
+    Button(
+        onClick = {
+            navController.navigate("main-menu")
+        }
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
+    }
 }
 
 @Preview

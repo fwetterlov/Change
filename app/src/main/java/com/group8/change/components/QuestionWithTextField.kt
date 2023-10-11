@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -48,7 +49,7 @@ fun QuestionWithTextField(
                     style = TextStyle(fontSize = 16.sp),
                     modifier = Modifier.padding(16.dp)
                 )
-                TextField(
+                OutlinedTextField(
                     value = answer,
                     onValueChange = {
                         answer = it
