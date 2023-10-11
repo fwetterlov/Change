@@ -30,6 +30,7 @@ import androidx.navigation.NavController
 import com.group8.change.api.DBApi
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.ui.design.TopAppBar
 
 // Composable for the home screen buttons
 @OptIn(ExperimentalMaterial3Api::class)
@@ -98,86 +99,89 @@ fun MainScreen(
     navController: NavController, viewModel: MainViewModel
 ) {
 
-    when (val result = viewModel.appDataState.value) {
+    TopAppBar(content = {
+        when (val result = viewModel.appDataState.value) {
 
-        is AppDataState.Loading -> {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator();
-            }
-        }
-
-        is AppDataState.Success -> {
-
-            DBApi.setCurrentAppData(viewModel)   // set the singleton to current appData
-
-            Box(
-                modifier = modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background),
-                contentAlignment = Alignment.Center
-            ) {
-                Column (
-                    modifier = modifier.padding(top = 70.dp)
+            is AppDataState.Loading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Row(
-                    ) {
-                        Column {
-                            // First row left card
-                            CardClickable(
-                                text = stringResource(id = R.string.card_title_reflections),
-                                id = "Reflections",
-                                drawableId = R.drawable.reflection,
-                                navController = navController
-                            )
-                            // Second row left card
-                            CardClickable(
-                                text = stringResource(id = R.string.card_title_morning_evaluation),
-                                id = "Morning",
-                                drawableId = R.drawable.morning,
-                                navController = navController
-                            )
-                        }
-                        Column {
-                            // First row right card
-                            CardClickable(
-                                text = stringResource(id = R.string.card_title_expectations),
-                                id = "Expectations",
-                                drawableId = R.drawable.expectation,
-                                navController = navController
-                            )
-                            // Second row right card
-                            CardClickable(
-                                text = stringResource(id = R.string.card_title_evening_evaluation),
-                                id = "Evening",
-                                drawableId = R.drawable.evening,
-                                navController = navController
-                            )
-                        }
-                    }
-                    // Used when an uneven number of clickables are used.
-                    // If number of clickables are even, add to previous columns
-                    // and comment this out.
-                    Column(
-                        modifier = modifier.align(Alignment.CenterHorizontally)
-                    ) {
-                        // Bottom most card
-                        CardClickable(
-                            text = stringResource(id = R.string.card_title_monthly_evaluation),
-                            id = "Monthly",
-                            drawableId = R.drawable.month,
-                            navController = navController
-                        )
-                    }
+                    CircularProgressIndicator();
                 }
             }
 
+            is AppDataState.Success -> {
+
+                DBApi.setCurrentAppData(viewModel)   // set the singleton to current appData
+
+                Box(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column (
+                        modifier = modifier.padding(top = 70.dp)
+                    ) {
+                        Row(
+                        ) {
+                            Column {
+                                // First row left card
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_reflections),
+                                    id = "Reflections",
+                                    drawableId = R.drawable.reflection,
+                                    navController = navController
+                                )
+                                // Second row left card
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_morning_evaluation),
+                                    id = "Morning",
+                                    drawableId = R.drawable.morning,
+                                    navController = navController
+                                )
+                            }
+                            Column {
+                                // First row right card
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_expectations),
+                                    id = "Expectations",
+                                    drawableId = R.drawable.expectation,
+                                    navController = navController
+                                )
+                                // Second row right card
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_evening_evaluation),
+                                    id = "Evening",
+                                    drawableId = R.drawable.evening,
+                                    navController = navController
+                                )
+                            }
+                        }
+                        // Used when an uneven number of clickables are used.
+                        // If number of clickables are even, add to previous columns
+                        // and comment this out.
+                        Column(
+                            modifier = modifier.align(Alignment.CenterHorizontally)
+                        ) {
+                            // Bottom most card
+                            CardClickable(
+                                text = stringResource(id = R.string.card_title_monthly_evaluation),
+                                id = "Monthly",
+                                drawableId = R.drawable.month,
+                                navController = navController
+                            )
+                        }
+                    }
+                }
+
+            }
+            is AppDataState.Failure -> {}
+            else -> {}
+
         }
-        is AppDataState.Failure -> {}
-        else -> {}
-
-    }
-
+    },
+        title = stringResource(id = R.string.app_name)
+    )
 }
