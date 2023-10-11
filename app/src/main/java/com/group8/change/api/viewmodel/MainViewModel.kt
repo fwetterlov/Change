@@ -46,7 +46,7 @@ class MainViewModel : ViewModel() {
             })
     }
 
-    private fun fetchAppData() {
+    fun fetchAppData() {
         val tempList = mutableListOf<AppData>()
         appDataState.value = AppDataState.Loading
 

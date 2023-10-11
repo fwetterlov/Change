@@ -36,4 +36,15 @@
     <string name = "month_title2">La chose la plus importante que je dois faire et dont j’assume la responsabilité:</string>
     <string name = "month_title3">C’est pourquoi c’est si important pour moi:</string>
 
+    <string name = "expectations_title1">Pourquoi demandez-vous de l’aide maintenant ?</string>
+    <string name = "expectations_title2">Quels sont vos principaux problèmes ?</string>
+    <string name = "expectations_title3">Selon vous, qu’est-ce qui devrait changer dans votre vie ?</string>
+    <string name = "expectations_title4">Quels objectifs avez-vous dans votre vie ?</string>
+    <string name = "expectations_title5">Quelles attentes avez-vous avant la rééducation ?</string>
+    <string name = "expectations_title6">Qu’êtes-vous prêt à faire pour votre rétablissement ?</string>
+    <string name = "expectations_title7">Quelles attentes pensez-vous que votre employeur a à votre égard ?</string>
+    <string name = "expectations_title8">Quelles attentes votre famille a-t-elle à votre égard ?</string>
+    <string name = "expectations_title9">Que devez-vous faire pour être à la hauteur de ces attentes ?</string>
+    <string name = "expectations_title10">Autre</string>
+
 </resources>

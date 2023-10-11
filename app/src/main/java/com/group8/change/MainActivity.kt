@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
+import com.group8.change.api.DBApi.MyScreen
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
@@ -24,11 +25,13 @@ import java.util.Locale
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
-    val expectationsViewModel: ExpectationsViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val expectationsViewModel = ExpectationsViewModel(this@MainActivity)
+            
             /* language code should be taken from the login screen
             *  Can setLocale be called from the login button? */
             val languageCode = "en"
@@ -44,10 +47,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     NavHost(navController = navController, startDestination = "login") {
-                        composable("login"){ LoginScreen(this@MainActivity, navController) }
+                        composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
                             TopAppBar(
-                                content = {MainScreen(modifier = Modifier, navController)},
+                                content = {MainScreen(modifier = Modifier, navController, viewModel)},
                                 title = "Main Screen"       // HARDCODED
                             )
                         }

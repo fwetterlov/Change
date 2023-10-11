@@ -41,11 +41,13 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
+import com.group8.change.api.DBApi
+import com.group8.change.api.viewmodel.MainViewModel
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: NavController) {
+fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: NavController, viewModel: MainViewModel) {
     var usernameValue by remember { mutableStateOf("") }
     var passwordValue by remember { mutableStateOf("") }
     val passwordVisibility = remember { mutableStateOf(false) }
@@ -84,24 +86,8 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
-                    Spacer(modifier = Modifier.padding(15.dp))
+                    Spacer(modifier = Modifier.padding(30.dp))
                 }
-                item {
-                    Text(
-                        text = stringResource(id = R.string.login_buttontext),
-                        style = TextStyle(
-                            fontWeight = FontWeight.Bold,
-                            letterSpacing = 2.sp,
-                            color = Color.DarkGray
-                        ),
-                        fontSize = 30.sp
-                    )
-                }
-
-                item {
-                    Spacer(modifier = Modifier.padding(10.dp))
-                }
-
                 item {
                     OutlinedTextField(
                         value = usernameValue,
@@ -139,7 +125,12 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                 item {
                     Button(
                         onClick = {
-                            navController.navigate("main-menu")
+                            val user = DBApi.login(viewModel, usernameValue, passwordValue)
+                            if (user != null) {
+                                navController.navigate("main-menu")
+                            } else {
+                                Toast.makeText(mainActivity, "Invalid username or password.", Toast.LENGTH_SHORT).show()
+                            }
                         },
                         modifier = Modifier
                             .fillMaxWidth(0.8f)
@@ -156,7 +147,7 @@ fun LoginScreen(mainActivity: com.group8.change.MainActivity, navController: Nav
                             .padding(vertical = 16.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        val image1 = painterResource(id = R.drawable.united_states)
+                        val image1 = painterResource(id = R.drawable.united_kingdom)
                         val image2 = painterResource(id = R.drawable.sweden)
                         val image3 = painterResource(id = R.drawable.france)
 

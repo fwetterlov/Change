@@ -10,12 +10,16 @@ import androidx.compose.ui.Alignment;
 import androidx.compose.ui.Modifier;
 import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.models.User
+import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
 import com.group8.change.api.viewmodel.MainViewModel
 
 
 object DBApi {
+
 
     fun login(viewModel: MainViewModel, username: String, password: String): User? {
 
@@ -34,30 +38,70 @@ object DBApi {
 
         val foundUser = userList.find { it.username == username && it.password == password }
 
+        if(foundUser != null) {
+
+            CurrentUser.update(foundUser) // set singleton CurrentUser!
+            viewModel.fetchAppData();     // start fetching the AppData list
+
+        }
+
         return foundUser;
 
     }
 
+    fun setCurrentAppData(viewModel: MainViewModel) {
+
+        var appDataList: List<AppData>
+        appDataList = emptyList()
+
+        when (val result = viewModel.appDataState.value) {
+            is AppDataState.Loading -> {}
+            is AppDataState.Success -> {
+                appDataList = result.data
+            }
+            is AppDataState.Failure -> {}
+            else -> {}
+        }
+
+        val foundAppData = appDataList.find { it.client.username == CurrentUser.data.username }
+
+        if(foundAppData != null) {
+
+            println("HAPPY DAY")
+
+            CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
+
+            println(CurrentAppData.data.client.username)
+
+        }
+        else println("AppData not found!")
+
+    }
 
     fun getUser(viewModel: MainViewModel) {
 
         when (val result = viewModel.userState.value) {
-
-            is UserState.Loading -> {
-
-            }
-
+            is UserState.Loading -> {}
             is UserState.Success -> {
                 logUserList(result.data);
             }
-
-            is UserState.Failure -> {
-            }
-
-            else -> {
-            }
-
+            is UserState.Failure -> {}
+            else -> {}
         }
+
+    }
+
+    fun getAppData(viewModel: MainViewModel) {
+
+        when (val result = viewModel.appDataState.value) {
+            is AppDataState.Loading -> {}
+            is AppDataState.Success -> {
+                logAppDataList(result.data);
+            }
+            is AppDataState.Failure -> {}
+            else -> {}
+        }
+
     }
 
     fun logUserList(users: MutableList<User>) {
@@ -71,18 +115,18 @@ object DBApi {
         for (appData in appDataList) {
             println("Client: Role=${appData.client.role}, Username=${appData.client.username}")
             println("Evening Evaluations:")
-            for (evaluation in appData.eveningEvaluations) {
+            for (evaluation in appData.evening_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
             println("Expectations: ${appData.expectations.joinToString(", ")}")
             println("Monthly Evaluations:")
-            for (evaluation in appData.monthlyEvaluations) {
+            for (evaluation in appData.monthly_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
             println("Morning Evaluations:")
-            for (evaluation in appData.morningEvaluations) {
+            for (evaluation in appData.morning_evaluations) {
                 println("  Date=${evaluation.date}")
                 println("  Answers=${evaluation.answers.joinToString(", ")}")
             }
@@ -105,11 +149,24 @@ object DBApi {
         ) {
             Button(
                 onClick = {
-                    getUser(viewModel)
+                    //getUser(viewModel)
+                    //getAppData(viewModel)
+
+                    println(login(viewModel, "client1", "1234"))
                 },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text(text = "Get")
+                Text(text = "Login (Hans)")
+            }
+            Button(
+                onClick = {
+                    //viewModel.fetchAppData()
+                    //println("fetched datalito")
+                    println(CurrentAppData.data.client.username)
+                },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(text = "Get (Hans)")
             }
 
         }
@@ -121,7 +178,7 @@ object DBApi {
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator();
+                    //CircularProgressIndicator();
                 }
             }
 
@@ -129,13 +186,9 @@ object DBApi {
                 //DisplayList(result.data);
             }
 
-            is UserState.Failure -> {
+            is UserState.Failure -> {}
+            else -> {}
 
-            }
-
-            else -> {
-
-            }
         }
 
     }
