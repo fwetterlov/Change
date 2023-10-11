@@ -1,5 +1,6 @@
 package com.group8.change
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,27 +13,27 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.compose.change_background
 import com.group8.change.api.DBApi
-import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.sealed.AppDataState
-import com.group8.change.api.sealed.UserState
 import com.group8.change.api.viewmodel.MainViewModel
 
 // Composable for the home screen buttons
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardClickable(text: String, modifier: Modifier = Modifier) {
+fun CardClickable(text: String, id: String, navController: NavController, modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     Card(
         // Defining how the cards look
         modifier = modifier
@@ -41,6 +42,25 @@ fun CardClickable(text: String, modifier: Modifier = Modifier) {
             .height(140.dp),
         border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),   // Placeholder color
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        onClick = {
+            when (id) {
+                "Reflections" -> {
+                    navController.navigate("reflections")
+                }
+                "Morning" -> {
+                    navController.navigate("morning")
+                }
+                "Expectations" -> {
+                    navController.navigate("expectations")
+                }
+                "Evening" -> {
+                    navController.navigate("evening")
+                }
+                "Monthly" -> {
+                    navController.navigate("monthly")
+                }
+            }
+        }
         /*colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.background
         )*/
@@ -97,21 +117,29 @@ fun MainScreen(
                         Column {
                             // First row left card
                             CardClickable(
-                                text = stringResource(id = R.string.card_title_reflections)
+                                text = stringResource(id = R.string.card_title_reflections),
+                                id = "Reflections",
+                                navController = navController
                             )
                             // Second row left card
                             CardClickable(
-                                text = stringResource(id = R.string.card_title_morning_evaluation)
+                                text = stringResource(id = R.string.card_title_morning_evaluation),
+                                id = "Morning",
+                                navController = navController
                             )
                         }
                         Column {
                             // First row right card
                             CardClickable(
-                                text = stringResource(id = R.string.card_title_expectations)
+                                text = stringResource(id = R.string.card_title_expectations),
+                                id = "Expectations",
+                                navController = navController
                             )
                             // Second row right card
                             CardClickable(
-                                text = stringResource(id = R.string.card_title_evening_evaluation)
+                                text = stringResource(id = R.string.card_title_evening_evaluation),
+                                id = "Evening",
+                                navController = navController
                             )
                         }
                     }
@@ -123,7 +151,9 @@ fun MainScreen(
                     ) {
                         // Bottom most card
                         CardClickable(
-                            text = stringResource(id = R.string.card_title_monthly_evaluation)
+                            text = stringResource(id = R.string.card_title_monthly_evaluation),
+                            id = "Monthly",
+                            navController = navController
                         )
                     }
                 }

@@ -18,7 +18,12 @@ import com.example.compose.AppTheme
 import com.group8.change.api.DBApi.MyScreen
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.evaluations.eveningEvaluation
+import com.group8.change.evaluations.monthEvaluation
+import com.group8.change.evaluations.morningEvaluation
+import com.group8.change.expectations.ExpectationsScreen
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
+import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
@@ -54,23 +59,22 @@ class MainActivity : ComponentActivity() {
                                 title = "Main Screen"       // HARDCODED
                             )
                         }
+                        composable("reflections"){
+                            ReflectionScreen()
+                        }
+                        composable("expectations"){
+                            ExpectationsScreen(expectationsViewModel)
+                        }
+                        composable("morning"){
+                            morningEvaluation()
+                        }
+                        composable("evening"){
+                            eveningEvaluation()
+                        }
+                        composable("monthly"){
+                            monthEvaluation()
+                        }
                     }
-//MyScreen(viewModel)
-
-                    // TopAppBarPlus syntax
-//                    TopAppBarPlus(
-//                        content = {
-//                            Structure(
-//                                "short",
-//                                "loooooooooooooooooooooooooooong",
-//                                "adeagagda",
-//                                "wow",
-//                                "SUUUIII"
-//                            )
-//                        },
-//                        title = "Main Screen",
-//                        secondButton = {buttonComposable()}
-//                    )
                 }
                 //Greeting("Android")
                 //GetUsers(viewModel)
