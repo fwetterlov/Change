@@ -31,6 +31,7 @@ fun ExpectationsScreen(expectationsViewModel: ExpectationsViewModel, navControll
 fun SubmitButton(expectationsViewModel: ExpectationsViewModel, navController: NavController) {
     Button(
         onClick = {
+            Log.d("btnPress","${expectationsViewModel.questions.value}")
             navController.navigate("main-menu")
         }
     ) {

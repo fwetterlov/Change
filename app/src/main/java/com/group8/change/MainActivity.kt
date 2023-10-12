@@ -54,6 +54,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
+                            expectationsViewModel.createExpectationsQuestions()
                             MainScreen(modifier = Modifier, navController, viewModel)
                         }
                         composable("reflections"){
