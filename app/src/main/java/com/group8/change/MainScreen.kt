@@ -127,7 +127,7 @@ fun MainScreen(
                         modifier = modifier.padding(top = 70.dp)
                     ) {
                         Row {
-                            CreateDropDownList(listOf("client1","client2","client3"))
+                            CreateDropDownList(viewModel)
                         }
                         Row(
                         ) {
