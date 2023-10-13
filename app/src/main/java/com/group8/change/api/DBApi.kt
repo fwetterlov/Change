@@ -65,22 +65,30 @@ object DBApi {
 
         CurrentAppData.allData = appDataList;   // set the singleton list
 
-        print("Heloo: ")
-        println(CurrentAppData.allData[0].client.role)
+        if(CurrentUser.data.role == "therapist") {
+
+            val foundAppData = appDataList.find { it.client.username == username }
+
+            if(foundAppData != null) {
+                println("HAPPY SNAPPY found the user")
+                CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
+                println(CurrentAppData.data.client.username)
+            }
+            else println("AppData not found!")
+
+            return;
+        }
+
+        // this code gets run if role == client
 
         val foundAppData = appDataList.find { it.client.username == CurrentUser.data.username }
 
-        print("name: ")
-        println(CurrentUser.data.username)
+        println("name: " + CurrentUser.data.username)
 
         if(foundAppData != null) {
-
             println("HAPPY DAY")
-
             CurrentAppData.update(foundAppData) // set singleton CurrentAppData!
-
             println(CurrentAppData.data.client.username)
-
         }
         else println("AppData not found!")
 
