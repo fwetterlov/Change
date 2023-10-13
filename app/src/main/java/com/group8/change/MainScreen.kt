@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.CreateDropDownList
@@ -126,9 +127,12 @@ fun MainScreen(
                     Column (
                         modifier = modifier.padding(top = 70.dp)
                     ) {
-                        Row {
-                            CreateDropDownList(listOf("client1","client2","client3"))
+                        if(CurrentUser.data.role.toString() == "therapist"){
+                            Row {
+                                CreateDropDownList(viewModel)
+                            }
                         }
+
                         Row(
                         ) {
                             Column {

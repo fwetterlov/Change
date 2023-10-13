@@ -1,6 +1,7 @@
 package com.group8.change.components
 
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.CurrentUser
+import com.group8.change.api.viewmodel.MainViewModel
 
 
 /*
@@ -24,9 +28,12 @@ import androidx.compose.ui.unit.dp
  */
 
 @Composable
-fun CreateDropDownList(clients: List<String>) {
+fun CreateDropDownList(viewModel: MainViewModel) {
     var expanded by remember { mutableStateOf(false) }
     var selectedClient by remember { mutableStateOf("Select a client") }
+    var currentUser = CurrentUser.data.username.toString()
+
+    val clientList = getClientList(currentUser)
 
     Box ( modifier = Modifier.padding(12.dp),
           ){
@@ -36,14 +43,29 @@ fun CreateDropDownList(clients: List<String>) {
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            clients.forEach { client ->
+            clientList.forEach { client ->
                 DropdownMenuItem(
                     text = { Text(text = client) },
                     onClick = {
+                        Log.d("clientData","${CurrentAppData.allData}")
                         selectedClient = client
                         expanded = false
                     })
             }
         }
     }
+}
+
+
+fun getClientList(therapist: String): List<String> {
+    val currentAppData = CurrentAppData.allData
+    val clientList = mutableListOf<String>()
+
+    for (data in currentAppData) {
+        if(data.therapist.username == therapist){
+            clientList.add(data.client.username)
+        }
+    }
+
+    return clientList;
 }
