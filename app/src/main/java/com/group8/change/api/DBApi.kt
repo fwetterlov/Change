@@ -49,7 +49,7 @@ object DBApi {
 
     }
 
-    fun setCurrentAppData(viewModel: MainViewModel) {
+    fun setCurrentAppData(viewModel: MainViewModel, username: String) {
 
         var appDataList: List<AppData>
         appDataList = emptyList()
@@ -63,7 +63,15 @@ object DBApi {
             else -> {}
         }
 
+        CurrentAppData.allData = appDataList;   // set the singleton list
+
+        print("Heloo: ")
+        println(CurrentAppData.allData[0].client.role)
+
         val foundAppData = appDataList.find { it.client.username == CurrentUser.data.username }
+
+        print("name: ")
+        println(CurrentUser.data.username)
 
         if(foundAppData != null) {
 

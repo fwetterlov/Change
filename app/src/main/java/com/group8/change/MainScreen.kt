@@ -114,7 +114,7 @@ fun MainScreen(
 
             is AppDataState.Success -> {
 
-                DBApi.setCurrentAppData(viewModel)   // set the singleton to current appData
+                DBApi.setCurrentAppData(viewModel, "")   // set the singleton to current appData
 
                 Box(
                     modifier = modifier

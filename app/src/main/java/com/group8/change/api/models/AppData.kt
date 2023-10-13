@@ -43,6 +43,7 @@ data class Therapist(
 object CurrentAppData {
     // singleton of AppData with some default values again!
     var data: AppData = AppData()
+    var allData: List<AppData> = emptyList()
 
     fun update(newAppData: AppData) {
         data.client = newAppData.client
