@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.viewmodel.MainViewModel
@@ -47,8 +48,10 @@ fun CreateDropDownList(viewModel: MainViewModel) {
                 DropdownMenuItem(
                     text = { Text(text = client) },
                     onClick = {
-                        Log.d("clientData","${CurrentAppData.allData}")
+                        Log.d("allData","${CurrentAppData.allData}")
                         selectedClient = client
+                        DBApi.setCurrentAppData(viewModel, selectedClient)
+                        Log.d("clientData","${CurrentAppData.data}")
                         expanded = false
                     })
             }
