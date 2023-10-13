@@ -30,6 +30,7 @@ import androidx.navigation.NavController
 import com.group8.change.api.DBApi
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.CreateDropDownList
 import com.group8.change.ui.design.TopAppBar
 
 // Composable for the home screen buttons
@@ -121,9 +122,13 @@ fun MainScreen(
                         .background(MaterialTheme.colorScheme.background),
                     contentAlignment = Alignment.Center
                 ) {
+
                     Column (
                         modifier = modifier.padding(top = 70.dp)
                     ) {
+                        Row {
+                            CreateDropDownList(listOf("client1","client2","client3"))
+                        }
                         Row(
                         ) {
                             Column {
