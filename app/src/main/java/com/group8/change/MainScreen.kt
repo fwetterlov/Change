@@ -1,6 +1,5 @@
 package com.group8.change
 
-import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.viewmodel.MainViewModel
@@ -38,7 +38,6 @@ import com.group8.change.ui.design.TopAppBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CardClickable(text: String, drawableId: Int, id: String, navController: NavController, modifier: Modifier = Modifier) {
-    val context = LocalContext.current
     Card(
         // Defining how the cards look
         modifier = modifier
@@ -51,6 +50,8 @@ fun CardClickable(text: String, drawableId: Int, id: String, navController: NavC
             when (id) {
                 "Reflections" -> {
                     navController.navigate("reflections")
+
+                    CurrentAppData.data.reflections
                 }
                 "Morning" -> {
                     navController.navigate("morning")
