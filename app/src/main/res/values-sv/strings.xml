@@ -49,5 +49,9 @@
     <string name = "expectations_title9">Vad behöver du göra för att leva upp till dessa förväntningar?</string>
     <string name = "expectations_title10">Övrigt</string>
 
+    <string name = "selfassessment_title1">Självbild</string>
+    <string name = "selfassessment_title2">Självkänsla</string>
+    <string name = "selfassessment_title3">Självtillit</string>
+
 
 </resources>
