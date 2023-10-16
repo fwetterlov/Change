@@ -150,6 +150,12 @@ fun MainScreen(
                                     drawableId = R.drawable.morning,
                                     navController = navController
                                 )
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_monthly_evaluation),
+                                    id = "Monthly",
+                                    drawableId = R.drawable.month,
+                                    navController = navController
+                                )
                             }
                             Column {
                                 // First row right card
@@ -166,8 +172,16 @@ fun MainScreen(
                                     drawableId = R.drawable.evening,
                                     navController = navController
                                 )
+                                CardClickable(
+                                    text = stringResource(id = R.string.card_title_self_assessment),
+                                    id = "Monthly",
+                                    drawableId = R.drawable.month,
+                                    navController = navController
+                                )
                             }
+
                         }
+                        /*
                         // Used when an uneven number of clickables are used.
                         // If number of clickables are even, add to previous columns
                         // and comment this out.
@@ -182,6 +196,7 @@ fun MainScreen(
                                 navController = navController
                             )
                         }
+                        */
                     }
                 }
 
