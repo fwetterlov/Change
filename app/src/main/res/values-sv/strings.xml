@@ -7,6 +7,7 @@
     <string name="card_title_expectations">Förväntningar</string>
     <string name="card_title_reflections">Reflektion</string>
     <string name="card_title_red_button">Röda knappen</string>
+    <string name="card_title_self_assessment">Självskattning</string>
 
     <string name = "reflections_title">Titel</string>
     <string name = "reflections_textbox">Din reflektion</string>

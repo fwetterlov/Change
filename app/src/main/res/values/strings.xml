@@ -7,6 +7,7 @@
     <string name="card_title_expectations">Expectations</string>
     <string name="card_title_reflections">Reflections</string>
     <string name="card_title_red_button">Red button</string>
+    <string name="card_title_self_assessment">Self assessment</string>
 
     <string name = "reflections_title">Title</string>
     <string name = "reflections_textbox">Your reflection</string>
