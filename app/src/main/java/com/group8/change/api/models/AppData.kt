@@ -7,9 +7,10 @@ data class AppData(
     var monthly_evaluations: List<Evaluation>,
     var morning_evaluations: List<Evaluation>,
     var reflections: List<Reflection>,
+    var selfassessment: List<SelfAssessment>,
     var therapist: Therapist
 ){
-    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), Therapist("therap1"))
+    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), Therapist("therap1"))
 }
 
 data class Client(
@@ -32,6 +33,13 @@ data class Reflection(
     val grade: Int
 ){
     constructor() : this("", "", 0)
+}
+
+data class SelfAssessment(
+    val date: String,
+    val grades: List<Int>
+){
+    constructor() : this("", emptyList())
 }
 
 data class Therapist(
