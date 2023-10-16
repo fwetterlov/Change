@@ -7,6 +7,7 @@
     <string name="card_title_expectations">Attentes</string>
     <string name="card_title_reflections">Réflexions</string>
     <string name="card_title_red_button">Bouton rouge</string>
+    <string name="card_title_self_assessment">Auto-évaluation</string>
 
     <string name = "reflections_title">Titre</string>
     <string name = "reflections_textbox">Votre réflexion</string>
