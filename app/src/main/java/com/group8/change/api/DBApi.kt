@@ -23,9 +23,7 @@ object DBApi {
 
     fun login(viewModel: MainViewModel, username: String, password: String): User? {
 
-        var userList: List<User>
-
-        userList = emptyList()
+        var userList: List<User> = emptyList()
 
         when (val result = viewModel.userState.value) {
             is UserState.Loading -> {}
@@ -39,10 +37,8 @@ object DBApi {
         val foundUser = userList.find { it.username == username && it.password == password }
 
         if(foundUser != null) {
-
             CurrentUser.update(foundUser) // set singleton CurrentUser!
             viewModel.fetchAppData();     // start fetching the AppData list
-
         }
 
         return foundUser;
@@ -51,8 +47,7 @@ object DBApi {
 
     fun setCurrentAppData(viewModel: MainViewModel, username: String) {
 
-        var appDataList: List<AppData>
-        appDataList = emptyList()
+        var appDataList: List<AppData> = emptyList()
 
         when (val result = viewModel.appDataState.value) {
             is AppDataState.Loading -> {}
@@ -63,7 +58,9 @@ object DBApi {
             else -> {}
         }
 
-        CurrentAppData.allData = appDataList;   // set the singleton list
+        CurrentAppData.allData = appDataList;   // set the singleton "alldata" list
+
+        logAppDataList(appDataList);
 
         if(CurrentUser.data.role == "therapist") {
 
@@ -127,6 +124,8 @@ object DBApi {
         }
     }
 
+
+
     fun logAppDataList(appDataList: List<AppData>) {
         for (appData in appDataList) {
             println("Client: Role=${appData.client.role}, Username=${appData.client.username}")
@@ -151,6 +150,11 @@ object DBApi {
                 println("  Data=${reflection.data}")
                 println("  Datetime=${reflection.datetime}")
                 println("  Grade=${reflection.grade}")
+            }
+            println("SelfAssessment:")
+            for (selfassessment in appData.selfassessment) {
+                println("  Datetime=${selfassessment.date}")
+                println("  Grade=${selfassessment.grades}")
             }
             println("Therapist: Username=${appData.therapist.username}")
             println("---------------------------------")
