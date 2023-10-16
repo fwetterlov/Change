@@ -49,4 +49,8 @@
     <string name = "expectations_title9">What do you need to do in order to live up to these expectations?</string>
     <string name = "expectations_title10">Other</string>
 
+    <string name = "selfassessment_title1">Self image</string>
+    <string name = "selfassessment_title2">Self-esteem</string>
+    <string name = "selfassessment_title3">Self confidence</string>
+
 </resources>

@@ -64,6 +64,9 @@ fun CardClickable(text: String, drawableId: Int, id: String, navController: NavC
                 "Monthly" -> {
                     navController.navigate("monthly")
                 }
+                "Self assessment" -> {
+                    navController.navigate("self-assessment")
+                }
             }
         }
         /*colors = CardDefaults.cardColors(
@@ -174,7 +177,7 @@ fun MainScreen(
                                 )
                                 CardClickable(
                                     text = stringResource(id = R.string.card_title_self_assessment),
-                                    id = "Monthly",
+                                    id = "Self assessment",
                                     drawableId = R.drawable.month,
                                     navController = navController
                                 )

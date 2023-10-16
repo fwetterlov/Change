@@ -49,4 +49,8 @@
     <string name = "expectations_title9">Que devez-vous faire pour être à la hauteur de ces attentes ?</string>
     <string name = "expectations_title10">Autre</string>
 
+    <string name = "selfassessment_title1">Image de soi</string>
+    <string name = "selfassessment_title2">Amour propre</string>
+    <string name = "selfassessment_title3">Confiance en soi</string>
+
 </resources>
