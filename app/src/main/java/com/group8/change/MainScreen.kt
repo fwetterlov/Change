@@ -137,6 +137,7 @@ fun MainScreen(
                         Row(
                         ) {
                             Column {
+                                Text(text = viewModel.toString())
                                 // First row left card
                                 CardClickable(
                                     text = stringResource(id = R.string.card_title_reflections),
