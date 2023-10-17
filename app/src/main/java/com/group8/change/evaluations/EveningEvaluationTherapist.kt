@@ -55,7 +55,7 @@ fun eveningEvaluationTherapist() {
     val appData = CurrentAppData.data
     val evaluations = CurrentAppData.data.evening_evaluations
     val evaluationsSize = evaluations.size
-    val titleList = listOf(stringResource(id = R.string.morning_title1), stringResource(id = R.string.morning_title2), stringResource(id = R.string.morning_title3), "bla", "bla",)
+    val titleList = listOf(stringResource(id = R.string.evening_title1), stringResource(id = R.string.evening_title2), stringResource(id = R.string.evening_title3), stringResource(id = R.string.evening_title4), stringResource(id = R.string.evening_title5), stringResource(id = R.string.evening_title6))
 
     Log.d("kajshd", evaluations[0].answers.size.toString())
     Log.d("kajshd", titleList.size.toString())
@@ -136,7 +136,7 @@ fun eveningEvaluationTherapist() {
                 }
             }
         },
-        title = "Test"
+        title = stringResource(id = R.string.card_title_evening_evaluation)
     )
 }
 

@@ -50,12 +50,12 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 @Composable
-fun morningEvaluationTherapist() {
+fun monthlyEvaluationTherapist() {
 
     val appData = CurrentAppData.data
-    val evaluations = CurrentAppData.data.morning_evaluations
+    val evaluations = CurrentAppData.data.monthly_evaluations
     val evaluationsSize = evaluations.size
-    val titleList = listOf(stringResource(id = R.string.morning_title1), stringResource(id = R.string.morning_title2), stringResource(id = R.string.morning_title3), "bla", "bla")
+    val titleList = listOf(stringResource(id = R.string.month_title1), stringResource(id = R.string.month_title2), stringResource(id = R.string.month_title3), "bla", "bla")
 
     Log.d("kajshd", evaluations[0].answers.size.toString())
     Log.d("kajshd", titleList.size.toString())
@@ -136,12 +136,12 @@ fun morningEvaluationTherapist() {
                 }
             }
         },
-        title = stringResource(id = R.string.card_title_morning_evaluation)
+        title = stringResource(id = R.string.card_title_monthly_evaluation)
     )
 }
 
 @Preview
 @Composable
-fun morningEvaluationPreview() {
-    morningEvaluationTherapist()
+fun monthlyEvaluationPreview() {
+    monthlyEvaluationTherapist()
 }
