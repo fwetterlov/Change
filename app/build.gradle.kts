@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.group8.change"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.group8.change"
@@ -72,4 +72,16 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-database-ktx")
     implementation ("androidx.navigation:navigation-compose:2.4.0-alpha03")
+
+    // For Jetpack Compose.
+    implementation("com.patrykandpatrick.vico:compose:1.12.0")
+
+    // For `compose`. Creates a `ChartStyle` based on an M2 Material Theme.
+    implementation("com.patrykandpatrick.vico:compose-m2:1.12.0")
+
+    // For `compose`. Creates a `ChartStyle` based on an M3 Material Theme.
+    implementation("com.patrykandpatrick.vico:compose-m3:1.12.0")
+
+    // Houses the core logic for charts and other elements. Included in all other modules.
+    implementation("com.patrykandpatrick.vico:core:1.12.0")
 }
