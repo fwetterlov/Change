@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.group8.change.api.models.AppData
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.models.Reflection
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
@@ -99,11 +100,14 @@ class MainViewModel : ViewModel() {
 
     fun updateAppDataNode(){
 
-        val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
+        //val newReflection = Reflection("Testing hans shit", "2023-10-17T12:00:00", 8)
+        //CurrentAppData.data.reflections.add(newReflection)
         val appDataToUpdate = CurrentAppData.data
-        appDataToUpdate.reflections.add(newReflection)
+        //appDataToUpdate.reflections.add(newReflection)
 
-        val clientUsername = "client1" // Replace with the client's username you want to update
+        //val clientUsername = "client1" // Replace with the client's username you want to update
+
+        val clientUsername = CurrentUser.data.username
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
 
