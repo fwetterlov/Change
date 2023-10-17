@@ -1,0 +1,1035 @@
+[33mcommit aa479fa31f0a113bdfbc323b6d47876a1d49ee04[m[33m ([m[1;36mHEAD -> [m[1;32mcharts-library[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Tue Oct 17 14:53:29 2023 +0200
+
+    update sdk version and import chart lib
+
+[33mcommit f4e8923f40b96237e413f083c6f60ed1a5e4367f[m[33m ([m[1;31morigin/charts-library[m[33m, [m[1;32mmenu-dropdown-list[m[33m)[m
+Merge: 901bcf8 d3f5699
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Fri Oct 13 14:25:00 2023 +0200
+
+    Merge pull request #51 from frittblas/menu-dropdown-list
+    
+    Dropdownlist now uses setCurrentAppData
+
+[33mcommit d3f5699364749f23d17c7a701923f7c752c8360b[m[33m ([m[1;31morigin/menu-dropdown-list[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Fri Oct 13 14:24:33 2023 +0200
+
+    Dropdownlist now uses setCurrentAppData
+
+[33mcommit 901bcf8a1ebfcf4c2bb620f84fca7c2638830096[m
+Merge: 1fa8697 a2c365a
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Fri Oct 13 14:18:43 2023 +0200
+
+    Merge pull request #50 from frittblas/menu-dropdown-list
+    
+    Menu dropdown list
+
+[33mcommit 1fa869708974317cb4242bebcdad5f9a83923c0d[m
+Merge: 237b28e ed4698f
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Fri Oct 13 14:18:02 2023 +0200
+
+    Merge pull request #49 from frittblas/api
+    
+    updated setCurrentAppData
+
+[33mcommit a2c365a3b7c8e1e3c2c3e12fb4691ef92b531f9c[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Fri Oct 13 14:17:41 2023 +0200
+
+    Dropdown list is now only available to role therapist
+
+[33mcommit ed4698fcd23bd0a64a0c6548dbc2cd979f9c6299[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Fri Oct 13 14:17:20 2023 +0200
+
+    updated setCurrentAppData
+
+[33mcommit 2e731582a1cf24ed9d30864a410257192358d45b[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Fri Oct 13 14:15:35 2023 +0200
+
+    Function that returns list of all clients ready.
+
+[33mcommit 237b28ebafda2b4d82fe19c6a1d84eb0697d3b0d[m
+Merge: 0ce54bf 535f078
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Fri Oct 13 13:56:20 2023 +0200
+
+    Merge pull request #48 from frittblas/api
+    
+    CurrentAppData.allData
+
+[33mcommit 535f0780c53be1b8d9ba01ac1a0ec0c356a52fe9[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Fri Oct 13 13:55:56 2023 +0200
+
+    CurrentAppData.allData
+
+[33mcommit 0ce54bf98637bfea99e5eb6d3d5214e8bf583828[m
+Merge: bd698c6 0a49f04
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Fri Oct 13 13:09:20 2023 +0200
+
+    Merge pull request #47 from frittblas/menu-dropdown-list
+    
+    Initial dropdown list for clients created
+
+[33mcommit 0a49f0486668d736dba5d11f177528de4171902d[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Fri Oct 13 13:09:00 2023 +0200
+
+    Initial dropdown list for clients created
+
+[33mcommit bd698c60e17a679ed9b116f50a82ac6330618082[m[33m ([m[1;32mexpectations-viewmodel-fix[m[33m)[m
+Merge: 09f29bc 66631c5
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Thu Oct 12 09:24:19 2023 +0200
+
+    Merge pull request #46 from frittblas/expectations-viewmodel-fix
+    
+    Viewmodel questions is now initiated on mainscreen navigation instead…
+
+[33mcommit 66631c5d21d8c602340fe8388152b131a80464c3[m[33m ([m[1;31morigin/expectations-viewmodel-fix[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Thu Oct 12 09:23:01 2023 +0200
+
+    Viewmodel questions is now initiated on mainscreen navigation instead of when app is launched
+
+[33mcommit 09f29bc208d7c5f5adb020e256e419f0f8c4a920[m[33m ([m[1;32mfix-topappbar-plus[m[33m)[m
+Merge: ede74d9 324077a
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Wed Oct 11 15:27:46 2023 +0200
+
+    Merge pull request #45 from frittblas/topappbar-fix
+    
+    Removed home button from TopAppBar, wasn't needed on home page.
+
+[33mcommit 324077ab5609643659f7b36063df673467c4254f[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 15:27:15 2023 +0200
+
+    Removed home button from TopAppBar, wasn't needed on home page.
+
+[33mcommit ede74d924422b290b49b01d5295b194c1a8020fd[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Wed Oct 11 14:20:29 2023 +0200
+
+    Design changes to evaluations
+
+[33mcommit 6f0778a2a83c884fad60cbc4165753e7e378264d[m
+Merge: 68527b3 54f8719
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Wed Oct 11 13:28:25 2023 +0200
+
+    Merge pull request #44 from frittblas/fix-topappbar-plus
+    
+    Fix topappbar plus
+
+[33mcommit 54f87191dc94a84035c40baaf24486a2bfbf36d4[m[33m ([m[1;31morigin/fix-topappbar-plus[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 13:27:48 2023 +0200
+
+    Evaluations now use topbarplus with navigations, simple buttons created
+
+[33mcommit 1f16b1c098ec83c5a86b1c90c0b93886f854b854[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 13:20:04 2023 +0200
+
+    Expectations now use navigate in topbarplus
+
+[33mcommit 7abd2ccad2768683f7063c3862492affc28da893[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 13:15:22 2023 +0200
+
+    Reflections button fixed
+
+[33mcommit da0b1a20f208b0bf24f2aba30d8544f8737af030[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 13:10:55 2023 +0200
+
+    TopAppBar now uses navController, reflections and expectations takes navcontroller
+
+[33mcommit 68527b30cbdb68cb0609a1bb683259ff6df9800b[m
+Merge: 0f70d36 b3b1ab5
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Wed Oct 11 13:07:25 2023 +0200
+
+    Merge pull request #43 from frittblas/icons
+    
+    Added icons for the main screen buttons, also added a small top paddi…
+
+[33mcommit b3b1ab5a154f2327fe09bdf87a80feba59f71d5e[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 13:06:55 2023 +0200
+
+    Added icons for the main screen buttons, also added a small top padding for the main screen
+
+[33mcommit 41ad0d9504dec13c7a3da34599fd437e98ec28c5[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 12:44:01 2023 +0200
+
+    add fillmaxsize to reflections
+
+[33mcommit 0f70d36a02ba2284913ae5ed11ed94a0c6e13a5d[m[33m ([m[1;32mexpectations-translations[m[33m)[m
+Merge: 4f96d01 28b4185
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Wed Oct 11 12:28:10 2023 +0200
+
+    Merge pull request #42 from frittblas/main_screen
+    
+    Main screen
+
+[33mcommit 28b41850c5c1a824b549e484c51dd9140b84f73d[m
+Merge: 5386aa0 4f96d01
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 12:25:32 2023 +0200
+
+    Merge branch 'main' into main_screen
+
+[33mcommit 5386aa0731f2ece1add1ea408b7baa957f642810[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 12:24:46 2023 +0200
+
+    Buttons on main screen redirect to the corresponding screens
+
+[33mcommit 4f96d01defb3ea8236f705a9688e16ea5373e47f[m
+Merge: cfc9227 df78d7d
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Wed Oct 11 11:42:55 2023 +0200
+
+    Merge pull request #41 from frittblas/login-screen
+    
+    Added errormessage to string files
+
+[33mcommit 054d735314305bd69fe3163cbd5c829abe323627[m
+Merge: 641af01 cfc9227
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 11:03:26 2023 +0200
+
+    Fix
+
+[33mcommit 641af010b431833422d0c2d12fb990b61dd8c893[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Wed Oct 11 10:59:40 2023 +0200
+
+    dont remember
+
+[33mcommit df78d7def3f0bc110de9e1ac4a6fb9e954ead102[m[33m ([m[1;31morigin/login-screen[m[33m)[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Wed Oct 11 10:59:02 2023 +0200
+
+    Added errormessage to string files
+
+[33mcommit cfc92278963a4e20c4c0f1605ca30bb80221ae3a[m
+Merge: 773d626 6150768
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Wed Oct 11 10:30:16 2023 +0200
+
+    Merge pull request #40 from frittblas/expectations-translations
+    
+    Re-do ExpectationsViewModel declaration
+
+[33mcommit 61507684ba2e72013c57a731ed4f87e3b0081e58[m[33m ([m[1;31morigin/expectations-translations[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 10:29:45 2023 +0200
+
+    Re-do ExpectationsViewModel declaration
+
+[33mcommit 773d626c36643c374c4bba997495662baae0d787[m
+Merge: b0b83fc 6be334a
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Wed Oct 11 10:27:34 2023 +0200
+
+    Merge pull request #39 from frittblas/expectations-translations
+    
+    Make expectations use translations
+
+[33mcommit 6be334aef221540f4c27d8e6f70a449ffe3cc2ae[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 10:26:21 2023 +0200
+
+    Make expectations use translations
+
+[33mcommit b0b83fca77846a336bd8464afe360d5d3eef375f[m[33m ([m[1;32mswedish-translations[m[33m)[m
+Merge: 433152f 35298cd
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Wed Oct 11 10:00:56 2023 +0200
+
+    Merge pull request #38 from frittblas/swedish-translations
+    
+    Add translations for Expectations
+
+[33mcommit 35298cdadcbe19cc445acdf16c376af85c034d2c[m[33m ([m[1;31morigin/swedish-translations[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 09:59:58 2023 +0200
+
+    Add translations for Expectations
+
+[33mcommit 433152f340650586bdc50865ddf14c484bdafc44[m
+Merge: 3050e79 533979d
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Wed Oct 11 09:05:40 2023 +0200
+
+    Merge pull request #37 from frittblas/login-screen
+    
+    Removed text on loginscreen
+
+[33mcommit 533979db1d8ddeb473ea198ab53bcf4c11e8630a[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Wed Oct 11 09:05:26 2023 +0200
+
+    Removed text on loginscreen
+
+[33mcommit 3050e792bf922a4873c403c146284332c3444140[m
+Merge: 2cec5d3 0c2fb7c
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Wed Oct 11 08:55:19 2023 +0200
+
+    Merge pull request #36 from frittblas/login-screen
+    
+    loginfunction implemented in loginscreen
+
+[33mcommit 0c2fb7c2a4abb5a27c9dad959675568a7bdd33e2[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Wed Oct 11 08:54:36 2023 +0200
+
+    loginfunction implemented in loginscreen
+
+[33mcommit 2cec5d3f642146cb8e4855c77fd8596903fe4405[m
+Merge: 8ef72b0 118a1ab
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Wed Oct 11 08:49:01 2023 +0200
+
+    Merge pull request #35 from frittblas/swedish-translations
+    
+    Swedish translations
+
+[33mcommit 118a1abe5379dc0c1790a0e0189543cdcf831330[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 08:46:41 2023 +0200
+
+    Add the translations
+
+[33mcommit 905c1bdc38c7bcb1a0923d53a41f9fa3cecac0c9[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 11 08:43:20 2023 +0200
+
+    Add new strings file and values-sv
+
+[33mcommit 8ef72b0a7b681b05d4827b340fc983f03554b9f9[m[33m ([m[1;32mmain[m[33m)[m
+Merge: a034bd5 795665b
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Wed Oct 11 08:36:40 2023 +0200
+
+    Merge pull request #34 from frittblas/login-screen
+    
+    Changed eng flag
+
+[33mcommit 795665bed74d8598bfb17ec7e25f5421edf9bab3[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Wed Oct 11 08:36:38 2023 +0200
+
+    Changed eng flag
+
+[33mcommit a034bd587eb4c89e1c0bb7dfcf83cc4b1d73ca47[m
+Merge: 8359f30 1e0afa4
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 19:54:41 2023 +0200
+
+    Merge pull request #33 from frittblas/api
+    
+    MainScreen updates AppData singleton
+
+[33mcommit 1e0afa4087ffac6ba3680ec8c0943322f9c63970[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 19:54:18 2023 +0200
+
+    MainScreen updates AppData singleton
+
+[33mcommit 8359f3027ceb28911534728d50bfd2e74fb2ca78[m
+Merge: 499d7a9 8bd6285
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 18:34:36 2023 +0200
+
+    Merge pull request #32 from frittblas/api
+    
+    Api
+
+[33mcommit 8bd62852fc7e07c6eafe55c003088c6b0de8a223[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 18:33:45 2023 +0200
+
+    MainScreen spinner
+
+[33mcommit 78672a28a83740520f5dd8ef4f1c2526a9cc114d[m
+Merge: ee72d39 499d7a9
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 18:06:30 2023 +0200
+
+    Merge branch 'main' of https://github.com/frittblas/Change into api
+
+[33mcommit ee72d39dd7308d808988527a11f320c7dafb8476[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 18:06:04 2023 +0200
+
+    bugfixes
+
+[33mcommit 499d7a9584711c12204352e37d674aedd883bfb9[m
+Merge: 726e2cd 5f05a0b
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 17:57:42 2023 +0200
+
+    Merge pull request #31 from frittblas/api
+    
+    login 99% done, singletons
+
+[33mcommit 5f05a0bd7d057d7304e408ed0c4198e70171409f[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 17:57:06 2023 +0200
+
+    login 99% done, singletons
+
+[33mcommit 726e2cd285546ae07ffd00017c465d7ff652e17a[m
+Merge: 01c0059 781f9f7
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 16:53:54 2023 +0200
+
+    Merge pull request #30 from frittblas/api
+    
+    current user and appdata singletons
+
+[33mcommit 781f9f7f69acd4c1325c3bd5c9b4dc599bc7a605[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 16:51:44 2023 +0200
+
+    current user and appdata singletons
+
+[33mcommit 01c00597a8fc30face626f1189f25980a56a7c73[m
+Merge: cebe924 6c7f3de
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 15:59:41 2023 +0200
+
+    Merge pull request #29 from frittblas/api
+    
+    can load AppData to nested data class!
+
+[33mcommit 6c7f3de84d7f7cd94f9021b3356946a9adc4491b[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 15:59:20 2023 +0200
+
+    can load AppData to nested data class!
+
+[33mcommit cebe924b71da7f99a035365e5e4e35c8f846f8cd[m[33m ([m[1;31morigin/main_screen[m[33m)[m
+Merge: 39f867c e02f871
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Tue Oct 10 15:31:22 2023 +0200
+
+    Merge pull request #28 from frittblas/theme
+    
+    Theme
+
+[33mcommit e02f871cdbe3e2ec4e22c6f4d9e3b82f93bf6437[m
+Merge: 69c6bbc 39f867c
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Tue Oct 10 15:30:32 2023 +0200
+
+    Fix
+
+[33mcommit 69c6bbccde3a85c7a401855c7c7fa06d3cf4f9ca[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Tue Oct 10 15:26:48 2023 +0200
+
+    Themes working
+
+[33mcommit 39f867c5ddbf14112639833e0927ba9d31898793[m
+Merge: e7c3b5b 655c556
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Tue Oct 10 14:44:39 2023 +0200
+
+    Merge pull request #27 from frittblas/utvärderingar
+    
+    Updated textfields so the data is ready to be sent to db
+
+[33mcommit 655c5561834331582e57ce2cc4aec66f9a5e1ab8[m[33m ([m[1;31morigin/utvärderingar[m[33m)[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Tue Oct 10 14:42:25 2023 +0200
+
+    Updated textfields so the data is ready to be sent to db
+
+[33mcommit e7c3b5b99b721de7de2862745a9a892d0bfddd69[m
+Merge: 2c5186f e40a074
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Tue Oct 10 14:27:44 2023 +0200
+
+    Merge pull request #26 from frittblas/api
+    
+    login function etc
+
+[33mcommit e40a074147132bb5587755e0f4ff9c8a995f29f8[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Tue Oct 10 14:27:16 2023 +0200
+
+    login function etc
+
+[33mcommit 2c5186f11b0f85cb7839fcfd5b5bc4450b3a2c21[m
+Merge: d66b385 94ad858
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Tue Oct 10 14:22:59 2023 +0200
+
+    Merge pull request #25 from frittblas/utvärderingar
+    
+    Moved evaluations into package, changed navbar to TopAppBar on all
+
+[33mcommit 94ad8589b898137ecf46acd681bb7a1e57a84005[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Tue Oct 10 14:12:29 2023 +0200
+
+    Moved evaluations into package, changed navbar to TopAppBar on all
+
+[33mcommit d66b385ae5167d3ba332e5251445e4da2cd6f26b[m
+Merge: ce85b0c 1cd1d1e
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Tue Oct 10 12:51:35 2023 +0200
+
+    Merge pull request #24 from frittblas/navigation
+    
+    Navigation added, setLocale functional
+
+[33mcommit 1cd1d1e28dce1349848bd1e005da1dd3bf86e561[m[33m ([m[1;31morigin/navigation[m[33m)[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Tue Oct 10 12:51:16 2023 +0200
+
+    Navigation added, setLocale functional
+
+[33mcommit ce85b0c40341eeb91365057d7a28e15cef3d0dd3[m
+Merge: 319bbbc c370417
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Tue Oct 10 11:35:23 2023 +0200
+
+    Merge pull request #23 from frittblas/main-screen
+    
+    Main screen
+
+[33mcommit c3704175b7f822d28d89c1770a4a0d0874c2cb24[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Tue Oct 10 11:34:11 2023 +0200
+
+    Removed the parameters from the Structure composable in MainScreen and renamed it to MainScreen
+
+[33mcommit a58cb7fa1ac7fd16e392c99c55b56949e4a09ed3[m
+Merge: fea693a 319bbbc
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Tue Oct 10 11:28:14 2023 +0200
+
+    fix
+
+[33mcommit fea693abc0283bca7b8ee0578546807c4d02f719[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Tue Oct 10 11:23:49 2023 +0200
+
+    i don't remember
+
+[33mcommit 319bbbc5f1a808934186c2429d7d808736d5b5ec[m
+Merge: 3a4bbce 44c9f04
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Tue Oct 10 10:41:46 2023 +0200
+
+    Merge pull request #22 from frittblas/login-screen
+    
+    Added passwordvisibility function
+
+[33mcommit 44c9f045e79ba3ae6780633d16cab7ce965e2405[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Tue Oct 10 10:41:39 2023 +0200
+
+    Added passwordvisibility function
+
+[33mcommit 3a4bbce359a6a65ac1aded2c14337cefc86f2ce0[m
+Merge: 287c6b3 c2dbbce
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Mon Oct 9 15:44:21 2023 +0200
+
+    Merge pull request #21 from frittblas/login-screen
+    
+    removed duplicate import
+
+[33mcommit c2dbbceb2d3600ebc7187f4f11d7dd983cb44899[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Mon Oct 9 15:43:59 2023 +0200
+
+    removed duplicate import
+
+[33mcommit 287c6b35c926a0f562687fccb745ab3dc773fa2c[m
+Merge: 0007f94 a7133ac
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Mon Oct 9 15:31:40 2023 +0200
+
+    Merge pull request #20 from frittblas/login-screen
+    
+    flags clickable, calling setLocale
+
+[33mcommit a7133ac59ac52de45f0e56e62f122af42af20896[m
+Merge: afba00e 0007f94
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Mon Oct 9 15:30:19 2023 +0200
+
+    Merge branch 'main' into login-screen
+
+[33mcommit afba00e1670491b82595a33c75d1f621f0500abe[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Mon Oct 9 15:27:17 2023 +0200
+
+    flags clickable, calling setLocale
+
+[33mcommit 0007f946b791c99626af05d5208aa5bb140c66c6[m
+Merge: 28cac59 81f4b84
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 15:22:04 2023 +0200
+
+    Merge pull request #19 from frittblas/expectations-alignment
+    
+    Change alignments of Expectations
+
+[33mcommit 81f4b843980c6e3e6ccbc32a58178d5621ce64d0[m[33m ([m[1;31morigin/expectations-alignment[m[33m)[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 15:21:43 2023 +0200
+
+    Change alignments of Expectations
+
+[33mcommit 28cac590d8297b141b544a3832fdd7f1351d5961[m
+Merge: 17da4eb bc352c5
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Mon Oct 9 15:19:56 2023 +0200
+
+    Merge pull request #18 from frittblas/utvärderingar
+    
+    Utvärderingar
+
+[33mcommit bc352c5ba753737f8a2d0f814d0cffa0994d99a7[m
+Merge: 00cf1f9 17da4eb
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Mon Oct 9 15:19:47 2023 +0200
+
+    Merge branch 'main' into utvärderingar
+
+[33mcommit 00cf1f9c453b1187527dec4cac563d7fab7b0a53[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Mon Oct 9 15:08:21 2023 +0200
+
+    Added translations to evening- and month evaluation
+
+[33mcommit 17da4ebc4a135a6c73d89d4357c6e6e51bdce25b[m
+Merge: 110d990 fa90868
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 14:58:02 2023 +0200
+
+    Merge pull request #17 from frittblas/change-reflection-topbar
+    
+    Remove border and padding
+
+[33mcommit fa90868595c065876663aff25b854fb230dde747[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 14:57:39 2023 +0200
+
+    Remove border and padding
+
+[33mcommit 110d9906bd31a62ca72c519d5dc5d8ad2aad978e[m
+Merge: c7020d8 28161f5
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 14:56:03 2023 +0200
+
+    Merge pull request #16 from frittblas/change-reflection-topbar
+    
+    Change ReflectionScreen to use TopBarPlus
+
+[33mcommit 28161f5793e9ae0e672bbe66fe1032ba4615f1e1[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 14:55:20 2023 +0200
+
+    Change ReflectionScreen to use TopBarPlus
+
+[33mcommit 7e6b4b3e05fd5a0d5b2a09312f9f81cfa84707be[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Mon Oct 9 14:46:44 2023 +0200
+
+    Added translations to morning evaluation
+
+[33mcommit c7020d8a76057ec347cbadc86c07ab3243cad291[m
+Merge: 231acec c56a9b0
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 14:33:42 2023 +0200
+
+    Merge pull request #15 from frittblas/expectations-screen
+    
+    Expectations screen
+
+[33mcommit c56a9b07f33b261661e800377516f56d7fe7357e[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 14:32:43 2023 +0200
+
+    Move TopAppBar to Expectations from QuestionWithText
+
+[33mcommit ec32e0466c03887c608db5449d24aeb308ba5537[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 14:28:21 2023 +0200
+
+    Add topbar to Expectations, font changes on QuestionWithTextField
+
+[33mcommit 231acec6d83a5e359c5b3da9ee313223ffabe2a9[m
+Merge: d669acc 9fc38cf
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 13:42:08 2023 +0200
+
+    Merge pull request #14 from frittblas/expectations-screen
+    
+    Expectations screen
+
+[33mcommit 9fc38cfb8a1892f04493e42eeeb4034e1607e111[m
+Merge: 1a704aa d669acc
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Mon Oct 9 13:37:38 2023 +0200
+
+    Merge branch 'main' into expectations-screen
+
+[33mcommit 1a704aa430e68c6f6696ec93ed8e1dd9e6cf0592[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Mon Oct 9 13:09:53 2023 +0200
+
+    Expectationsscreen with Viewmodel
+
+[33mcommit d669accc513f393463b529189352774fc636dbcf[m
+Merge: db98a91 461a6b3
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Sun Oct 8 18:30:50 2023 +0200
+
+    Merge pull request #13 from frittblas/api
+    
+    more db api stuff
+
+[33mcommit 461a6b354a4343ae957d8ddf6c9f08160e1646ba[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Sun Oct 8 18:30:03 2023 +0200
+
+    more db api stuff
+
+[33mcommit 82b02a94ee07512eb6b7dfdc10dddcdd5e72728c[m
+Merge: 941bb81 ffb5a4c
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Sun Oct 8 18:21:12 2023 +0200
+
+    Merge branch 'utvärderingar' of https://github.com/frittblas/Change into utvärderingar
+
+[33mcommit db98a910af0981f877260bc48a1b85f9bdd5adcb[m
+Merge: 0ccb698 8432632
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Sat Oct 7 22:05:52 2023 +0200
+
+    Merge pull request #12 from frittblas/api
+    
+    more api
+
+[33mcommit 84326324245af2a85e982f5764bcf6423f815992[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Sat Oct 7 22:03:57 2023 +0200
+
+    more api
+
+[33mcommit 43a25426c9280d11bc912a21fcbea7a24c2ccf2f[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Sat Oct 7 14:49:19 2023 +0200
+
+    Clickables in the main screen now use resource files for its strings
+
+[33mcommit 0ccb698ffec6309a896e91ce0a1e26e3992f2dcc[m
+Merge: 5489c02 b82bd0b
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Sat Oct 7 13:39:24 2023 +0200
+
+    Merge pull request #11 from frittblas/topbar-and-main
+    
+    Topbar and main tweaked and improved
+
+[33mcommit b82bd0bacfcb4df1279f5a98c4e336bdb350d8f1[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Sat Oct 7 13:38:03 2023 +0200
+
+    Removed unused composable.
+
+[33mcommit 460c25bfb02c3a5abe4ea3cc0825d3aab7605d3d[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Sat Oct 7 13:31:24 2023 +0200
+
+    Fixed the design of the main screen to look good when an uneven amount of clickables are used.
+
+[33mcommit 4361af10207cb1b8550c6817b6973567ea0c3e92[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Sat Oct 7 09:51:26 2023 +0200
+
+    Added TopAppBarPlus. Both top bars takes a title as an argument.
+
+[33mcommit 44a24fe5805abc5e782c7613bb9a92697b26c011[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Fri Oct 6 15:50:01 2023 +0200
+
+    The TopAppBar now accepts a button composable as an argument
+
+[33mcommit 84a8e5167200e712a072af41f35ba823b15e5de8[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Fri Oct 6 15:25:32 2023 +0200
+
+    The TopAppBar now takes a title as an argument
+
+[33mcommit 5bbdadbdeb20c6c449467511f13db40bbf6dba85[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Fri Oct 6 13:41:22 2023 +0200
+
+    New files for expectations screen
+
+[33mcommit 5489c0264f40eb61dd91e532d103b679f8206f53[m
+Merge: 941bb81 ffb5a4c
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Fri Oct 6 10:37:57 2023 +0200
+
+    Merge pull request #10 from frittblas/utvärderingar
+    
+    Changed file- and function names to English
+
+[33mcommit ffb5a4c137a715f782ce23c31f9383cbf9bb4acb[m
+Author: Samuel Ahlvin <ahlvinsamme@gmail.com>
+Date:   Fri Oct 6 10:32:21 2023 +0200
+
+    Changed file- and function names to English
+
+[33mcommit 941bb81b20ee2f8abc463ac42370b54242ac638d[m
+Merge: 871e1b6 58c644e
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Thu Oct 5 15:15:00 2023 +0200
+
+    Merge pull request #9 from frittblas/utvärderingar
+    
+    Utvärderingar
+
+[33mcommit 58c644e3a474c1178f3fd4566150dd55303307ae[m
+Merge: e953a33 871e1b6
+Author: Samuel Ahlvin <100565852+SamuelAhlvin@users.noreply.github.com>
+Date:   Thu Oct 5 15:14:46 2023 +0200
+
+    Merge branch 'main' into utvärderingar
+
+[33mcommit e953a33dd110855c86821b5fa539afb4f6ceabb5[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Thu Oct 5 15:11:49 2023 +0200
+
+    Added complete Kvälls- and Månadsutvärdering screens
+
+[33mcommit 871e1b6be1786a035c9569bd94ede2ea7656b9fd[m
+Merge: 2158ac6 b890599
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Thu Oct 5 14:53:54 2023 +0200
+
+    Merge pull request #8 from frittblas/adamBranch
+    
+    Cleaned up unused imports
+
+[33mcommit b890599a767ab0d2e5cf379145311e51a11ebae2[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Thu Oct 5 14:53:18 2023 +0200
+
+    Cleaned up unused imports
+
+[33mcommit 2158ac63e7473468da20754460edbaa56998b554[m
+Merge: d33bb47 b983657
+Author: AdamHlg00 <127506110+AdamHlg00@users.noreply.github.com>
+Date:   Thu Oct 5 14:47:07 2023 +0200
+
+    Merge pull request #7 from frittblas/adamBranch
+    
+    Adam branch
+
+[33mcommit b98365709a8795f238bcc21cb164213bc65d2e79[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Thu Oct 5 14:43:50 2023 +0200
+
+    Separated main screen into a file
+
+[33mcommit b4401ca2b238a63d30520e79f8d0a635bf65e169[m
+Merge: 9967a82 d33bb47
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Thu Oct 5 13:10:29 2023 +0200
+
+    Merge branch 'main' of https://github.com/frittblas/Change into adamBranch
+
+[33mcommit 9967a82fa7515df3b1b91262b542302c8b510026[m
+Author: AdamHlg00 <adamoliver.holgersson@gmail.com>
+Date:   Thu Oct 5 13:04:10 2023 +0200
+
+    added topAppBar and some design for the home page, fingers crossed
+
+[33mcommit d33bb47ef9ff3173a63640279cda3a394221b0e2[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Thu Oct 5 12:30:23 2023 +0200
+
+    db api
+
+[33mcommit cd0bd1cf9758a7d0bcaa11957d413c353740eb83[m
+Merge: 2690635 1594cf0
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Thu Oct 5 12:21:59 2023 +0200
+
+    Merge branch 'main' of https://github.com/frittblas/Change
+
+[33mcommit 26906358f0a0bcc43836b1fec13e48a08bfa6770[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Thu Oct 5 12:20:56 2023 +0200
+
+    db api working
+
+[33mcommit 1594cf03a1e3cd20bc351c02bf8e23fe951fa5d3[m
+Merge: f98fe66 ff1eea7
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Thu Oct 5 11:00:51 2023 +0200
+
+    Merge pull request #6 from frittblas/login-screen
+    
+    Frontend on loginscreen started
+
+[33mcommit ff1eea77026571216087a5703e4f1e530f73e393[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Thu Oct 5 11:00:01 2023 +0200
+
+    Frontend on loginscreen started
+
+[33mcommit f98fe66a8bdcd36a0b3ad0d09621a526d04fb547[m
+Merge: 323591e c100e6a
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Thu Oct 5 09:55:56 2023 +0200
+
+    Merge pull request #5 from frittblas/reflection-screen
+    
+    Reflection screen
+
+[33mcommit c100e6a9474780f8be1cdcbbb4dac910fdd1e5a3[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Thu Oct 5 09:55:07 2023 +0200
+
+    Strings for login
+
+[33mcommit 340e47291fd357132931097ab841e064000949de[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Thu Oct 5 09:50:05 2023 +0200
+
+    Add more strings and use them in Reflections
+
+[33mcommit 323591eae5605b83acfff679bac7dfd8578e1f2c[m
+Merge: 38ebbd8 2ca7620
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Thu Oct 5 09:14:45 2023 +0200
+
+    Merge pull request #4 from frittblas/reflection-screen
+    
+    Reflection screen
+
+[33mcommit a9a7002ed0cea4aaea4dc53410bd958b0082d28d[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Wed Oct 4 16:44:40 2023 +0200
+
+    Added all the text, textfields and submit button
+
+[33mcommit 2ca762043c4a6256e11a27c7c616cc943b0a5464[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 4 16:23:48 2023 +0200
+
+    Add slider and submit button
+
+[33mcommit 9a451dd1cab3c3866a979f70b760da9b0d6fd9bd[m
+Author: SamuelAhlvin <ahlvinsamme@gmail.com>
+Date:   Wed Oct 4 16:18:23 2023 +0200
+
+    Added top bar with logo and first text in morgonutvärdering
+
+[33mcommit 054c851828826c08b1e5da77c78a32de6615adf6[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 4 14:30:58 2023 +0200
+
+    Basic TextField in reflections screen
+
+[33mcommit aa06a5ba0748de79e55df6353ee34e101cb1b6a1[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Wed Oct 4 13:52:38 2023 +0200
+
+    Reflection screen started
+
+[33mcommit 38ebbd88c343523e0136d6695180acfc89af56bb[m
+Merge: be5ecca 08d739f
+Author: fwetterlov <60264894+fwetterlov@users.noreply.github.com>
+Date:   Wed Oct 4 08:44:29 2023 +0200
+
+    Merge pull request #3 from frittblas/database-connection
+    
+    Database connection
+
+[33mcommit 08d739f0845cb0f5432bf390d1eca957b60cf596[m[33m ([m[1;31morigin/database-connection[m[33m)[m
+Merge: 1e38c8c be5ecca
+Author: fwett <fwetterlov@gmail.com>
+Date:   Wed Oct 4 08:40:16 2023 +0200
+
+    Merge branch 'main' of https://github.com/frittblas/Change into database-connection
+
+[33mcommit be5ecca446f4a9bb3122d12915b3145050301927[m
+Merge: 055b441 ddbf548
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Tue Oct 3 16:20:38 2023 +0200
+
+    Merge pull request #2 from frittblas/language-handler
+    
+    add more strings and change stringnames
+
+[33mcommit ddbf54883d1a54debfcb01b81b124588ecbad9d7[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Tue Oct 3 16:19:15 2023 +0200
+
+    add more strings and change name
+
+[33mcommit 055b4413e8221eded748cc893a92da66c2ddc2c1[m
+Merge: ceba5a7 7f04f19
+Author: rcobanov <94676157+rcobanov@users.noreply.github.com>
+Date:   Tue Oct 3 16:02:28 2023 +0200
+
+    Merge pull request #1 from frittblas/language-handler
+    
+    add Strings.xml for menu titles and setLocale function in MainActivity
+
+[33mcommit 7f04f19fc6cfa9db38c04bfd5b664ed562c25aed[m
+Author: robin <robin.cobanov@hotmail.com>
+Date:   Tue Oct 3 16:01:21 2023 +0200
+
+    add Strings.xml for menu titles and setLocale function in Main
+
+[33mcommit 1e38c8cac12be2afcfd368df204337f010ce3048[m
+Author: fwett <fwetterlov@gmail.com>
+Date:   Tue Oct 3 15:12:51 2023 +0200
+
+    google file and dep added
+
+[33mcommit ceba5a7914ae6e9df82abcb2edc3be0c7f5ef2dd[m
+Author: Hans Stromquist <frittblas@gmail.com>
+Date:   Fri Sep 29 09:17:34 2023 +0200
+
+    Change project added
+
+[33mcommit 7ab1f00edd65295fc387e51d4ae584c776e03753[m
+Author: frittblas <frittblas@gmail.com>
+Date:   Thu Sep 28 19:25:14 2023 +0200
+
+    gitignore
+
+[33mcommit 60754df17e6995b2a6f6bd3d18c309e0d49b73a8[m
+Author: frittblas <34107055+frittblas@users.noreply.github.com>
+Date:   Thu Sep 28 19:21:51 2023 +0200
+
+    Initial commit
