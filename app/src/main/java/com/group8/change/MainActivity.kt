@@ -15,8 +15,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
-import com.group8.change.api.DBApi.MyScreen
-import com.group8.change.ui.design.TopAppBar
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.evaluations.eveningEvaluation
 import com.group8.change.evaluations.monthEvaluation
@@ -73,8 +71,8 @@ class MainActivity : ComponentActivity() {
                         composable("monthly"){
                             monthEvaluation(navController)
                         }
-                        composable("self"){
-                            SelfAssessmentScreen()
+                        composable("self-assessment"){
+                            SelfAssessmentScreen(navController)
                         }
                     }
                 }

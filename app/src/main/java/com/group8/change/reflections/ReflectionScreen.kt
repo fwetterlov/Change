@@ -111,8 +111,6 @@ fun SelectedPositionText(sliderPosition: Float) {
         stringResource(id = R.string.reflections_bad)
     } else if (sliderPosition >= 5.9 && sliderPosition <= 8) {
         stringResource(id = R.string.reflections_good)
-    } else if (sliderPosition.toInt() == 5) {
-        stringResource(id = R.string.reflections_neutral)
     } else if (sliderPosition >= 9 && sliderPosition <= 10) {
         stringResource(id = R.string.reflections_very_good)
     } else {

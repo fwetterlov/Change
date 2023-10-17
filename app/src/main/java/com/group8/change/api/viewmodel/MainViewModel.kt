@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
 
     init {
         fetchUserData()
-        fetchAppData()
+        //fetchAppData()
     }
 
     private fun fetchUserData() {
