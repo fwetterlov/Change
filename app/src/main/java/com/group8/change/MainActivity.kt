@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.evaluations.eveningEvaluation
+import com.group8.change.evaluations.eveningEvaluationTherapist
 import com.group8.change.evaluations.monthEvaluation
 import com.group8.change.evaluations.morningEvaluation
 import com.group8.change.evaluations.morningEvaluationTherapist
@@ -81,6 +82,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("morning-th") {
                             morningEvaluationTherapist()
+                        }
+                        composable("evening-th") {
+                            eveningEvaluationTherapist()
                         }
                     }
                 }

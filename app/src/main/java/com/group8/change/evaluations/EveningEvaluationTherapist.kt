@@ -46,7 +46,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 @Composable
-fun morningEvaluationTherapist() {
+fun eveningEvaluationTherapist() {
 
     val appData = CurrentAppData.data
 
@@ -66,15 +66,15 @@ fun morningEvaluationTherapist() {
                 style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp)
             )
 
-            getAnswersMorning()
+            getAnswersEvening()
 
         }
     }, title = stringResource(id = R.string.card_title_morning_evaluation))
 }
 @Composable
-fun getAnswersMorning() {
+fun getAnswersEvening() {
 
-    val evaluations = CurrentAppData.data.morning_evaluations
+    val evaluations = CurrentAppData.data.evening_evaluations
 
     for (evaluation in evaluations) {
         val answers = evaluation.answers
@@ -89,25 +89,6 @@ fun getAnswersMorning() {
 
 }
 
-@Composable
-fun showAnswers(answer: String, date: String) {
-
-    val formattedDate = SimpleDateFormat("dd/MM/yyyy").format(
-        SimpleDateFormat("yyyy-MM-dd").parse(date) ?: Date()
-    )
-
-    val annotatedString = buildAnnotatedString {
-        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp)) {
-            append("Date: $formattedDate\n")
-        }
-        append(answer)
-    }
-
-    Text(
-        text = annotatedString,
-        modifier = Modifier.padding(vertical = 24.dp)
-    )
-}
 /*
 @Composable
 fun topBarWithLogo() {
@@ -131,6 +112,6 @@ fun topBarWithLogo() {
 
 @Preview
 @Composable
-fun morningEvaluationPreview() {
+fun eveningEvaluationPreview() {
     morningEvaluationTherapist()
 }
