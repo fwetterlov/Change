@@ -33,7 +33,13 @@ private fun CustomLineChart(
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp)
+                .height(200.dp)
+                .padding(
+                    top = 20.dp,
+                    bottom = 20.dp,
+                    start = 10.dp,
+                    end = 10.dp
+                    )
         ) {
 
 
@@ -106,7 +112,7 @@ fun ReflectionGraph() {
                 SimpleDateFormat("dd/MM").format(it)
             } ?: ""
         }
-    
+
     CustomLineChart(
         entryModel = chartEntryModel,
         leftAxisValueFormatter = leftAxisValueFormatter,

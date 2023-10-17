@@ -85,6 +85,9 @@ fun ReflectionScreenTherapist(navController: NavController) {
                                             Text(
                                                 text = "${time[0]}:${time[1]}"
                                             )
+                                            Text(
+                                                text = "${reflections[index].grade}"
+                                            )
                                             // Data
                                             Text(
                                                 text = "${reflections[index].data}",
