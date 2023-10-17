@@ -145,7 +145,7 @@ fun MainMenu(
                     CardClickable(
                         text = stringResource(id = R.string.card_title_self_assessment),
                         id = routeIds[5],
-                        drawableId = R.drawable.month,
+                        drawableId = R.drawable.self,
                         navController = navController
                     )
                 }
