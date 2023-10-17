@@ -8,6 +8,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.group8.change.api.models.AppData
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.Reflection
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
@@ -68,4 +70,66 @@ class MainViewModel : ViewModel() {
                 }
             })
     }
+
+    fun writeNewAppDataNode(){
+
+        // Create a Reflection object with the desired data, datetime, and grade values
+        val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
+
+        // Find the specific AppData object in appDataList (you can use the index or any criteria)
+        val indexToUpdate = 0  // Update the first AppData object, for example
+        //val appDataToUpdate = appDataList[indexToUpdate]
+        val appDataToUpdate = CurrentAppData.data
+
+        // Add the new reflection to the reflections list of the AppData object
+        appDataToUpdate.reflections.add(newReflection)
+
+        // Now, you have updated the appDataList with the new reflection.
+
+        // To write the updated data back to Firebase Realtime Database, you can use the following code.
+        // This example assumes that the structure in the database matches your data classes.
+
+        val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
+
+        // Update the data at the specified database reference
+        databaseReference.child("client1").setValue(appDataToUpdate)
+
+
+    }
+
+    fun updateAppDataNode(){
+
+        val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
+        val appDataToUpdate = CurrentAppData.data
+        appDataToUpdate.reflections.add(newReflection)
+
+        val clientUsername = "client1" // Replace with the client's username you want to update
+
+        val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
+
+        // Query to find the existing child node with the specified username
+        val query = databaseReference.orderByChild("client/username").equalTo(clientUsername)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    // Loop through the results (in this case, there should be only one result)
+                    for (dataSnapshot in snapshot.children) {
+                        val clientId = dataSnapshot.key
+
+                        // Reference the existing child node and update its data
+                        val clientReference = databaseReference.child(clientId!!)
+                        clientReference.setValue(appDataToUpdate)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle errors
+            }
+        })
+
+
+    }
+
 }
