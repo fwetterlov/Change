@@ -1,5 +1,6 @@
 package com.group8.change.evaluations
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -9,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -25,67 +28,86 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.models.CurrentAppData
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
 
 @Composable
 fun morningEvaluationTherapist() {
-    var text1 by remember { mutableStateOf("") }
-    var text2 by remember { mutableStateOf("") }
-    var text3 by remember { mutableStateOf("") }
+
+    val appData = CurrentAppData.data
 
     TopAppBar(content = {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .background(Color.White)
                 .padding(start = 56.dp)
         ) {
             Spacer(modifier = Modifier.height(90.dp))
 
             Text(
-                text = stringResource(id = R.string.morning_title1),
-                style = TextStyle(fontSize = 16.sp)
+                text = appData.client.username,
+                modifier = Modifier.padding(vertical = 24.dp),
+                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp)
             )
 
-            textField(
-                initialValue = text1,
-                onValueChange = { newValue -> text1 = newValue }
-            )
-
-            Text(
-                text = stringResource(id = R.string.morning_title2),
-                style = TextStyle(fontSize = 16.sp),
-                textAlign = TextAlign.Start
-            )
-
-            textField(
-                initialValue = text2,
-                onValueChange = { newValue -> text2 = newValue }
-            )
-
-            Text(
-                text = stringResource(id = R.string.morning_title3),
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField(
-                initialValue = text3,
-                onValueChange = { newValue -> text3 = newValue }
-            )
+            getAnswers()
 
         }
     }, title = stringResource(id = R.string.card_title_morning_evaluation))
 }
+@Composable
+fun getAnswers() {
 
+    val evaluations = CurrentAppData.data.morning_evaluations
+
+    for (evaluation in evaluations) {
+        val answers = evaluation.answers
+        val date = evaluation.date
+
+        for ((index, answer) in answers.withIndex()) {
+            val dayNumber = index + 1
+            showAnswers(answer = answer, date = date)
+            println("Date: $date, Day $dayNumber - Answer: $answer")
+        }
+    }
+
+}
+
+@Composable
+fun showAnswers(answer: String, date: String) {
+
+    val formattedDate = SimpleDateFormat("dd/MM/yyyy").format(
+        SimpleDateFormat("yyyy-MM-dd").parse(date) ?: Date()
+    )
+
+    val annotatedString = buildAnnotatedString {
+        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp)) {
+            append("Date: $formattedDate\n")
+        }
+        append(answer)
+    }
+
+    Text(
+        text = annotatedString,
+        modifier = Modifier.padding(vertical = 24.dp)
+    )
+}
 /*
 @Composable
 fun topBarWithLogo() {
