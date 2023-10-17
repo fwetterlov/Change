@@ -6,11 +6,11 @@ data class AppData(
     var expectations: List<String>,
     var monthly_evaluations: List<Evaluation>,
     var morning_evaluations: List<Evaluation>,
-    var reflections: List<Reflection>,
+    var reflections: MutableList<Reflection>,
     var selfassessment: List<SelfAssessment>,
     var therapist: Therapist
 ){
-    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), emptyList(), Therapist("therap1"))
+    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), mutableListOf(), emptyList(), Therapist("therap1"))
 }
 
 data class Client(

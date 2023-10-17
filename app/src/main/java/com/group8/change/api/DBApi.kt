@@ -89,7 +89,12 @@ object DBApi {
         }
         else println("AppData not found!")
 
+        println("Now writing data to db")
+        viewModel.updateAppDataNode()
+
     }
+
+
 
     fun getUser(viewModel: MainViewModel) {
 
