@@ -4,15 +4,19 @@ import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -49,27 +53,82 @@ import java.util.Date
 fun eveningEvaluationTherapist() {
 
     val appData = CurrentAppData.data
+    val evaluations = CurrentAppData.data.evening_evaluations
+    val evaluationsSize = evaluations.size
 
-    TopAppBar(content = {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .background(Color.White)
-                .padding(start = 56.dp)
-        ) {
-            Spacer(modifier = Modifier.height(90.dp))
+    TopAppBar(
+        content = {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 60.dp)
+            ) {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    items(evaluationsSize) {index ->
 
-            Text(
-                text = appData.client.username,
-                modifier = Modifier.padding(vertical = 24.dp),
-                style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp)
-            )
+                        val formattedDate = SimpleDateFormat("dd-MM-yyyy").format(
+                            SimpleDateFormat("yyyy-MM-dd").parse(evaluations[index].date) ?: Date()
+                        )
 
-            getAnswersEvening()
-
-        }
-    }, title = stringResource(id = R.string.card_title_morning_evaluation))
+                        Column (
+                            modifier = Modifier
+                                .padding(
+                                    top = 20.dp,
+                                    bottom = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                        ) {
+                            // Big card
+                            Card (
+                                modifier = Modifier
+                                    .fillMaxSize()
+                            ) {
+                                // Card used for inner padding
+                                Card (
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(
+                                            top = 10.dp,
+                                            bottom = 10.dp,
+                                            start = 10.dp,
+                                            end = 10.dp
+                                        )
+                                ){
+                                    // Date
+                                    Text(
+                                        text = formattedDate,
+                                        fontSize = 30.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(400.dp)
+                                    ) {
+                                        LazyColumn(
+                                            modifier = Modifier.fillMaxSize()
+                                        ) {
+                                            items(evaluations[index].answers.size) { answerIndex ->
+                                                Text(
+                                                    text = evaluations[index].answers[answerIndex],
+                                                    fontSize = 20.sp
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        title = "Test"
+    )
 }
 @Composable
 fun getAnswersEvening() {
