@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.components.SelfAssessmentGraph
 import com.patrykandpatrick.vico.compose.axis.axisLabelComponent
 import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
@@ -52,86 +53,9 @@ import java.time.format.DateTimeFormatter
 
 
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 @Composable
 fun TherapistSelfAssessmentScreen() {
-
-    val currentData = CurrentAppData.data.reflections
-
-    val gradeList = ArrayList<FloatEntry>()
-    val dateList = ArrayList<String>()
-    var counter1 = 0f
-    for (reflection in currentData) {
-
-        val yFloat = reflection.grade.toFloat()
-        val xDate = reflection.datetime
-        gradeList.add(FloatEntry(x = counter1, y = yFloat))
-        dateList.add(xDate)
-        counter1 += 1f;
-    }
-
-    val chartEntryModel = entryModelOf(gradeList)
-
-    val leftAxisValueFormatter = AxisValueFormatter<AxisPosition.Vertical.Start> { value, _ ->
-        val intValue = value.toInt()
-        val decimalPart = value - intValue
-        if (decimalPart < 0.5) {
-            intValue.toString()
-        } else {
-            (intValue + 1).toString()
-        }
-    }
-
-
-    val bottomAxisValueFormatter =
-        AxisValueFormatter<AxisPosition.Horizontal.Bottom> { x, _ ->
-            val date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(dateList.getOrNull(x.toInt()))
-            date?.let {
-                SimpleDateFormat("dd/MM").format(it)
-            } ?: ""
-        }
-
-
-
-
-    Column (modifier = Modifier.fillMaxSize()) {
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(300.dp)
-        ) {
-
-
-            Chart(
-                modifier = Modifier.padding(8.dp),
-                chart = lineChart(
-                    lines = listOf(
-                        lineSpec(
-                            lineColor = Color.Green,
-                            lineBackgroundShader = null
-                        ),
-                        lineSpec(
-                            lineColor = Color.Blue,
-                            lineBackgroundShader = null
-                        ),
-                        lineSpec(
-                            lineColor = Color.Red,
-                            lineBackgroundShader = null
-                        )
-                    ),
-                ),
-                model = chartEntryModel,
-                startAxis = rememberStartAxis(valueFormatter = leftAxisValueFormatter),
-                bottomAxis = rememberBottomAxis( guideline = null,valueFormatter = bottomAxisValueFormatter)
-            )
-
-            Button(onClick = { Log.d("btnPress", "datelist $dateList")
-                Log.d("btnPress", "grade $gradeList") }) {
-
-            }
-
-        }
-    }
-
+    SelfAssessmentGraph()
 }
 
