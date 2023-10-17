@@ -76,10 +76,7 @@ class MainActivity : ComponentActivity() {
                             SelfAssessmentScreen(navController)
                         }
                         composable("reflections-th") {
-                            ReflectionScreenTherapist()
-                        }
-                        composable("morning-th") {
-                            ReflectionScreenTherapist()
+                            ReflectionScreenTherapist(navController)
                         }
                     }
                 }
