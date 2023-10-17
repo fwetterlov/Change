@@ -79,7 +79,7 @@ class MainActivity : ComponentActivity() {
                             SelfAssessmentScreen(navController)
                         }
                         composable("reflections-th") {
-                            ReflectionScreenTherapist()
+                            ReflectionScreenTherapist(navController)
                         }
                         composable("morning-th") {
                             morningEvaluationTherapist()

@@ -8,6 +8,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.group8.change.api.models.AppData
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.CurrentUser
+import com.group8.change.api.models.Reflection
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
@@ -68,4 +71,60 @@ class MainViewModel : ViewModel() {
                 }
             })
     }
+
+    fun writeNewAppDataNode(){
+
+        val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
+
+        //val indexToUpdate = 0
+        //val appDataToUpdate = appDataList[indexToUpdate]
+        val appDataToUpdate = CurrentAppData.data
+
+        appDataToUpdate.reflections.add(newReflection)
+
+        val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
+
+        // for testing purposes
+        databaseReference.child("client1").setValue(appDataToUpdate)
+
+
+    }
+
+    fun updateAppDataNode(){
+
+        //val newReflection = Reflection("Testing hans shit", "2023-10-17T12:00:00", 8)
+        //CurrentAppData.data.reflections.add(newReflection)
+        val appDataToUpdate = CurrentAppData.data
+        //appDataToUpdate.reflections.add(newReflection)
+
+        //val clientUsername = "client1"
+
+        val clientUsername = CurrentUser.data.username
+
+        val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
+
+        val query = databaseReference.orderByChild("client/username").equalTo(clientUsername)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    // loop through the results (in this case, should be only one for the most part)
+                    for (dataSnapshot in snapshot.children) {
+                        val clientId = dataSnapshot.key
+
+                        // reference the existing childnode and update data
+                        val clientReference = databaseReference.child(clientId!!)
+                        clientReference.setValue(appDataToUpdate)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // do stuff
+            }
+        })
+
+
+    }
+
 }
