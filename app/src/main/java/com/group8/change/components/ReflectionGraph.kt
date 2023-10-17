@@ -70,7 +70,7 @@ fun ReflectionGraph() {
 
 
 
-    Column (modifier = Modifier.fillMaxSize()) {
+    Column (/*modifier = Modifier.fillMaxSize()*/) {
         Card(
             modifier = Modifier
                 .fillMaxWidth()

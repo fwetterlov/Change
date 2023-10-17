@@ -21,6 +21,7 @@ import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.components.ReflectionGraph
 import com.group8.change.ui.design.TopAppBar
 
 @Composable
@@ -35,9 +36,9 @@ fun ReflectionScreenTherapist(navController: NavController) {
                 content = {
                     Column(
                         modifier = Modifier
-                            .fillMaxSize()
                             .padding(top = 60.dp)
                     ) {
+                        ReflectionGraph()
                         LazyColumn(
                             modifier = Modifier
                                 .fillMaxWidth()
