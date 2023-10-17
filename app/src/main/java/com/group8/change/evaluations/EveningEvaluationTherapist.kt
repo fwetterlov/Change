@@ -55,7 +55,10 @@ fun eveningEvaluationTherapist() {
     val appData = CurrentAppData.data
     val evaluations = CurrentAppData.data.evening_evaluations
     val evaluationsSize = evaluations.size
+    val titleList = listOf(stringResource(id = R.string.morning_title1), stringResource(id = R.string.morning_title2), stringResource(id = R.string.morning_title3), "bla", "bla",)
 
+    Log.d("kajshd", evaluations[0].answers.size.toString())
+    Log.d("kajshd", titleList.size.toString())
     TopAppBar(
         content = {
             Column(
@@ -114,6 +117,12 @@ fun eveningEvaluationTherapist() {
                                         ) {
                                             items(evaluations[index].answers.size) { answerIndex ->
                                                 Text(
+                                                    text = titleList[answerIndex],
+                                                    fontSize = 20.sp,
+                                                    fontWeight = FontWeight.Bold
+                                                )
+
+                                                Text(
                                                     text = evaluations[index].answers[answerIndex],
                                                     fontSize = 20.sp
                                                 )
@@ -130,44 +139,6 @@ fun eveningEvaluationTherapist() {
         title = "Test"
     )
 }
-@Composable
-fun getAnswersEvening() {
-
-    val evaluations = CurrentAppData.data.evening_evaluations
-
-    for (evaluation in evaluations) {
-        val answers = evaluation.answers
-        val date = evaluation.date
-
-        for ((index, answer) in answers.withIndex()) {
-            val dayNumber = index + 1
-            showAnswers(answer = answer, date = date)
-            println("Date: $date, Day $dayNumber - Answer: $answer")
-        }
-    }
-
-}
-
-/*
-@Composable
-fun topBarWithLogo() {
-    // Denna ska bytas ut till Adams topBar
-    Column(
-        modifier = Modifier
-            .padding(8.dp),
-        verticalArrangement = Arrangement.Top
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.change_logo2),
-            contentDescription = "Change logga",
-            modifier = Modifier
-                .size(150.dp)
-                .align(Alignment.CenterHorizontally),
-            contentScale = ContentScale.Fit
-        )
-    }
-}*/
-
 
 @Preview
 @Composable
