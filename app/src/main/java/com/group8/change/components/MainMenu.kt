@@ -130,14 +130,14 @@ fun MainMenu(
                     // Second row left card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_morning_evaluation),
-                        id = routeIds[1],
+                        id = routeIds[2],
                         drawableId = R.drawable.morning,
                         navController = navController
                     )
                     // Third row left card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_monthly_evaluation),
-                        id = routeIds[2],
+                        id = routeIds[4],
                         drawableId = R.drawable.month,
                         navController = navController
                     )
@@ -146,14 +146,14 @@ fun MainMenu(
                     // First row right card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_expectations),
-                        id = routeIds[3],
+                        id = routeIds[1],
                         drawableId = R.drawable.expectation,
                         navController = navController
                     )
                     // Second row right card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_evening_evaluation),
-                        id = routeIds[4],
+                        id = routeIds[3],
                         drawableId = R.drawable.evening,
                         navController = navController
                     )

@@ -78,6 +78,9 @@ class MainActivity : ComponentActivity() {
                         composable("reflections-th") {
                             ReflectionScreenTherapist()
                         }
+                        composable("morning-th") {
+                            ReflectionScreenTherapist()
+                        }
                     }
                 }
                 //GetUsers(viewModel)
