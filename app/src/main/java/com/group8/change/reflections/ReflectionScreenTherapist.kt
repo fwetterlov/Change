@@ -12,12 +12,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.AppTheme
+import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.ui.design.TopAppBar
 
@@ -94,7 +96,7 @@ fun ReflectionScreenTherapist(navController: NavController) {
                         }
                     }
                           },
-                title = "Test",
+                title = stringResource(id = R.string.card_title_reflections),
                 navController = navController
             )
         }
