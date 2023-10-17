@@ -12,13 +12,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.AppTheme
+import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.components.ReflectionGraph
 import com.group8.change.ui.design.TopAppBar
 
 @Composable
@@ -33,9 +36,9 @@ fun ReflectionScreenTherapist(navController: NavController) {
                 content = {
                     Column(
                         modifier = Modifier
-                            .fillMaxSize()
                             .padding(top = 60.dp)
                     ) {
+                        ReflectionGraph()
                         LazyColumn(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -82,6 +85,9 @@ fun ReflectionScreenTherapist(navController: NavController) {
                                             Text(
                                                 text = "${time[0]}:${time[1]}"
                                             )
+                                            Text(
+                                                text = "${reflections[index].grade}"
+                                            )
                                             // Data
                                             Text(
                                                 text = "${reflections[index].data}",
@@ -94,7 +100,7 @@ fun ReflectionScreenTherapist(navController: NavController) {
                         }
                     }
                           },
-                title = "Test",
+                title = stringResource(id = R.string.card_title_reflections),
                 navController = navController
             )
         }
