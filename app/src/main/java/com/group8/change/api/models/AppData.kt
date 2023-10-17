@@ -60,6 +60,7 @@ object CurrentAppData {
         data.monthly_evaluations = newAppData.monthly_evaluations
         data.morning_evaluations = newAppData.morning_evaluations
         data.reflections = newAppData.reflections
+        data.selfassessment = newAppData.selfassessment
         data.therapist = newAppData.therapist
     }
 
