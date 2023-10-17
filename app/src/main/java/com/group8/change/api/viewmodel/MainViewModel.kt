@@ -74,21 +74,13 @@ class MainViewModel : ViewModel() {
 
     fun writeNewAppDataNode(){
 
-        // Create a Reflection object with the desired data, datetime, and grade values
         val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
 
-        // Find the specific AppData object in appDataList (you can use the index or any criteria)
         val indexToUpdate = 0  // Update the first AppData object, for example
         //val appDataToUpdate = appDataList[indexToUpdate]
         val appDataToUpdate = CurrentAppData.data
 
-        // Add the new reflection to the reflections list of the AppData object
         appDataToUpdate.reflections.add(newReflection)
-
-        // Now, you have updated the appDataList with the new reflection.
-
-        // To write the updated data back to Firebase Realtime Database, you can use the following code.
-        // This example assumes that the structure in the database matches your data classes.
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
 
@@ -105,23 +97,22 @@ class MainViewModel : ViewModel() {
         val appDataToUpdate = CurrentAppData.data
         //appDataToUpdate.reflections.add(newReflection)
 
-        //val clientUsername = "client1" // Replace with the client's username you want to update
+        //val clientUsername = "client1"
 
         val clientUsername = CurrentUser.data.username
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
 
-        // Query to find the existing child node with the specified username
         val query = databaseReference.orderByChild("client/username").equalTo(clientUsername)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    // Loop through the results (in this case, there should be only one result)
+                    // loop through the results (in this case, should be only one for the most part)
                     for (dataSnapshot in snapshot.children) {
                         val clientId = dataSnapshot.key
 
-                        // Reference the existing child node and update its data
+                        // reference the existing childnode and update data
                         val clientReference = databaseReference.child(clientId!!)
                         clientReference.setValue(appDataToUpdate)
                     }
@@ -129,7 +120,7 @@ class MainViewModel : ViewModel() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle errors
+                // do stuff
             }
         })
 
