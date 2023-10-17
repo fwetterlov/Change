@@ -20,14 +20,6 @@ fun MainScreen(
     modifier: Modifier = Modifier,
     navController: NavController, viewModel: MainViewModel
 ) {
-    val arrayOfRoutes = arrayOf(
-        "reflections",
-        "expectations",
-        "morning",
-        "evening",
-        "monthly",
-        "self-assessment"
-    )
     TopAppBar(
         content = {
             when (val result = viewModel.appDataState.value) {
@@ -47,8 +39,7 @@ fun MainScreen(
 
                     // Building the main menu
                     MainMenu(navController = navController,
-                        viewModel = viewModel,
-                        routeIds = arrayOfRoutes
+                        viewModel = viewModel
                     )
 
                 }

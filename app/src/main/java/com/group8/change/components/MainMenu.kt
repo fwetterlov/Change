@@ -48,8 +48,6 @@ fun CardClickable(
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         onClick = {
             navController.navigate(id)
-
-            //CurrentAppData.data.reflections
         }
         /*colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.background
@@ -84,9 +82,18 @@ fun CardClickable(
 fun MainMenu(
     modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: MainViewModel,
-    routeIds: Array<String>
+    viewModel: MainViewModel
 ) {
+
+    var routeIds = arrayOf(
+        "reflections",
+        "expectations",
+        "morning",
+        "evening",
+        "monthly",
+        "self-assessment"
+    )
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -100,6 +107,15 @@ fun MainMenu(
                 Row {
                     CreateDropDownList(viewModel)
                 }
+                // Different routes for therapist
+                routeIds = arrayOf(
+                    "reflections-th",
+                    "expectations-th",
+                    "morning-th",
+                    "evening-th",
+                    "monthly-th",
+                    "self-assessment-th"
+                )
             }
 
             Row {
@@ -145,7 +161,7 @@ fun MainMenu(
                     CardClickable(
                         text = stringResource(id = R.string.card_title_self_assessment),
                         id = routeIds[5],
-                        drawableId = R.drawable.month,
+                        drawableId = R.drawable.self,
                         navController = navController
                     )
                 }
