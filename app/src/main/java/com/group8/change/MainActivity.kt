@@ -23,6 +23,7 @@ import com.group8.change.expectations.ExpectationsScreen
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.selfassessment.SelfAssessmentScreen
+import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
