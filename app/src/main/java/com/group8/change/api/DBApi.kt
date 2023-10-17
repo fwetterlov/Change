@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
+import com.group8.change.api.models.Evaluation
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState
@@ -89,8 +90,15 @@ object DBApi {
         }
         else println("AppData not found!")
 
-        //println("Now writing data to db")
-        //viewModel.updateAppDataNode()
+
+        // val newReflection = Reflection("Testing testing", "2023-10-17T12:00:00", 8)
+        // CurrentAppData.data.reflections.add(newReflection)
+        // val newEval = Evaluation("Testing testing", "2023-10-17T12:00:00", 8)
+        // CurrentAppData.data.reflections.add(newReflection)
+        // DBApi.addChangesToDB(viewModel)
+
+        // println("Now writing data to db")
+        // viewModel.updateAppDataNode()
 
     }
 

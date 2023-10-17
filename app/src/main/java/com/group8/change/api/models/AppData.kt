@@ -2,15 +2,15 @@ package com.group8.change.api.models
 
 data class AppData(
     var client: Client,
-    var evening_evaluations: List<Evaluation>,
-    var expectations: List<String>,
-    var monthly_evaluations: List<Evaluation>,
-    var morning_evaluations: List<Evaluation>,
+    var evening_evaluations: MutableList<Evaluation>,
+    var expectations: MutableList<String>,
+    var monthly_evaluations: MutableList<Evaluation>,
+    var morning_evaluations: MutableList<Evaluation>,
     var reflections: MutableList<Reflection>,
-    var selfassessment: List<SelfAssessment>,
+    var selfassessment: MutableList<SelfAssessment>,
     var therapist: Therapist
 ){
-    constructor() : this(Client("cli", "cli1"), emptyList(), emptyList(), emptyList(), emptyList(), mutableListOf(), emptyList(), Therapist("therap1"))
+    constructor() : this(Client("cli", "cli1"), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), Therapist("therap1"))
 }
 
 data class Client(
