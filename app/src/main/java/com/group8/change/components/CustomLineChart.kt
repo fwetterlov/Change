@@ -29,7 +29,7 @@ private fun CustomLineChart(
     leftAxisValueFormatter: AxisValueFormatter<AxisPosition.Vertical.Start>,
     bottomAxisValueFormatter: AxisValueFormatter<AxisPosition.Horizontal.Bottom>) {
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column() {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
