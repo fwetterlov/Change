@@ -50,7 +50,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 @Composable
-fun eveningEvaluationTherapist() {
+fun eveningEvaluationTherapist(navController: NavController) {
 
     val appData = CurrentAppData.data
     val evaluations = CurrentAppData.data.evening_evaluations
@@ -136,12 +136,15 @@ fun eveningEvaluationTherapist() {
                 }
             }
         },
-        title = stringResource(id = R.string.card_title_evening_evaluation)
+        title = stringResource(id = R.string.card_title_evening_evaluation), navController
     )
 }
 
+/*
 @Preview
 @Composable
 fun eveningEvaluationPreview() {
     morningEvaluationTherapist()
 }
+
+ */

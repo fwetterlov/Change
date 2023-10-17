@@ -82,13 +82,13 @@ class MainActivity : ComponentActivity() {
                             ReflectionScreenTherapist(navController)
                         }
                         composable("morning-th") {
-                            morningEvaluationTherapist()
+                            morningEvaluationTherapist(navController)
                         }
                         composable("evening-th") {
-                            eveningEvaluationTherapist()
+                            eveningEvaluationTherapist(navController)
                         }
                         composable("monthly-th") {
-                            monthlyEvaluationTherapist()
+                            monthlyEvaluationTherapist(navController)
                         }
                     }
                 }
