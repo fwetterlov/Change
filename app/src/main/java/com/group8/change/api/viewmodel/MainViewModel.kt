@@ -76,7 +76,7 @@ class MainViewModel : ViewModel() {
 
         val newReflection = Reflection("RADICAL EVAL DATA", "2023-10-15T12:00:00", 9)
 
-        val indexToUpdate = 0  // Update the first AppData object, for example
+        //val indexToUpdate = 0
         //val appDataToUpdate = appDataList[indexToUpdate]
         val appDataToUpdate = CurrentAppData.data
 
@@ -84,7 +84,7 @@ class MainViewModel : ViewModel() {
 
         val databaseReference = FirebaseDatabase.getInstance().getReference("AppData")
 
-        // Update the data at the specified database reference
+        // for testing purposes
         databaseReference.child("client1").setValue(appDataToUpdate)
 
 
