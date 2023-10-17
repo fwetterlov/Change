@@ -1,26 +1,30 @@
 package com.group8.change.selfassessment
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.group8.change.R
+import com.group8.change.reflections.SelectedPositionText
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun ClientSelfAssessment(navController: NavHostController) {
@@ -34,21 +38,26 @@ fun ClientSelfAssessment(navController: NavHostController) {
                 .fillMaxSize()
                 .padding(top = 60.dp)
                 .background(Color.White)
+                .padding(16.dp)
         ) {
-            SliderRow(stringResource(id = R.string.selfassessment_title1), selfImage.value)
-            SliderRow(stringResource(id = R.string.selfassessment_title2), selfEsteem.value)
-            SliderRow(stringResource(id = R.string.selfassessment_title3), selfConfidence.value)
+            SliderRow(stringResource(id = R.string.selfassessment_title1), selfImage.value) {
+                selfImage.value = it
+            }
+            SliderRow(stringResource(id = R.string.selfassessment_title2), selfEsteem.value) {
+                selfEsteem.value = it
+            }
+            SliderRow(stringResource(id = R.string.selfassessment_title3), selfConfidence.value) {
+                selfConfidence.value = it
+            }
         }
     }, title = stringResource(id = R.string.card_title_self_assessment),
-        secondButton = { /*TODO*/ },
+        secondButton = { SubmitSelfAssessment(navController, selfImage.value, selfEsteem.value, selfConfidence.value ) },
         navController = navController)
 
 }
 
 @Composable
-fun SliderRow(label: String, sliderValue: Float) {
-    var mutableSliderValue by remember { mutableStateOf(sliderValue) }
-
+fun SliderRow(label: String, sliderValue: Float, onSliderValueChanged: (Float) -> Unit) {
     Column {
         Text(
             text = label,
@@ -57,11 +66,29 @@ fun SliderRow(label: String, sliderValue: Float) {
         )
         Slider(
             value = sliderValue,
-            onValueChange = { newValue ->
-                mutableSliderValue = newValue
+            onValueChange = {
+                onSliderValueChanged(it)
             },
             valueRange = 0f..10f,
             steps = 9
         )
+        SelectedPositionText(sliderValue)
+    }
+}
+
+@Composable
+fun SubmitSelfAssessment(navController: NavController, selfImageValue: Float, selfEsteemValue: Float, selfConfidenceValue: Float) {
+    Button(
+        onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            Log.d("SelfAssessment", "Self Image Value: $selfImageValue")
+            Log.d("SelfAssessment", "Self Esteem Value: $selfEsteemValue")
+            Log.d("SelfAssessment", "Self Confidence Value: $selfConfidenceValue")
+            Log.d("SelfAssessment", "Submission Date: $currentDate")
+            navController.navigate("main-menu")
+        }
+    ) {
+        Text(text = "Submit",
+            color = Color.White)
     }
 }
