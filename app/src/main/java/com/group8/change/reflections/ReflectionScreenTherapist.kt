@@ -16,12 +16,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.ui.design.TopAppBar
 
 @Composable
-fun ReflectionScreenTherapist() {
+fun ReflectionScreenTherapist(navController: NavController) {
     AppTheme {
         Surface(
             modifier = Modifier.fillMaxSize()
@@ -93,14 +94,9 @@ fun ReflectionScreenTherapist() {
                         }
                     }
                           },
-                title = "Test"
+                title = "Test",
+                navController = navController
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun ReflectionPreview() {
-    ReflectionScreenTherapist()
 }

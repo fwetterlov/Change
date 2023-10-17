@@ -18,7 +18,8 @@ import com.group8.change.ui.design.TopAppBar
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavController, viewModel: MainViewModel
+    navController: NavController,
+    viewModel: MainViewModel
 ) {
     TopAppBar(
         content = {
@@ -49,6 +50,7 @@ fun MainScreen(
 
             }
         },
-        title = stringResource(id = R.string.app_name)
+        title = stringResource(id = R.string.app_name),
+        navController= navController
     )
 }
