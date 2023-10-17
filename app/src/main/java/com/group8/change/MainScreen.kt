@@ -26,7 +26,7 @@ fun MainScreen(
         "morning",
         "evening",
         "monthly",
-        "self"
+        "self-assessment"
     )
     TopAppBar(
         content = {
