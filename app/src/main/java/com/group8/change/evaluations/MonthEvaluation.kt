@@ -30,6 +30,7 @@ import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.Evaluation
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.TextFieldWithLabel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -51,36 +52,22 @@ fun monthEvaluation(navController: NavController) {
         ) {
             Spacer(modifier = Modifier.height(90.dp))
 
-            Text(
-                modifier = Modifier.padding(end = 40.dp),
-                text = stringResource(id = R.string.month_title1),
-                style = TextStyle(fontSize = 16.sp)
+            TextFieldWithLabel(
+                labelText = stringResource(id = R.string.month_title1),
+                textValue = text1,
+                onTextChange = { newValue -> text1 = newValue }
             )
 
-            textField(
-                initialValue = text1,
-                onValueChange = { newValue -> text1 = newValue }
+            TextFieldWithLabel(
+                labelText = stringResource(id = R.string.month_title2),
+                textValue = text2,
+                onTextChange = { newValue -> text2 = newValue }
             )
 
-            Text(
-                modifier = Modifier.padding(end = 40.dp),
-                text = stringResource(id = R.string.month_title2),
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField(
-                initialValue = text2,
-                onValueChange = { newValue -> text2 = newValue }
-            )
-
-            Text(
-                text = stringResource(id = R.string.month_title3),
-                style = TextStyle(fontSize = 16.sp)
-            )
-
-            textField(
-                initialValue = text3,
-                onValueChange = { newValue -> text3 = newValue }
+            TextFieldWithLabel(
+                labelText = stringResource(id = R.string.month_title3),
+                textValue = text3,
+                onTextChange = { newValue -> text3 = newValue }
             )
 
         } }, title = stringResource(id = R.string.card_title_monthly_evaluation),

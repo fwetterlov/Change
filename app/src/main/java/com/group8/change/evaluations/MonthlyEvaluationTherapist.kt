@@ -55,10 +55,13 @@ fun monthlyEvaluationTherapist(navController: NavController) {
     val titleList = mutableListOf<String>()
 
     if (CurrentAppData.data.client.role == "client_addiction") {
+        titleList.add(stringResource(id = R.string.month_title1))
+        titleList.add(stringResource(id = R.string.month_title2))
+        titleList.add(stringResource(id = R.string.month_title3))
         titleList.add(stringResource(id = R.string.month_addiction_title1))
         titleList.add(stringResource(id = R.string.month_addiction_title2))
-        titleList.add(stringResource(id = R.string.month_addiction_title3))
         titleList.add(stringResource(id = R.string.month_addiction_title4))
+        titleList.add(stringResource(id = R.string.month_addiction_title3))
         titleList.add(stringResource(id = R.string.month_addiction_title5))
 
     } else {
