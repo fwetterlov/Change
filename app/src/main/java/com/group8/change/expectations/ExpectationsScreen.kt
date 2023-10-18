@@ -52,8 +52,11 @@ fun SubmitButton(expectationsViewModel: ExpectationsViewModel, navController: Na
         onClick = {
             Log.d("btnPress","${CurrentAppData.data.expectations}")
             val questions = expectationsViewModel.questions.value
+            var counter = 0;
+
             for (question in questions){
-                CurrentAppData.data.expectations.add(question.answer)
+                CurrentAppData.data.expectations.add(counter, question.answer)
+                counter++
             }
 
 
