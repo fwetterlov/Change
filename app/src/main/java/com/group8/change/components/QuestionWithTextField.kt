@@ -39,29 +39,17 @@ fun QuestionWithTextField(
     viewModel: ExpectationsViewModel
 ) {
     val questions by viewModel.questions.collectAsState()
-    Box (modifier = Modifier.padding(top=60.dp)){
+
         LazyColumn() {
             items(questions) { question ->
                 var answer by remember { mutableStateOf(question.answer) }
-
-                Text(
-                    text = question.text,
-                    style = TextStyle(fontSize = 16.sp),
-                    modifier = Modifier.padding(16.dp)
-                )
-                OutlinedTextField(
-                    value = answer,
-                    onValueChange = {
+                TextFieldWithLabel(
+                    labelText = question.text,
+                    textValue = question.answer,
+                    onTextChange = {
                         answer = it
                         viewModel.updateAnswer(question.id, it)
-                    },
-                    textStyle = TextStyle(fontSize = 20.sp),
-                    modifier = Modifier
-                        .background(Color.White)
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                )
-            }
+                    } )
         }
     }
 

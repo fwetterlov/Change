@@ -2,12 +2,10 @@ package com.group8.change.expectations.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.group8.change.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
-import java.util.*
+
 
 class ExpectationsViewModel(private val context: Context) : ViewModel() {
     data class Question(
