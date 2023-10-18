@@ -22,7 +22,7 @@ import java.util.Date
 fun CardList(
     data: MutableList<String>,
     datesAndTimes: MutableList<String>,
-    titles: List<String>,
+    titles: List<String> = emptyList(),
     // Grades is optional!
     // Do not include if you don't have any!
     grades: MutableList<Int> = mutableListOf()
