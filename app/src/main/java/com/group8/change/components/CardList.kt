@@ -112,33 +112,37 @@ fun CardList(
                                     text = "Grade: ${grades[index]}"
                                 )
                             }
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(400.dp)
-                            ) {
-                                LazyColumn(
-                                    modifier = Modifier.fillMaxSize()
-                                ) {
-                                    items(dataSize) { answerIndex ->
-                                        Text(
-                                            text = titles[answerIndex],
-                                            fontSize = 20.sp,
-                                            fontWeight = FontWeight.Bold
-                                        )
 
-                                        Text(
-                                            text = data[index],
-                                            fontSize = 20.sp
-                                        )
+                            if (titles.isNotEmpty()) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(400.dp)
+                                ) {
+                                    LazyColumn(
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        items(dataSize) { answerIndex ->
+                                            Text(
+                                                text = titles[answerIndex],
+                                                fontSize = 20.sp,
+                                                fontWeight = FontWeight.Bold
+                                            )
+
+                                            Text(
+                                                text = data[index],
+                                                fontSize = 20.sp
+                                            )
+                                        }
                                     }
                                 }
+                            } else {
+                                // Data
+                                Text(
+                                    text = data[index],
+                                    fontSize = 20.sp
+                                )
                             }
-                            // Data
-                            Text(
-                                text = data[index],
-                                fontSize = 20.sp
-                            )
                         }
                     }
                 }
