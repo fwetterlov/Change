@@ -1,5 +1,6 @@
 package com.group8.change.evaluations
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.components.CardList
 import com.group8.change.ui.design.TopAppBar
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -26,8 +28,19 @@ import java.util.Date
 fun eveningEvaluationTherapist(navController: NavController) {
 
     val evaluations = CurrentAppData.data.evening_evaluations
-    val evaluationsSize = evaluations.size
     val titleList = listOf(stringResource(id = R.string.evening_title1), stringResource(id = R.string.evening_title2), stringResource(id = R.string.evening_title3), stringResource(id = R.string.evening_title4), stringResource(id = R.string.evening_title5), stringResource(id = R.string.evening_title6))
+
+    val listOfData = mutableListOf<String>()
+    val listOfDatesAndTimes = mutableListOf<String>()
+
+    for (evaluation in evaluations) {
+
+        for (answer in evaluation.answers) {
+            listOfData.add(answer)
+        }
+
+        listOfDatesAndTimes.add(evaluation.date)
+    }
 
     TopAppBar(
         content = {
@@ -36,74 +49,11 @@ fun eveningEvaluationTherapist(navController: NavController) {
                     .fillMaxSize()
                     .padding(top = 60.dp)
             ) {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    items(evaluationsSize) {index ->
-
-                        val formattedDate = SimpleDateFormat("dd-MM-yyyy").format(
-                            SimpleDateFormat("yyyy-MM-dd").parse(evaluations[index].date) ?: Date()
-                        )
-
-                        Column (
-                            modifier = Modifier
-                                .padding(
-                                    top = 20.dp,
-                                    bottom = 10.dp,
-                                    start = 10.dp,
-                                    end = 10.dp
-                                )
-                        ) {
-                            // Big card
-                            Card (
-                                modifier = Modifier
-                                    .fillMaxSize()
-                            ) {
-                                // Card used for inner padding
-                                Card (
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(
-                                            top = 10.dp,
-                                            bottom = 10.dp,
-                                            start = 10.dp,
-                                            end = 10.dp
-                                        )
-                                ){
-                                    // Date
-                                    Text(
-                                        text = formattedDate,
-                                        fontSize = 30.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                    Box(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(400.dp)
-                                    ) {
-                                        LazyColumn(
-                                            modifier = Modifier.fillMaxSize()
-                                        ) {
-                                            items(evaluations[index].answers.size) { answerIndex ->
-                                                Text(
-                                                    text = titleList[answerIndex],
-                                                    fontSize = 20.sp,
-                                                    fontWeight = FontWeight.Bold
-                                                )
-
-                                                Text(
-                                                    text = evaluations[index].answers[answerIndex],
-                                                    fontSize = 20.sp
-                                                )
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                CardList(
+                    data = listOfData,
+                    datesAndTimes = listOfDatesAndTimes,
+                    titles = titleList
+                )
             }
         },
         title = stringResource(id = R.string.card_title_evening_evaluation), navController
