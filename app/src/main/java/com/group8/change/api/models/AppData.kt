@@ -21,7 +21,7 @@ data class Client(
 }
 
 data class Evaluation(
-    val answers: List<String>,
+    var answers: List<String>,
     val date: String
 ){
     constructor() : this(emptyList(), "")
@@ -37,7 +37,7 @@ data class Reflection(
 
 data class SelfAssessment(
     val date: String,
-    val grades: List<Int>
+    var grades: List<Int>
 ){
     constructor() : this("", emptyList())
 }
