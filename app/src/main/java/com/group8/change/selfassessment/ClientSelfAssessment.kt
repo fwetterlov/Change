@@ -20,6 +20,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.SelfAssessment
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.reflections.SelectedPositionText
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -85,6 +89,12 @@ fun SubmitSelfAssessment(navController: NavController, selfImageValue: Float, se
             Log.d("SelfAssessment", "Self Esteem Value: $selfEsteemValue")
             Log.d("SelfAssessment", "Self Confidence Value: $selfConfidenceValue")
             Log.d("SelfAssessment", "Submission Date: $currentDate")
+            val grades = listOf(selfImageValue.toInt(), selfEsteemValue.toInt(), selfConfidenceValue.toInt())
+            val newSelfAssessment = SelfAssessment(currentDate, grades)
+
+            CurrentAppData.data.selfassessment.add(newSelfAssessment)
+            DBApi.addChangesToDB(MainViewModel())
+
             navController.navigate("main-menu")
         }
     ) {
