@@ -40,12 +40,6 @@ fun CardList(
             .fillMaxWidth()
     ) {
         items(dataSize) { index ->
-
-
-            if (datesAndTimes.isNotEmpty()) {
-
-            }
-
             Column(
                 modifier = Modifier
                     .padding(
