@@ -37,6 +37,15 @@
     <string name = "month_title1">Au cours de ce mois, j’ai apporté les modifications suivantes:</string>
     <string name = "month_title2">La chose la plus importante que je dois faire et dont j’assume la responsabilité:</string>
     <string name = "month_title3">C’est pourquoi c’est si important pour moi:</string>
+    <string name = "month_addiction_title1">Here you mark the result of your drug test or Peth/Cdt test</string>
+    <string name = "month_addiction_positive">Positive</string>
+    <string name = "month_addiction_negative">Negative</string>
+    <string name = "month_addiction_title2">Number of AA meetings during this month</string>
+    <string name = "month_addiction_title3">Number of days sober</string>
+    <string name = "month_addiction_title4">Relapse?</string>
+    <string name = "month_addiction_yes">Yes</string>
+    <string name = "month_addiction_no">No</string>
+    <string name = "month_addiction_title5">How many days since the relapse?</string>
 
     <string name = "expectations_title1">Pourquoi demandez-vous de l’aide maintenant ?</string>
     <string name = "expectations_title2">Quels sont vos principaux problèmes ?</string>
