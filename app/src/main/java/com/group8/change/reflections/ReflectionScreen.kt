@@ -1,5 +1,6 @@
 package com.group8.change.reflections
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,9 +36,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import kotlin.jvm.internal.Reflection
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReflectionScreen(navController: NavController) {
     AppTheme {
@@ -53,9 +60,6 @@ fun ReflectionScreen(navController: NavController) {
                         .padding(top = 60.dp)
                         .fillMaxSize()
                         .background(Color.White)){
-                    /*Text(text = stringResource(id = R.string.card_title_reflections),
-                        style = TextStyle(fontSize = 24.sp, fontWeight = FontWeight.Bold),
-                        modifier = Modifier.padding(16.dp))*/
                     OutlinedTextField(
                         value = textState,
                         onValueChange = { newText ->
@@ -81,7 +85,7 @@ fun ReflectionScreen(navController: NavController) {
 
                 } }, title = stringResource(id = R.string.card_title_reflections),
                     navController = navController,
-                    secondButton = { SubmitReflection(sliderPosition, textState.toString(),navController) }
+                    secondButton = { SubmitReflection(sliderPosition, textState.text,navController) }
                     )
 
 
@@ -138,19 +142,19 @@ fun SelectedPositionText(sliderPosition: Float) {
 
 @Composable
 fun SubmitReflection(startPosition: Float, textState: String,navController: NavController) {
+
     Button(
         onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val newReflection = com.group8.change.api.models.Reflection(textState, currentDate, startPosition.toInt())
+
+            CurrentAppData.data.reflections.add(newReflection)
+            DBApi.addChangesToDB(MainViewModel())
+
             navController.navigate("main-menu")
         }
     ) {
         Text(text = "Submit",
             color = Color.White)
     }
-}
-
-@Preview
-@Composable
-fun ReflectionsPreview() {
-
-
 }
