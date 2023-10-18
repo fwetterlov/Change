@@ -107,17 +107,27 @@ fun CardList(
                         }
 
                         if (titles.isNotEmpty()) {
+                            for (i in 0 until titles.size) {
+                                Text(
+                                    text = titles[i],
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+
+                                Text(
+                                    text = data[i],
+                                    fontSize = 20.sp
+                                )
+                            }
+
+                        } else {
                             Text(
-                                text = titles[index],
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold
+                                text = data[index],
+                                fontSize = 20.sp
                             )
                         }
 
-                        Text(
-                            text = data[index],
-                            fontSize = 20.sp
-                        )
+
 
                         /*Box(
                             modifier = Modifier
