@@ -24,6 +24,8 @@ fun ReflectionScreenTherapist(navController: NavController) {
             val listOfDatesAndTimes = mutableListOf<String>()
             val listOfGrades = mutableListOf<Int>()
 
+            val listOfTitles = mutableListOf<String>()
+
             // Looping through the all data and adds it to separate lists
             for (reflection in reflections) {
                 listOfData.add(reflection.data)
@@ -38,7 +40,8 @@ fun ReflectionScreenTherapist(navController: NavController) {
                     CardList(
                         data = listOfData,
                         datesAndTimes = listOfDatesAndTimes,
-                        grades = listOfGrades
+                        grades = listOfGrades,
+                        titles = listOfTitles
                     )
                           },
                 title = stringResource(id = R.string.card_title_reflections),

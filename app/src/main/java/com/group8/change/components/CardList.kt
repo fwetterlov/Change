@@ -1,8 +1,11 @@
 package com.group8.change.components
 
+import android.util.Log
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
@@ -19,6 +22,7 @@ import java.util.Date
 fun CardList(
     data: MutableList<String>,
     datesAndTimes: MutableList<String>,
+    titles: List<String>,
     // Grades is optional!
     // Do not include if you don't have any!
     grades: MutableList<Int> = mutableListOf()
@@ -33,6 +37,8 @@ fun CardList(
         // If only date is included
         dateFormat = SimpleDateFormat("yyyy-MM-dd")
     }
+
+    Log.d("asd","Är det här?")
 
     Column(
         modifier = Modifier
@@ -105,6 +111,28 @@ fun CardList(
                                 Text(
                                     text = "Grade: ${grades[index]}"
                                 )
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(400.dp)
+                            ) {
+                                LazyColumn(
+                                    modifier = Modifier.fillMaxSize()
+                                ) {
+                                    items(dataSize) { answerIndex ->
+                                        Text(
+                                            text = titles[answerIndex],
+                                            fontSize = 20.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
+
+                                        Text(
+                                            text = data[index],
+                                            fontSize = 20.sp
+                                        )
+                                    }
+                                }
                             }
                             // Data
                             Text(
