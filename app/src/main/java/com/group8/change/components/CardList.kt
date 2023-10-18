@@ -1,11 +1,8 @@
 package com.group8.change.components
 
-import android.util.Log
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
@@ -20,11 +17,11 @@ import java.util.Date
 
 @Composable
 fun CardList(
-    data: MutableList<String>,
-    datesAndTimes: MutableList<String>,
-    titles: List<String> = emptyList(),
-    // Grades is optional!
+    // Grades and datesAndTimes are optional!
     // Do not include if you don't have any!
+    data: MutableList<String>,
+    datesAndTimes: MutableList<String> = mutableListOf(),
+    titles: List<String> = emptyList(),
     grades: MutableList<Int> = mutableListOf()
 ) {
     val dataSize = data.size
@@ -38,29 +35,15 @@ fun CardList(
         dateFormat = SimpleDateFormat("yyyy-MM-dd")
     }
 
-    Log.d("asd", "Är det här?")
-
-
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
     ) {
         items(dataSize) { index ->
 
-            val date: String
-            var time = ""
 
-            if ("T" in datesAndTimes[0]) {
-                // If both time and date are included
-                val fullDate = dateFormat.parse(datesAndTimes[index])
-                val (dateOnly, timeOnly) = formatDateTime(fullDate)
+            if (datesAndTimes.isNotEmpty()) {
 
-                // Android studio made me do this
-                date = dateOnly
-                time = timeOnly
-            } else {
-                // If only date is included
-                date = dateFormat.parse(datesAndTimes[index]).toString()
             }
 
             Column(
@@ -88,18 +71,38 @@ fun CardList(
                                 end = 10.dp
                             )
                     ) {
-                        // Date
-                        Text(
-                            text = date,
-                            fontSize = 30.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        // Only visible when time is used
-                        if ("T" in datesAndTimes[0]) {
-                            // Time
+                        // Why do i have to put this here???
+                        // Used when dates are used
+                        if (datesAndTimes.isNotEmpty()) {
+                            val date: String
+                            var time = ""
+                            if ("T" in datesAndTimes[0]) {
+                                // If both time and date are included
+                                val fullDate = dateFormat.parse(datesAndTimes[index])
+                                val (dateOnly, timeOnly) = formatDateTime(fullDate)
+
+                                // Android studio made me do this
+                                date = dateOnly
+                                time = timeOnly
+                            } else {
+                                // If only date is included
+                                val fullDate = dateFormat.parse(datesAndTimes[index])
+                                date = formatDate(fullDate)
+                            }
+
+                            // Date
                             Text(
-                                text = time
+                                text = date,
+                                fontSize = 30.sp,
+                                fontWeight = FontWeight.Bold
                             )
+                            // Only visible when time is used
+                            if ("T" in datesAndTimes[0]) {
+                                // Time
+                                Text(
+                                    text = time
+                                )
+                            }
                         }
                         // Only visible when grades are used
                         if (grades.isNotEmpty()) {
@@ -110,41 +113,52 @@ fun CardList(
                         }
 
                         if (titles.isNotEmpty()) {
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(400.dp)
-                            ) {
-                                LazyColumn(
-                                    modifier = Modifier.fillMaxSize()
-                                ) {
-                                    items(dataSize) { answerIndex ->
-                                        Text(
-                                            text = titles[answerIndex],
-                                            fontSize = 20.sp,
-                                            fontWeight = FontWeight.Bold
-                                        )
-
-                                        Text(
-                                            text = data[index],
-                                            fontSize = 20.sp
-                                        )
-                                    }
-                                }
-                            }
-                        } else {
-                            // Data
                             Text(
-                                text = data[index],
-                                fontSize = 20.sp
+                                text = titles[index],
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
                             )
                         }
+
+                        Text(
+                            text = data[index],
+                            fontSize = 20.sp
+                        )
+
+                        /*Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(400.dp)
+                        ) {
+                            LazyColumn(
+                                modifier = Modifier.fillMaxSize()
+                            ) {
+                                items(dataSize) { answerIndex ->
+                                    Text(
+                                        text = titles[answerIndex],
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+
+                                    Text(
+                                        text = data[index],
+                                        fontSize = 20.sp
+                                    )
+                                }
+                            }
+                        }*/
                     }
                 }
             }
         }
     }
 
+}
+
+fun formatDate(date: Date): String {
+    val dateBluePrint = SimpleDateFormat("dd-MM-yyyy")
+
+    return dateBluePrint.format(date)
 }
 
 fun formatDateTime(date: Date): Pair<String, String> {
