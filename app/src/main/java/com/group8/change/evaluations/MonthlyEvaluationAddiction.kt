@@ -121,7 +121,7 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
         }
     }, title = stringResource(id = R.string.card_title_monthly_evaluation),
         secondButton = {
-            SubmitMonthEvaluationAddiction(navController, text1, text2, text3)
+            SubmitMonthEvaluationAddiction(navController, text1, text2, text3, drugTestResult, aaMeetingsThisMonth, relapse, daysSober, daysAbusing)
         },
         navController = navController)
 }
@@ -198,12 +198,18 @@ fun NumberPicker(
 }
 
 @Composable
-fun SubmitMonthEvaluationAddiction(navController: NavController, text1: String, text2: String, text3: String) {
+fun SubmitMonthEvaluationAddiction(navController: NavController, text1: String, text2: String, text3: String, drugTestResult: String, aaMeetingsThisMonth: Int, relapse: String, daysSober: String, daysAbusing: String) {
     Button(
         onClick = {
-            Log.d("monthaddiction", text1)
-            Log.d("monthaddiction", text2)
-            Log.d("monthaddiction", text3)
+            Log.d("MonthlyEvaluationAddiction", "Text1: $text1")
+            Log.d("MonthlyEvaluationAddiction", "Text2: $text2")
+            Log.d("MonthlyEvaluationAddiction", "Text3: $text3")
+            Log.d("MonthlyEvaluationAddiction", "Drug Test Result: $drugTestResult")
+            Log.d("MonthlyEvaluationAddiction", "AA Meetings This Month: $aaMeetingsThisMonth")
+            Log.d("MonthlyEvaluationAddiction", "Relapse: $relapse")
+            Log.d("MonthlyEvaluationAddiction", "Days Sober: $daysSober")
+            Log.d("MonthlyEvaluationAddiction", "Days Abusing: $daysAbusing")
+
         }
     ) {
         Text(text = "Submit",
