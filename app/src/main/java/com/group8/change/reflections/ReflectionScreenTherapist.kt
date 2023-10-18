@@ -28,8 +28,6 @@ fun ReflectionScreenTherapist(navController: NavController) {
             val listOfDatesAndTimes = mutableListOf<String>()
             val listOfGrades = mutableListOf<Int>()
 
-            val listOfTitles = mutableListOf<String>()
-
             // Looping through the all data and adds it to separate lists
             for (reflection in reflections) {
                 listOfData.add(reflection.data)
@@ -37,9 +35,14 @@ fun ReflectionScreenTherapist(navController: NavController) {
                 listOfGrades.add(reflection.grade)
             }
 
+            // Reverse the lists to have them appear in descending order
+            val listOfDataRev = listOfData.asReversed()
+            val listOfDatesAndTimesRev = listOfDatesAndTimes.asReversed()
+            val listOfGradesRev = listOfGrades.asReversed()
+
             TopAppBar(
                 content = {
-                    // Only data and dateAndTime have to be sent
+                    // Only data have to be sent
                     // grades is optional and can be left out
                     Column(
                         modifier = Modifier
@@ -47,10 +50,9 @@ fun ReflectionScreenTherapist(navController: NavController) {
                     ) {
                         ReflectionGraph()
                         CardList(
-                            data = listOfData,
-                            datesAndTimes = listOfDatesAndTimes,
-                            grades = listOfGrades,
-                            titles = listOfTitles
+                            data = listOfDataRev,
+                            datesAndTimes = listOfDatesAndTimesRev,
+                            grades = listOfGradesRev
                         )
                     }
 
