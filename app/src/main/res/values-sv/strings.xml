@@ -37,6 +37,15 @@
     <string name = "month_title1">Under denna månad har jag gjort följande förändringar:</string>
     <string name = "month_title2">Det viktigaste som jag behöver göra och ta ansvar för:</string>
     <string name = "month_title3">Därför är det så viktigt för mig:</string>
+    <string name = "month_addiction_title1">Här markerar du resultatet av ditt drogtest eller Peth/Cdt prov</string>
+    <string name = "month_addiction_title2">Antal AA möten under denna månaden</string>
+    <string name = "month_addiction_title3">Antal nyktra dagar</string>
+    <string name = "month_addiction_title4">Återfall?</string>
+    <string name = "month_addiction_title5">Hur många dagar sedan återfallet?</string>
+    <string name = "month_addiction_positive">Positiv</string>
+    <string name = "month_addiction_negative">Negativ</string>
+    <string name = "month_addiction_yes">Ja</string>
+    <string name = "month_addiction_no">Nej</string>
 
     <string name = "expectations_title1">Varför har du sökt hjälp just nu?</string>
     <string name = "expectations_title2">Vilka är dina huvudsakliga problem?</string>
