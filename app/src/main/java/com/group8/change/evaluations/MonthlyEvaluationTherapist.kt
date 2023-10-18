@@ -52,13 +52,26 @@ import java.util.Date
 @Composable
 fun monthlyEvaluationTherapist(navController: NavController) {
 
-    val appData = CurrentAppData.data
+    val titleList = mutableListOf<String>()
+
+    if (CurrentAppData.data.client.role == "client_addiction") {
+        titleList.add(stringResource(id = R.string.month_addiction_title1))
+        titleList.add(stringResource(id = R.string.month_addiction_title2))
+        titleList.add(stringResource(id = R.string.month_addiction_title3))
+        titleList.add(stringResource(id = R.string.month_addiction_title4))
+        titleList.add(stringResource(id = R.string.month_addiction_title5))
+
+    } else {
+        titleList.add(stringResource(id = R.string.month_title1))
+        titleList.add(stringResource(id = R.string.month_title2))
+        titleList.add(stringResource(id = R.string.month_title3))
+        titleList.add("bla")
+        titleList.add("bla")
+    }
+
     val evaluations = CurrentAppData.data.monthly_evaluations
     val evaluationsSize = evaluations.size
-    val titleList = listOf(stringResource(id = R.string.month_title1), stringResource(id = R.string.month_title2), stringResource(id = R.string.month_title3), "bla", "bla")
 
-    //Log.d("kajshd", evaluations[0].answers.size.toString())
-    //Log.d("kajshd", titleList.size.toString())
     TopAppBar(
         content = {
             Column(

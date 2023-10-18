@@ -52,13 +52,10 @@ import java.util.Date
 @Composable
 fun morningEvaluationTherapist(navController: NavController) {
 
-    val appData = CurrentAppData.data
     val evaluations = CurrentAppData.data.morning_evaluations
     val evaluationsSize = evaluations.size
     val titleList = listOf(stringResource(id = R.string.morning_title1), stringResource(id = R.string.morning_title2), stringResource(id = R.string.morning_title3), "bla", "bla")
 
-    Log.d("kajshd", evaluations[0].answers.size.toString())
-    Log.d("kajshd", titleList.size.toString())
     TopAppBar(
         content = {
             Column(
