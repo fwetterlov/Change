@@ -1,15 +1,19 @@
 package com.group8.change.reflections
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.compose.AppTheme
 import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.components.CardList
+import com.group8.change.components.ReflectionGraph
 import com.group8.change.ui.design.TopAppBar
 
 @Composable
@@ -37,12 +41,19 @@ fun ReflectionScreenTherapist(navController: NavController) {
                 content = {
                     // Only data and dateAndTime have to be sent
                     // grades is optional and can be left out
-                    CardList(
-                        data = listOfData,
-                        datesAndTimes = listOfDatesAndTimes,
-                        grades = listOfGrades,
-                        titles = listOfTitles
-                    )
+                    Column(
+                        modifier = Modifier
+                            .padding(top = 60.dp)
+                    ) {
+                        ReflectionGraph()
+                        CardList(
+                            data = listOfData,
+                            datesAndTimes = listOfDatesAndTimes,
+                            grades = listOfGrades,
+                            titles = listOfTitles
+                        )
+                    }
+
                           },
                 title = stringResource(id = R.string.card_title_reflections),
                 navController = navController
