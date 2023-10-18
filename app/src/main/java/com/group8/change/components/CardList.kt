@@ -30,7 +30,7 @@ fun CardList(
     val dataSize = data.size
     val dateFormat: SimpleDateFormat
 
-     if ("T" in datesAndTimes[0]) {
+    if ("T" in datesAndTimes[0]) {
         // If both time and date are included
         dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
     } else {
@@ -38,117 +38,113 @@ fun CardList(
         dateFormat = SimpleDateFormat("yyyy-MM-dd")
     }
 
-    Log.d("asd","Är det här?")
+    Log.d("asd", "Är det här?")
 
-    Column(
+
+    LazyColumn(
         modifier = Modifier
-            .padding(top = 60.dp)
+            .fillMaxWidth()
     ) {
-        ReflectionGraph()
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            items(dataSize) {index ->
+        items(dataSize) { index ->
 
-                val date: String
-                var time = ""
+            val date: String
+            var time = ""
 
-                if ("T" in datesAndTimes[0]) {
-                    // If both time and date are included
-                    val fullDate = dateFormat.parse(datesAndTimes[index])
-                    val (dateOnly, timeOnly) = formatDateTime(fullDate)
+            if ("T" in datesAndTimes[0]) {
+                // If both time and date are included
+                val fullDate = dateFormat.parse(datesAndTimes[index])
+                val (dateOnly, timeOnly) = formatDateTime(fullDate)
 
-                    // Android studio made me do this
-                    date = dateOnly
-                    time = timeOnly
-                } else {
-                    // If only date is included
-                    date = dateFormat.parse(datesAndTimes[index]).toString()
-                }
+                // Android studio made me do this
+                date = dateOnly
+                time = timeOnly
+            } else {
+                // If only date is included
+                date = dateFormat.parse(datesAndTimes[index]).toString()
+            }
 
-                Column (
+            Column(
+                modifier = Modifier
+                    .padding(
+                        top = 20.dp,
+                        bottom = 10.dp,
+                        start = 10.dp,
+                        end = 10.dp
+                    )
+            ) {
+                // Big card
+                Card(
                     modifier = Modifier
-                        .padding(
-                            top = 20.dp,
-                            bottom = 10.dp,
-                            start = 10.dp,
-                            end = 10.dp
-                        )
+                        .fillMaxSize()
                 ) {
-                    // Big card
-                    Card (
+                    // Card used for inner padding
+                    Card(
                         modifier = Modifier
                             .fillMaxSize()
-                    ) {
-                        // Card used for inner padding
-                        Card (
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(
-                                    top = 10.dp,
-                                    bottom = 10.dp,
-                                    start = 10.dp,
-                                    end = 10.dp
-                                )
-                        ){
-                            // Date
-                            Text(
-                                text = date,
-                                fontSize = 30.sp,
-                                fontWeight = FontWeight.Bold
+                            .padding(
+                                top = 10.dp,
+                                bottom = 10.dp,
+                                start = 10.dp,
+                                end = 10.dp
                             )
-                            // Only visible when time is used
-                            if ("T" in datesAndTimes[0]) {
-                                // Time
-                                Text(
-                                    text = time
-                                )
-                            }
-                            // Only visible when grades are used
-                            if (grades.isNotEmpty()) {
-                                //grades
-                                Text(
-                                    text = "Grade: ${grades[index]}"
-                                )
-                            }
+                    ) {
+                        // Date
+                        Text(
+                            text = date,
+                            fontSize = 30.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        // Only visible when time is used
+                        if ("T" in datesAndTimes[0]) {
+                            // Time
+                            Text(
+                                text = time
+                            )
+                        }
+                        // Only visible when grades are used
+                        if (grades.isNotEmpty()) {
+                            //grades
+                            Text(
+                                text = "Grade: ${grades[index]}"
+                            )
+                        }
 
-                            if (titles.isNotEmpty()) {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(400.dp)
+                        if (titles.isNotEmpty()) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(400.dp)
+                            ) {
+                                LazyColumn(
+                                    modifier = Modifier.fillMaxSize()
                                 ) {
-                                    LazyColumn(
-                                        modifier = Modifier.fillMaxSize()
-                                    ) {
-                                        items(dataSize) { answerIndex ->
-                                            Text(
-                                                text = titles[answerIndex],
-                                                fontSize = 20.sp,
-                                                fontWeight = FontWeight.Bold
-                                            )
+                                    items(dataSize) { answerIndex ->
+                                        Text(
+                                            text = titles[answerIndex],
+                                            fontSize = 20.sp,
+                                            fontWeight = FontWeight.Bold
+                                        )
 
-                                            Text(
-                                                text = data[index],
-                                                fontSize = 20.sp
-                                            )
-                                        }
+                                        Text(
+                                            text = data[index],
+                                            fontSize = 20.sp
+                                        )
                                     }
                                 }
-                            } else {
-                                // Data
-                                Text(
-                                    text = data[index],
-                                    fontSize = 20.sp
-                                )
                             }
+                        } else {
+                            // Data
+                            Text(
+                                text = data[index],
+                                fontSize = 20.sp
+                            )
                         }
                     }
                 }
             }
         }
     }
+
 }
 
 fun formatDateTime(date: Date): Pair<String, String> {
