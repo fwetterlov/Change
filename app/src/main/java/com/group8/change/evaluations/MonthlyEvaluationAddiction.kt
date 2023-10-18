@@ -30,8 +30,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.Evaluation
+import com.group8.change.api.models.SelfAssessment
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.TextFieldWithLabel
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun MonthlyEvaluationAddiction(navController: NavController) {
@@ -201,6 +209,23 @@ fun NumberPicker(
 fun SubmitMonthEvaluationAddiction(navController: NavController, text1: String, text2: String, text3: String, drugTestResult: String, aaMeetingsThisMonth: Int, relapse: String, daysSober: String, daysAbusing: String) {
     Button(
         onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val valueList = listOf(
+                text1,
+                text2,
+                text3,
+                drugTestResult,
+                aaMeetingsThisMonth.toString(),
+                relapse,
+                daysSober,
+                daysAbusing
+            )
+            val newMonthEvaluationAddiction = Evaluation(valueList, currentDate)
+
+            CurrentAppData.data.monthly_evaluations.add(newMonthEvaluationAddiction)
+            DBApi.addChangesToDB(MainViewModel())
+
+            navController.navigate("main-menu")
             Log.d("MonthlyEvaluationAddiction", "Text1: $text1")
             Log.d("MonthlyEvaluationAddiction", "Text2: $text2")
             Log.d("MonthlyEvaluationAddiction", "Text3: $text3")
