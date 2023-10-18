@@ -33,8 +33,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.Evaluation
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.viewmodel.MainViewModel
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun morningEvaluation(navController: NavController) {
@@ -83,7 +93,7 @@ fun morningEvaluation(navController: NavController) {
             )
 
         } }, title = stringResource(id = R.string.card_title_morning_evaluation),
-            secondButton = { SubmitMorningEvaluation(navController = navController) },
+            secondButton = { SubmitMorningEvaluation(navController = navController,text1,text2,text3) },
             navController = navController)
 
     }
@@ -131,9 +141,14 @@ fun morningEvaluationPreview() {
 
 
 @Composable
-fun SubmitMorningEvaluation(navController: NavController) {
+fun SubmitMorningEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String) {
     Button(
         onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val answerList = listOf(answer1, answer2, answer3)
+            val newEvaluation = Evaluation(answerList, currentDate.toString())
+            CurrentAppData.data.morning_evaluations.add(newEvaluation)
+            DBApi.addChangesToDB(MainViewModel())
             navController.navigate("main-menu")
         }
     ) {
