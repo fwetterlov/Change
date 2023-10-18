@@ -22,11 +22,11 @@ class MainViewModel : ViewModel() {
     val appDataState: MutableState<AppDataState> = mutableStateOf(AppDataState.Empty)
 
     init {
-        fetchUserData()
+        //fetchUserData()
         //fetchAppData()
     }
 
-    private fun fetchUserData() {
+    fun fetchUserData() {
         val tempList = mutableListOf<User>()
         userState.value = UserState.Loading
 
