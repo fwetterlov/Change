@@ -26,8 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.Evaluation
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun monthEvaluation(navController: NavController) {
@@ -77,7 +84,7 @@ fun monthEvaluation(navController: NavController) {
             )
 
         } }, title = stringResource(id = R.string.card_title_monthly_evaluation),
-            secondButton = { SubmitMonthEvaluation(navController = navController) },
+            secondButton = { SubmitMonthEvaluation(navController = navController, text1,text2,text3) },
             navController = navController)
 
     }
@@ -89,9 +96,14 @@ fun monthEvaluationPreview() {
 }*/
 
 @Composable
-fun SubmitMonthEvaluation(navController: NavController) {
+fun SubmitMonthEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String) {
     Button(
         onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val answerList = listOf(answer1, answer2, answer3)
+            val newEvaluation = Evaluation(answerList, currentDate.toString())
+            CurrentAppData.data.monthly_evaluations.add(newEvaluation)
+            DBApi.addChangesToDB(MainViewModel())
             navController.navigate("main-menu")
         }
     ) {

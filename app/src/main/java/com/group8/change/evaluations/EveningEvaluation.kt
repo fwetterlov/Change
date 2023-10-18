@@ -26,8 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.DBApi
+import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.Evaluation
+import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
 fun eveningEvaluation(navController: NavController) {
@@ -110,7 +117,7 @@ fun eveningEvaluation(navController: NavController) {
             )
 
         } }, title = stringResource(id = R.string.card_title_evening_evaluation),
-            secondButton = { SubmitEveningEvaluation(navController = navController) },
+            secondButton = { SubmitEveningEvaluation(navController = navController, text1,text2,text3,text4,text5,text6) },
             navController = navController)
 
     }
@@ -124,9 +131,14 @@ fun eveningEvaluationPreview() {
 }*/
 
 @Composable
-fun SubmitEveningEvaluation(navController: NavController) {
+fun SubmitEveningEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String, answer4: String, answer5: String, answer6: String) {
     Button(
         onClick = {
+            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val answerList = listOf(answer1, answer2, answer3, answer4, answer5, answer6)
+            val newEvaluation = Evaluation(answerList, currentDate.toString())
+            CurrentAppData.data.evening_evaluations.add(newEvaluation)
+            DBApi.addChangesToDB(MainViewModel())
             navController.navigate("main-menu")
         }
     ) {
