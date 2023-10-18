@@ -57,8 +57,8 @@ fun monthlyEvaluationTherapist(navController: NavController) {
     val evaluationsSize = evaluations.size
     val titleList = listOf(stringResource(id = R.string.month_title1), stringResource(id = R.string.month_title2), stringResource(id = R.string.month_title3), "bla", "bla")
 
-    Log.d("kajshd", evaluations[0].answers.size.toString())
-    Log.d("kajshd", titleList.size.toString())
+    //Log.d("kajshd", evaluations[0].answers.size.toString())
+    //Log.d("kajshd", titleList.size.toString())
     TopAppBar(
         content = {
             Column(
