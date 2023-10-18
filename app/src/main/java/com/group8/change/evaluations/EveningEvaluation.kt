@@ -15,15 +15,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.api.DBApi
@@ -31,7 +26,6 @@ import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.Evaluation
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.TextFieldWithLabel
-import com.group8.change.ui.design.TopAppBar
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
 import java.util.Date
