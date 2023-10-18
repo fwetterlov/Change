@@ -85,10 +85,6 @@ fun SubmitSelfAssessment(navController: NavController, selfImageValue: Float, se
     Button(
         onClick = {
             val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-            Log.d("SelfAssessment", "Self Image Value: $selfImageValue")
-            Log.d("SelfAssessment", "Self Esteem Value: $selfEsteemValue")
-            Log.d("SelfAssessment", "Self Confidence Value: $selfConfidenceValue")
-            Log.d("SelfAssessment", "Submission Date: $currentDate")
             val grades = listOf(selfImageValue.toInt(), selfEsteemValue.toInt(), selfConfidenceValue.toInt())
             val newSelfAssessment = SelfAssessment(currentDate, grades)
 
