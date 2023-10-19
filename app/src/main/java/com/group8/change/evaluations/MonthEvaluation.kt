@@ -44,9 +44,9 @@ fun monthEvaluation(navController: NavController) {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
-                    .padding(start = 56.dp)
+                    .padding(8.dp)
             ) {
-                Spacer(modifier = Modifier.height(90.dp))
+                Spacer(modifier = Modifier.height(60.dp))
                 HistoricalDataButton(navController = navController, route = "monthly-th")
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.month_title1),

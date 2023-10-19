@@ -1,6 +1,7 @@
 package com.group8.change.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,7 +19,7 @@ fun TextFieldWithLabel(
 ) {
     Column {
         Text(
-            modifier = Modifier.padding(end = 40.dp),
+            modifier = Modifier.fillMaxWidth(),
             text = labelText,
             style = TextStyle(fontSize = 16.sp)
         )
