@@ -34,6 +34,9 @@ fun morningEvaluationTherapist(navController: NavController) {
         listOfDatesAndTimes.add(evaluation.date)
     }
 
+    val listOfDataRev = listOfData.asReversed()
+    val listOfDatesAndTimesRev = listOfDatesAndTimes.asReversed()
+
     TopAppBar(
         content = {
             Column(
@@ -42,8 +45,8 @@ fun morningEvaluationTherapist(navController: NavController) {
                     .padding(top = 60.dp)
             ) {
                 CardList(
-                    data = listOfData,
-                    datesAndTimes = listOfDatesAndTimes,
+                    data = listOfDataRev,
+                    datesAndTimes = listOfDatesAndTimesRev,
                     titles = titleList
                 )
             }

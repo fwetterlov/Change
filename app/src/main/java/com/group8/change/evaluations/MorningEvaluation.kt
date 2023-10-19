@@ -80,6 +80,21 @@ fun morningEvaluation(navController: NavController) {
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun textField(initialValue: String, onValueChange: (String) -> Unit) {
+    var text by remember { mutableStateOf(initialValue) }
+
+    OutlinedTextField(
+        value = text,
+        onValueChange = {
+            text = it
+            onValueChange(it)
+        },
+        modifier = Modifier.padding(top = 6.dp, bottom = 42.dp)
+    )
+}
+
 /*
 @Preview
 @Composable
