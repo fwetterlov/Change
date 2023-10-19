@@ -13,6 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.compose.change_background
+import com.example.compose.change_blue
+import com.example.compose.change_green
+import com.example.compose.change_yellow
 import com.group8.change.api.models.CurrentAppData
 import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis
@@ -62,15 +66,15 @@ private fun CustomLineChart(
                 chart = lineChart(
                     lines = listOf(
                         lineSpec(
-                            lineColor = Color.Green,
+                            lineColor = change_green,
                             lineBackgroundShader = null
                         ),
                         lineSpec(
-                            lineColor = Color.Blue,
+                            lineColor = change_blue,
                             lineBackgroundShader = null
                         ),
                         lineSpec(
-                            lineColor = Color.Red,
+                            lineColor = change_yellow,
                             lineBackgroundShader = null
                         )
                     ),
@@ -192,7 +196,7 @@ fun SelfAssessmentGraph() {
 
 }
 private val legendTopPaddingValue = 8.dp
-private val chartColors = listOf(Color.Green, Color.Blue, Color.Red)
+private val chartColors = listOf(change_green, change_blue, change_yellow)
 private val legendItemIconSize = 8.dp
 private val legendItemIconPaddingValue = 10.dp
 private val legendItemSpacing = 4.dp
