@@ -19,20 +19,19 @@ import java.util.Date
 fun CardList(
     // Grades and datesAndTimes are optional!
     // Do not include if you don't have any!
-    data: MutableList<String>,
+    data: MutableList<*>,
     datesAndTimes: MutableList<String> = mutableListOf(),
     titles: List<String> = emptyList(),
     grades: MutableList<Int> = mutableListOf()
 ) {
     val dataSize = data.size
-    val dateFormat: SimpleDateFormat
+    var dateFormat = SimpleDateFormat("yyyy-MM-dd")
 
-    if ("T" in datesAndTimes[0]) {
-        // If both time and date are included
-        dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-    } else {
-        // If only date is included
-        dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    if (datesAndTimes.isNotEmpty()) {
+        if ("T" in datesAndTimes[0]) {
+            // If both time and date are included
+            dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        }
     }
 
     LazyColumn(
@@ -68,7 +67,7 @@ fun CardList(
                         // Why do i have to put this here???
                         // Used when dates are used
                         if (datesAndTimes.isNotEmpty()) {
-                            val date: String
+                            var date: String
                             var time = ""
                             if ("T" in datesAndTimes[0]) {
                                 // If both time and date are included
@@ -107,22 +106,25 @@ fun CardList(
                         }
 
                         if (titles.isNotEmpty()) {
-                            for (i in 0 until titles.size) {
-                                Text(
-                                    text = titles[i],
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.Bold
-                                )
+                            val tempList = data[index] as? List<Any>
+                            if (tempList != null) {
+                                for (i in 0 until titles.size) {
+                                    Text(
+                                        text = titles[i],
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
 
-                                Text(
-                                    text = data[i],
-                                    fontSize = 20.sp
-                                )
+                                    Text(
+                                        text = tempList[i].toString(),
+                                        fontSize = 20.sp
+                                    )
+                                }
                             }
 
                         } else {
                             Text(
-                                text = data[index],
+                                text = data[index].toString(),
                                 fontSize = 20.sp
                             )
                         }
