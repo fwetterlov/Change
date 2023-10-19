@@ -45,12 +45,11 @@ fun eveningEvaluation(navController: NavController) {
         content = {
             Column(
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
                     .fillMaxSize()
                     .background(Color.White)
-                    .padding(start = 56.dp)
+                    .padding(8.dp)
             ) {
-                Spacer(modifier = Modifier.height(90.dp))
+                Spacer(modifier = Modifier.height(60.dp))
                 HistoricalDataButton(navController = navController, route = "evening-th")
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.evening_title1),

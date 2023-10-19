@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -44,9 +45,9 @@ fun morningEvaluation(navController: NavController) {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
-                    .padding(start = 56.dp)
+                    .padding(8.dp)
             ) {
-                Spacer(modifier = Modifier.height(90.dp))
+                Spacer(modifier = Modifier.height(60.dp))
                 HistoricalDataButton(navController = navController, route = "morning-th")
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.morning_title1),
@@ -92,7 +93,7 @@ fun textField(initialValue: String, onValueChange: (String) -> Unit) {
             text = it
             onValueChange(it)
         },
-        modifier = Modifier.padding(top = 6.dp, bottom = 42.dp)
+        modifier = Modifier.fillMaxWidth()
     )
 }
 
