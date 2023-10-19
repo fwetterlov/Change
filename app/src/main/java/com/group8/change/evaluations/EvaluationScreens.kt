@@ -19,7 +19,7 @@ fun MonthlyEvaluationScreen(navController: NavController) {
 
 @Composable
 fun MorningEvaluationScreen(navController: NavController) {
-    if (CurrentUser.data.role == "client") {
+    if (CurrentUser.data.role == "client"||CurrentUser.data.role == "client addiction") {
         morningEvaluation(navController = navController)
     } else if (CurrentUser.data.role == "therapist") {
         morningEvaluationTherapist(navController = navController)
@@ -28,7 +28,7 @@ fun MorningEvaluationScreen(navController: NavController) {
 
 @Composable
 fun EveningEvaluationScreen(navController: NavController) {
-    if (CurrentUser.data.role == "client") {
+    if (CurrentUser.data.role == "client"||CurrentUser.data.role == "client addiction") {
         eveningEvaluation(navController = navController)
     } else if (CurrentUser.data.role == "therapist") {
         eveningEvaluationTherapist(navController = navController)
