@@ -31,6 +31,7 @@ import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.reflections.ReflectionScreenTherapist
 import com.group8.change.selfassessment.SelfAssessmentScreen
+import com.group8.change.ui.design.LinearGradient
 import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
@@ -59,6 +60,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    LinearGradient()
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
