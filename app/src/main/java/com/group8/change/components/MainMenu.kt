@@ -33,8 +33,8 @@ import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
+import com.group8.change.api.viewmodel.IsClickableViewModel
 import com.group8.change.api.viewmodel.MainViewModel
-import kotlinx.coroutines.delay
 
 // Composable for the home screen buttons
 @OptIn(ExperimentalMaterial3Api::class)
@@ -101,6 +101,7 @@ fun CardClickable(
 fun MainMenu(
     modifier: Modifier = Modifier,
     navController: NavController,
+    clickableViewModel: IsClickableViewModel = remember{ IsClickableViewModel() },
     viewModel: MainViewModel
 ) {
 
@@ -122,25 +123,24 @@ fun MainMenu(
         Column(
             modifier = modifier.padding(top = 70.dp)
         ) {
+            // Used to gray/un-gray cards
+            var isClickable by remember {
+                mutableStateOf(false)
+            }
+
+
             if (CurrentUser.data.role.toString() == "therapist") {
                 Row {
-                    CreateDropDownList(viewModel)
+                    CreateDropDownList(viewModel, clickableViewModel)
                 }
             }
 
-            var isClickable by remember {
-                mutableStateOf(true)
+            // Updates isClickable when a client is selected from the list
+            LaunchedEffect(clickableViewModel.dropdownListAction) {
+                if (CurrentAppData.data.client.username != "cli1") {
+                    isClickable = true
+                }
             }
-
-            /*LaunchedEffect(Unit) {
-                delay(2000)
-                isClickable = false
-            }*/
-
-            if (CurrentAppData.data.client.username == "cli1") {
-                isClickable = false
-            }
-
 
             Row {
                 Column {

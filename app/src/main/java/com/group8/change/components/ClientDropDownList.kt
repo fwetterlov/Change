@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
+import com.group8.change.api.viewmodel.IsClickableViewModel
 import com.group8.change.api.viewmodel.MainViewModel
 
 
@@ -29,7 +30,7 @@ import com.group8.change.api.viewmodel.MainViewModel
  */
 
 @Composable
-fun CreateDropDownList(viewModel: MainViewModel) {
+fun CreateDropDownList(viewModel: MainViewModel, dropDownActionViewModel: IsClickableViewModel) {
     var expanded by remember { mutableStateOf(false) }
     var selectedClient by remember { mutableStateOf("Select a client") }
     if(CurrentAppData.data.client.username != "cli1"){
@@ -57,6 +58,9 @@ fun CreateDropDownList(viewModel: MainViewModel) {
                         DBApi.setCurrentAppData(viewModel, selectedClient)
                         Log.d("clientData","${CurrentAppData.data}")
                         expanded = false
+
+                        // updates viewModel so buttons will be available
+                        dropDownActionViewModel.updateDropdownListAction("chosen")
                     })
             }
         }
