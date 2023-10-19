@@ -30,15 +30,11 @@ fun eveningEvaluationTherapist(navController: NavController) {
     val evaluations = CurrentAppData.data.evening_evaluations
     val titleList = listOf(stringResource(id = R.string.evening_title1), stringResource(id = R.string.evening_title2), stringResource(id = R.string.evening_title3), stringResource(id = R.string.evening_title4), stringResource(id = R.string.evening_title5), stringResource(id = R.string.evening_title6))
 
-    val listOfData = mutableListOf<String>()
+    val listOfData = mutableListOf<List<String>>()
     val listOfDatesAndTimes = mutableListOf<String>()
 
     for (evaluation in evaluations) {
-
-        for (answer in evaluation.answers) {
-            listOfData.add(answer)
-        }
-
+        listOfData.add(evaluation.answers)
         listOfDatesAndTimes.add(evaluation.date)
     }
 
