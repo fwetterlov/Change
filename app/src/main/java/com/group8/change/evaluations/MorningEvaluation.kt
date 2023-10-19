@@ -47,8 +47,9 @@ fun morningEvaluation(navController: NavController) {
                     .background(Color.White)
                     .padding(8.dp)
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(65.dp))
                 HistoricalDataButton(navController = navController, route = "morning-th")
+                Spacer(modifier = Modifier.height(10.dp))
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.morning_title1),
                     textValue = text1,

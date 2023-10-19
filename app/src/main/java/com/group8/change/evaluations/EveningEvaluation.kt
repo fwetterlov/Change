@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,8 +47,9 @@ fun eveningEvaluation(navController: NavController) {
                     .background(Color.White)
                     .padding(8.dp)
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(65.dp))
                 HistoricalDataButton(navController = navController, route = "evening-th")
+                Spacer(modifier = Modifier.height(10.dp))
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.evening_title1),
                     textValue = text1,
