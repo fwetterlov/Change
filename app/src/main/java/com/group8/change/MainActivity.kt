@@ -19,19 +19,15 @@ import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.evaluations.EveningEvaluationScreen
 import com.group8.change.evaluations.MonthlyEvaluationScreen
 import com.group8.change.evaluations.MorningEvaluationScreen
-import com.group8.change.evaluations.eveningEvaluation
 import com.group8.change.evaluations.eveningEvaluationTherapist
 import com.group8.change.evaluations.monthlyEvaluationTherapist
-import com.group8.change.evaluations.morningEvaluation
 import com.group8.change.evaluations.morningEvaluationTherapist
 import com.group8.change.expectations.ExpectationsScreen
-import com.group8.change.expectations.ExpectationsTherapist
 import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.reflections.ReflectionScreenTherapist
 import com.group8.change.selfassessment.SelfAssessmentScreen
 import com.group8.change.ui.design.LinearGradient
-import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
