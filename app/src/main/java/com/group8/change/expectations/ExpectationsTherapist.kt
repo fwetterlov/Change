@@ -2,7 +2,6 @@ package com.group8.change.expectations
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -16,6 +15,7 @@ import com.group8.change.ui.design.TopAppBar
 @Composable
 fun ExpectationsTherapist(navController: NavController) {
     val expectations = CurrentAppData.data.expectations
+    // List of titles
     val titles = listOf(
         stringResource(id = R.string.expectations_title1),
         stringResource(id = R.string.expectations_title2),
@@ -28,10 +28,9 @@ fun ExpectationsTherapist(navController: NavController) {
         stringResource(id = R.string.expectations_title9),
         stringResource(id = R.string.expectations_title10)
     )
+    // Turning expectations into a 2D list where they will have index[0]
+    // This is so it will work with CardList
     val listOfExpectations = mutableListOf(expectations)
-
-    println(expectations)
-    println(listOfExpectations)
 
     TopAppBar(
         content = {
