@@ -62,4 +62,6 @@
     <string name = "selfassessment_title2">Amour propre</string>
     <string name = "selfassessment_title3">Confiance en soi</string>
 
+    <string name = "history_button_text">Histoire</string>
+
 </resources>
