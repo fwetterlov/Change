@@ -139,7 +139,7 @@ fun SubmitReflection(startPosition: Float, textState: String,navController: NavC
 
     Button(
         onClick = {
-            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val currentDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).format(Date())
             val newReflection = com.group8.change.api.models.Reflection(textState, currentDate, startPosition.toInt())
 
             CurrentAppData.data.reflections.add(newReflection)
