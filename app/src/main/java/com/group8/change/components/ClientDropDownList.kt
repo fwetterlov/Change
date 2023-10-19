@@ -32,6 +32,10 @@ import com.group8.change.api.viewmodel.MainViewModel
 fun CreateDropDownList(viewModel: MainViewModel) {
     var expanded by remember { mutableStateOf(false) }
     var selectedClient by remember { mutableStateOf("Select a client") }
+    if(CurrentAppData.data.client.username != "cli1"){
+        selectedClient = CurrentAppData.data.client.username
+    }
+
     var currentUser = CurrentUser.data.username.toString()
 
     val clientList = getClientList(currentUser)

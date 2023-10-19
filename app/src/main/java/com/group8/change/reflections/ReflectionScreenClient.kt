@@ -34,6 +34,7 @@ import com.group8.change.R
 import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.HistoricalDataButton
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -50,10 +51,12 @@ fun ReflectionScreenClient(navController: NavController) {
         ) {
                 TopAppBarPlus(
                     content = {
+
                     Column (modifier = Modifier
                         .padding(top = 60.dp)
                         .fillMaxSize()
                         .background(Color.White)){
+                    HistoricalDataButton(navController = navController, route = "reflections-th")
                     OutlinedTextField(
                         value = textState,
                         onValueChange = { newText ->
@@ -139,7 +142,7 @@ fun SubmitReflection(startPosition: Float, textState: String,navController: NavC
 
     Button(
         onClick = {
-            val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val currentDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).format(Date())
             val newReflection = com.group8.change.api.models.Reflection(textState, currentDate, startPosition.toInt())
 
             CurrentAppData.data.reflections.add(newReflection)

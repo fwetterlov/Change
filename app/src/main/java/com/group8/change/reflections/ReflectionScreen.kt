@@ -7,7 +7,7 @@ import com.group8.change.api.models.CurrentUser
 
 @Composable
 fun ReflectionScreen(navController: NavController) {
-    if (CurrentUser.data.role == "client") {
+    if (CurrentUser.data.role == "client" || CurrentUser.data.role == "client addiction") {
         ReflectionScreenClient(navController)
     } else if (CurrentUser.data.role == "therapist") {
         ReflectionScreenTherapist(navController)

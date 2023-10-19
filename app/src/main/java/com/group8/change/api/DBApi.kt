@@ -3,7 +3,6 @@ package com.group8.change.api
 import android.util.Log
 import androidx.compose.foundation.layout.*;
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable;
 import androidx.compose.ui.Alignment;
@@ -12,7 +11,6 @@ import androidx.compose.ui.unit.dp
 import com.group8.change.api.models.AppData
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
-import com.group8.change.api.models.Evaluation
 import com.group8.change.api.models.User
 import com.group8.change.api.sealed.AppDataState
 import com.group8.change.api.sealed.UserState

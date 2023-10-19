@@ -21,6 +21,7 @@ import com.group8.change.evaluations.MonthlyEvaluationScreen
 import com.group8.change.evaluations.MorningEvaluationScreen
 import com.group8.change.evaluations.eveningEvaluation
 import com.group8.change.evaluations.eveningEvaluationTherapist
+import com.group8.change.evaluations.monthlyEvaluationTherapist
 import com.group8.change.evaluations.morningEvaluation
 import com.group8.change.evaluations.morningEvaluationTherapist
 import com.group8.change.expectations.ExpectationsScreen
@@ -29,6 +30,8 @@ import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.reflections.ReflectionScreenTherapist
 import com.group8.change.selfassessment.SelfAssessmentScreen
+import com.group8.change.ui.design.LinearGradient
+import com.group8.change.ui.design.TopAppBar
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
@@ -56,6 +59,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    LinearGradient()
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login"){ LoginScreen(this@MainActivity, navController, viewModel) }
                         composable("main-menu"){
@@ -80,6 +84,22 @@ class MainActivity : ComponentActivity() {
                         composable("self-assessment"){
                             SelfAssessmentScreen(navController)
                         }
+                        composable("reflections-th"){
+                            ReflectionScreenTherapist(navController)
+                        }
+                        composable("morning-th"){
+                            morningEvaluationTherapist(navController)
+                        }
+                        composable("evening-th"){
+                            eveningEvaluationTherapist(navController)
+                        }
+                        composable("monthly-th"){
+                            monthlyEvaluationTherapist(navController)
+                        }
+                        composable("self-assessment-th"){
+                            ReflectionScreenTherapist(navController)
+                        }
+
                     }
                 }
                 //GetUsers(viewModel)
