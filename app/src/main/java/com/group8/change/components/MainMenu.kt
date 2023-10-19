@@ -107,15 +107,6 @@ fun MainMenu(
                 Row {
                     CreateDropDownList(viewModel)
                 }
-                // Different routes for therapist
-                routeIds = arrayOf(
-                    "reflections-th",
-                    "expectations-th",
-                    "morning-th",
-                    "evening-th",
-                    "monthly-th",
-                    "self-assessment-th"
-                )
             }
 
             Row {
