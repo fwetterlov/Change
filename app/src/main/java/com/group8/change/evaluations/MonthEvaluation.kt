@@ -41,7 +41,6 @@ fun monthEvaluation(navController: NavController) {
         content = {
             Column(
                 modifier = Modifier
-                    .verticalScroll(rememberScrollState())
                     .fillMaxSize()
                     .background(Color.White)
                     .padding(start = 56.dp)
