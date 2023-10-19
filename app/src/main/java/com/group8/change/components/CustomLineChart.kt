@@ -1,7 +1,6 @@
 package com.group8.change.components
 
 import android.graphics.Typeface
-import com.group8.change.R
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,13 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.compose.change_background
 import com.example.compose.change_blue
 import com.example.compose.change_green
 import com.example.compose.change_yellow
+import com.group8.change.R
 import com.group8.change.api.models.CurrentAppData
 import com.patrykandpatrick.vico.compose.axis.horizontal.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.rememberStartAxis

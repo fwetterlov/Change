@@ -22,11 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.group8.change.R
 import com.group8.change.api.DBApi
-import com.group8.change.api.models.Evaluation
-import com.group8.change.ui.design.TopAppBarPlus
 import com.group8.change.api.models.CurrentAppData
+import com.group8.change.api.models.Evaluation
 import com.group8.change.api.viewmodel.MainViewModel
 import com.group8.change.components.TextFieldWithLabel
+import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
