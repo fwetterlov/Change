@@ -70,9 +70,6 @@ class MainActivity : ComponentActivity() {
                         composable("reflections"){
                             ReflectionScreen(navController)
                         }
-                        composable("reflections-th"){
-                            ReflectionScreenTherapist(navController)
-                        }
                         composable("expectations"){
                             ExpectationsScreen(navController, expectationsViewModel)
                         }
@@ -88,6 +85,22 @@ class MainActivity : ComponentActivity() {
                         composable("self-assessment"){
                             SelfAssessmentScreen(navController)
                         }
+                        composable("reflections-th"){
+                            ReflectionScreenTherapist(navController)
+                        }
+                        composable("morning-th"){
+                            morningEvaluationTherapist(navController)
+                        }
+                        composable("evening-th"){
+                            eveningEvaluationTherapist(navController)
+                        }
+                        composable("monthly-th"){
+                            monthlyEvaluationTherapist(navController)
+                        }
+                        composable("self-assessment-th"){
+                            ReflectionScreenTherapist(navController)
+                        }
+
                     }
                 }
                 //GetUsers(viewModel)
