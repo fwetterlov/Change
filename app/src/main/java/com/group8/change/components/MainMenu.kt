@@ -16,8 +16,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -25,8 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.group8.change.R
+import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.viewmodel.MainViewModel
+import kotlinx.coroutines.delay
 
 // Composable for the home screen buttons
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,8 +44,16 @@ fun CardClickable(
     drawableId: Int,
     id: String,
     navController: NavController,
+    isClickable: Boolean,
     modifier: Modifier = Modifier
 ) {
+
+    val cardBackgroundColor = if (isClickable) {
+        MaterialTheme.colorScheme.background
+    } else {
+        Color.Gray.copy(alpha = 0.5f)
+    }
+
     Card(
         // Defining how the cards look
         modifier = modifier
@@ -47,11 +63,14 @@ fun CardClickable(
         border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),   // Placeholder color
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         onClick = {
-            navController.navigate(id)
-        }
-        /*colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.background
-        )*/
+            if (isClickable) {
+                navController.navigate(id)
+            }
+        },
+        colors = CardDefaults.cardColors(
+            containerColor = cardBackgroundColor
+        )
+
     ) {
         Box(
             // Centers the contents
@@ -109,6 +128,20 @@ fun MainMenu(
                 }
             }
 
+            var isClickable by remember {
+                mutableStateOf(true)
+            }
+
+            /*LaunchedEffect(Unit) {
+                delay(2000)
+                isClickable = false
+            }*/
+
+            if (CurrentAppData.data.client.username == "cli1") {
+                isClickable = false
+            }
+
+
             Row {
                 Column {
                     // First row left card
@@ -116,21 +149,24 @@ fun MainMenu(
                         text = stringResource(id = R.string.card_title_reflections),
                         id = routeIds[0],
                         drawableId = R.drawable.reflection,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                     // Second row left card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_morning_evaluation),
                         id = routeIds[2],
                         drawableId = R.drawable.morning,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                     // Third row left card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_monthly_evaluation),
                         id = "monthly",
                         drawableId = R.drawable.month,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                 }
                 Column {
@@ -139,21 +175,24 @@ fun MainMenu(
                         text = stringResource(id = R.string.card_title_expectations),
                         id = routeIds[1],
                         drawableId = R.drawable.expectation,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                     // Second row right card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_evening_evaluation),
                         id = routeIds[3],
                         drawableId = R.drawable.evening,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                     // Third row right card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_self_assessment),
                         id = routeIds[5],
                         drawableId = R.drawable.self,
-                        navController = navController
+                        navController = navController,
+                        isClickable = isClickable
                     )
                 }
             }
