@@ -1,6 +1,5 @@
 package com.group8.change.evaluations
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -18,7 +17,13 @@ import com.group8.change.ui.design.TopAppBar
 fun morningEvaluationTherapist(navController: NavController) {
 
     val evaluations = CurrentAppData.data.morning_evaluations
-    val titleList = listOf(stringResource(id = R.string.morning_title1), stringResource(id = R.string.morning_title2), stringResource(id = R.string.morning_title3), "bla", "bla")
+    val titleList = listOf(
+        stringResource(id = R.string.morning_title1),
+        stringResource(id = R.string.morning_title2),
+        stringResource(id = R.string.morning_title3),
+        "bla",
+        "bla"
+    )
 
     val listOfData = mutableListOf<List<String>>()
     val listOfDatesAndTimes = mutableListOf<String>()
@@ -29,6 +34,9 @@ fun morningEvaluationTherapist(navController: NavController) {
         listOfDatesAndTimes.add(evaluation.date)
     }
 
+    val listOfDataRev = listOfData.asReversed()
+    val listOfDatesAndTimesRev = listOfDatesAndTimes.asReversed()
+
     TopAppBar(
         content = {
             Column(
@@ -37,12 +45,12 @@ fun morningEvaluationTherapist(navController: NavController) {
                     .padding(top = 60.dp)
             ) {
                 CardList(
-                    data = listOfData,
-                    datesAndTimes = listOfDatesAndTimes,
+                    data = listOfDataRev,
+                    datesAndTimes = listOfDatesAndTimesRev,
                     titles = titleList
                 )
             }
-      },
+        },
         title = stringResource(id = R.string.card_title_morning_evaluation), navController
     )
 }

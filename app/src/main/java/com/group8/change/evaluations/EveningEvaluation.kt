@@ -40,57 +40,70 @@ fun eveningEvaluation(navController: NavController) {
     var text5 by remember { mutableStateOf("") }
     var text6 by remember { mutableStateOf("") }
 
-        TopAppBarPlus(content = {
+    TopAppBarPlus(
+        content = {
             Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(start = 56.dp)
-        ) {
-            Spacer(modifier = Modifier.height(90.dp))
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(start = 56.dp)
+            ) {
+                Spacer(modifier = Modifier.height(90.dp))
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title1),
-                textValue = text1,
-                onTextChange = { newValue -> text1 = newValue }
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title1),
+                    textValue = text1,
+                    onTextChange = { newValue -> text1 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title2),
+                    textValue = text2,
+                    onTextChange = { newValue -> text2 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title3),
+                    textValue = text3,
+                    onTextChange = { newValue -> text3 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title4),
+                    textValue = text4,
+                    onTextChange = { newValue -> text4 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title5),
+                    textValue = text5,
+                    onTextChange = { newValue -> text5 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.evening_title6),
+                    textValue = text6,
+                    onTextChange = { newValue -> text6 = newValue }
+                )
+
+            }
+        }, title = stringResource(id = R.string.card_title_evening_evaluation),
+        secondButton = {
+            SubmitEveningEvaluation(
+                navController = navController,
+                text1,
+                text2,
+                text3,
+                text4,
+                text5,
+                text6
             )
+        },
+        navController = navController
+    )
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title2),
-                textValue = text2,
-                onTextChange = { newValue -> text2 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title3),
-                textValue = text3,
-                onTextChange = { newValue -> text3 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title4),
-                textValue = text4,
-                onTextChange = { newValue -> text4 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title5),
-                textValue = text5,
-                onTextChange = { newValue -> text5 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.evening_title6),
-                textValue = text6,
-                onTextChange = { newValue -> text6 = newValue }
-            )
-
-        } }, title = stringResource(id = R.string.card_title_evening_evaluation),
-            secondButton = { SubmitEveningEvaluation(navController = navController, text1,text2,text3,text4,text5,text6) },
-            navController = navController)
-
-    }
+}
 
 
 /*
@@ -101,7 +114,15 @@ fun eveningEvaluationPreview() {
 }*/
 
 @Composable
-fun SubmitEveningEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String, answer4: String, answer5: String, answer6: String) {
+fun SubmitEveningEvaluation(
+    navController: NavController,
+    answer1: String,
+    answer2: String,
+    answer3: String,
+    answer4: String,
+    answer5: String,
+    answer6: String
+) {
     Button(
         onClick = {
             val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
@@ -112,7 +133,9 @@ fun SubmitEveningEvaluation(navController: NavController, answer1: String, answe
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
-            color = Color.White)
+        Text(
+            text = "Submit",
+            color = Color.White
+        )
     }
 }
