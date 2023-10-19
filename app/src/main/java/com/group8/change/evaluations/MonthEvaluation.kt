@@ -25,6 +25,7 @@ import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.Evaluation
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.HistoricalDataButton
 import com.group8.change.components.TextFieldWithLabel
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -46,7 +47,7 @@ fun monthEvaluation(navController: NavController) {
                     .padding(start = 56.dp)
             ) {
                 Spacer(modifier = Modifier.height(90.dp))
-
+                HistoricalDataButton(navController = navController, route = "monthly-th")
                 TextFieldWithLabel(
                     labelText = stringResource(id = R.string.month_title1),
                     textValue = text1,

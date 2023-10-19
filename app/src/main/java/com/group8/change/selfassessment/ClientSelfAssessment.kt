@@ -24,6 +24,7 @@ import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.SelfAssessment
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.HistoricalDataButton
 import com.group8.change.reflections.SelectedPositionText
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -44,6 +45,7 @@ fun ClientSelfAssessment(navController: NavHostController) {
                 .background(Color.White)
                 .padding(16.dp)
         ) {
+            HistoricalDataButton(navController = navController, route = "self-assessment-th")
             SliderRow(stringResource(id = R.string.selfassessment_title1), selfImage.value) {
                 selfImage.value = it
             }
