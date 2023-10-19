@@ -1,4 +1,4 @@
-package com.group8.change
+package com.group8.change.selfassessment
 
 import android.os.Build
 import android.util.Log
