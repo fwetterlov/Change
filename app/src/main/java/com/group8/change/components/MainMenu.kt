@@ -49,7 +49,7 @@ fun CardClickable(
 ) {
 
     val cardBackgroundColor = if (isClickable) {
-        MaterialTheme.colorScheme.background
+        Color.White
     } else {
         Color.Gray.copy(alpha = 0.5f)
     }
