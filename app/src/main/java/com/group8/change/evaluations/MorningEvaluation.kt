@@ -37,38 +37,48 @@ fun morningEvaluation(navController: NavController) {
     var text2 by remember { mutableStateOf("") }
     var text3 by remember { mutableStateOf("") }
 
-        TopAppBarPlus(content = {
+    TopAppBarPlus(
+        content = {
             Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(start = 56.dp)
-        ) {
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(start = 56.dp)
+            ) {
                 Spacer(modifier = Modifier.height(90.dp))
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.morning_title1),
-                textValue = text1,
-                onTextChange = { newValue -> text1 = newValue }
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.morning_title1),
+                    textValue = text1,
+                    onTextChange = { newValue -> text1 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.morning_title2),
+                    textValue = text2,
+                    onTextChange = { newValue -> text2 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.morning_title3),
+                    textValue = text3,
+                    onTextChange = { newValue -> text3 = newValue }
+                )
+
+            }
+        }, title = stringResource(id = R.string.card_title_morning_evaluation),
+        secondButton = {
+            SubmitMorningEvaluation(
+                navController = navController,
+                text1,
+                text2,
+                text3
             )
+        },
+        navController = navController
+    )
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.morning_title2),
-                textValue = text2,
-                onTextChange = { newValue -> text2 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.morning_title3),
-                textValue = text3,
-                onTextChange = { newValue -> text3 = newValue }
-            )
-
-        } }, title = stringResource(id = R.string.card_title_morning_evaluation),
-            secondButton = { SubmitMorningEvaluation(navController = navController,text1,text2,text3) },
-            navController = navController)
-
-    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -94,7 +104,12 @@ fun morningEvaluationPreview() {
 
 
 @Composable
-fun SubmitMorningEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String) {
+fun SubmitMorningEvaluation(
+    navController: NavController,
+    answer1: String,
+    answer2: String,
+    answer3: String
+) {
     Button(
         onClick = {
             val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
@@ -105,7 +120,9 @@ fun SubmitMorningEvaluation(navController: NavController, answer1: String, answe
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
-            color = Color.White)
+        Text(
+            text = "Submit",
+            color = Color.White
+        )
     }
 }

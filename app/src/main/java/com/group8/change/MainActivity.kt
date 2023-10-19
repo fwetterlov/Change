@@ -16,7 +16,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.AppTheme
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.evaluations.EveningEvaluationScreen
 import com.group8.change.evaluations.MonthlyEvaluationScreen
+import com.group8.change.evaluations.MorningEvaluationScreen
 import com.group8.change.evaluations.eveningEvaluation
 import com.group8.change.evaluations.eveningEvaluationTherapist
 import com.group8.change.evaluations.morningEvaluation
@@ -64,31 +66,19 @@ class MainActivity : ComponentActivity() {
                             ReflectionScreen(navController)
                         }
                         composable("expectations"){
-                            ExpectationsScreen(expectationsViewModel, navController)
+                            ExpectationsScreen(navController, expectationsViewModel)
                         }
                         composable("morning"){
-                            morningEvaluation(navController)
+                            MorningEvaluationScreen(navController)
                         }
                         composable("evening"){
-                            eveningEvaluation(navController)
+                            EveningEvaluationScreen(navController)
                         }
                         composable("monthly"){
                             MonthlyEvaluationScreen(navController)
                         }
                         composable("self-assessment"){
                             SelfAssessmentScreen(navController)
-                        }
-                        composable("reflections-th") {
-                            ReflectionScreenTherapist(navController)
-                        }
-                        composable("morning-th") {
-                            morningEvaluationTherapist(navController)
-                        }
-                        composable("evening-th") {
-                            eveningEvaluationTherapist(navController)
-                        }
-                        composable("expectations-th") {
-                            ExpectationsTherapist(navController)
                         }
                     }
                 }

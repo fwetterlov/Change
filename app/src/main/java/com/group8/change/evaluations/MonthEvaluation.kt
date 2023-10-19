@@ -37,38 +37,49 @@ fun monthEvaluation(navController: NavController) {
     var text2 by remember { mutableStateOf("") }
     var text3 by remember { mutableStateOf("") }
 
-        TopAppBarPlus(content = { Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(start = 56.dp)
-        ) {
-            Spacer(modifier = Modifier.height(90.dp))
+    TopAppBarPlus(
+        content = {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(start = 56.dp)
+            ) {
+                Spacer(modifier = Modifier.height(90.dp))
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.month_title1),
-                textValue = text1,
-                onTextChange = { newValue -> text1 = newValue }
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.month_title1),
+                    textValue = text1,
+                    onTextChange = { newValue -> text1 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.month_title2),
+                    textValue = text2,
+                    onTextChange = { newValue -> text2 = newValue }
+                )
+
+                TextFieldWithLabel(
+                    labelText = stringResource(id = R.string.month_title3),
+                    textValue = text3,
+                    onTextChange = { newValue -> text3 = newValue }
+                )
+
+            }
+        }, title = stringResource(id = R.string.card_title_monthly_evaluation),
+        secondButton = {
+            SubmitMonthEvaluation(
+                navController = navController,
+                text1,
+                text2,
+                text3
             )
+        },
+        navController = navController
+    )
 
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.month_title2),
-                textValue = text2,
-                onTextChange = { newValue -> text2 = newValue }
-            )
-
-            TextFieldWithLabel(
-                labelText = stringResource(id = R.string.month_title3),
-                textValue = text3,
-                onTextChange = { newValue -> text3 = newValue }
-            )
-
-        } }, title = stringResource(id = R.string.card_title_monthly_evaluation),
-            secondButton = { SubmitMonthEvaluation(navController = navController, text1,text2,text3) },
-            navController = navController)
-
-    }
+}
 /*
 @Preview
 @Composable
@@ -77,7 +88,12 @@ fun monthEvaluationPreview() {
 }*/
 
 @Composable
-fun SubmitMonthEvaluation(navController: NavController, answer1: String, answer2: String, answer3: String) {
+fun SubmitMonthEvaluation(
+    navController: NavController,
+    answer1: String,
+    answer2: String,
+    answer3: String
+) {
     Button(
         onClick = {
             val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
@@ -88,7 +104,9 @@ fun SubmitMonthEvaluation(navController: NavController, answer1: String, answer2
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
-            color = Color.White)
+        Text(
+            text = "Submit",
+            color = Color.White
+        )
     }
 }
