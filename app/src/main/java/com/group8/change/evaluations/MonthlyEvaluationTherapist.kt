@@ -42,21 +42,15 @@ fun monthlyEvaluationTherapist(navController: NavController) {
         titleList.add(stringResource(id = R.string.month_title1))
         titleList.add(stringResource(id = R.string.month_title2))
         titleList.add(stringResource(id = R.string.month_title3))
-        titleList.add("bla")
-        titleList.add("bla")
     }
 
     val evaluations = CurrentAppData.data.monthly_evaluations
 
-    val listOfData = mutableListOf<String>()
+    val listOfData = mutableListOf<List<String>>()
     val listOfDatesAndTimes = mutableListOf<String>()
 
     for (evaluation in evaluations) {
-
-        for (answer in evaluation.answers) {
-            listOfData.add(answer)
-        }
-
+        listOfData.add(evaluation.answers)
         listOfDatesAndTimes.add(evaluation.date)
     }
 
