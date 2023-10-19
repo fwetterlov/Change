@@ -70,6 +70,9 @@ class MainActivity : ComponentActivity() {
                         composable("reflections"){
                             ReflectionScreen(navController)
                         }
+                        composable("reflections-th"){
+                            ReflectionScreenTherapist(navController)
+                        }
                         composable("expectations"){
                             ExpectationsScreen(navController, expectationsViewModel)
                         }
