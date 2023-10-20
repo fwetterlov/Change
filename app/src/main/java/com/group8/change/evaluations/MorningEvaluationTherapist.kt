@@ -20,9 +20,7 @@ fun morningEvaluationTherapist(navController: NavController) {
     val titleList = listOf(
         stringResource(id = R.string.morning_title1),
         stringResource(id = R.string.morning_title2),
-        stringResource(id = R.string.morning_title3),
-        "bla",
-        "bla"
+        stringResource(id = R.string.morning_title3)
     )
 
     val listOfData = mutableListOf<List<String>>()
