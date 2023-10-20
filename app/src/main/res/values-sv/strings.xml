@@ -64,5 +64,7 @@
 
     <string name = "history_button_text">Historik</string>
 
+    <string name = "toast_selected_client">Du måste välja en klient</string>
+
 
 </resources>
