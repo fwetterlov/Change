@@ -55,7 +55,7 @@ fun CardClickable(
     val cardBackgroundColor = if (isClickable) {
         Color.White
     } else {
-        Color.Gray.copy(alpha = 0.5f)
+        Color.LightGray
     }
 
     Card(
