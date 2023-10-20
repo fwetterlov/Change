@@ -64,4 +64,8 @@
 
     <string name = "history_button_text">Histoire</string>
 
+    <string name = "toast_selected_client">Vous devez sélectionner un client</string>
+
+    <string name = "dropdown_menu_text">Sélectionnez un client</string>
+
 </resources>

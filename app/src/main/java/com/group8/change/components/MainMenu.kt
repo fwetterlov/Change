@@ -1,5 +1,6 @@
 package com.group8.change.components
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,6 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +38,7 @@ import com.group8.change.api.models.CurrentUser
 import com.group8.change.api.viewmodel.IsClickableViewModel
 import com.group8.change.api.viewmodel.MainViewModel
 
+
 // Composable for the home screen buttons
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,11 +50,12 @@ fun CardClickable(
     isClickable: Boolean,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
 
     val cardBackgroundColor = if (isClickable) {
         Color.White
     } else {
-        Color.Gray.copy(alpha = 0.5f)
+        Color.LightGray
     }
 
     Card(
@@ -65,6 +69,8 @@ fun CardClickable(
         onClick = {
             if (isClickable) {
                 navController.navigate(id)
+            } else {
+                Toast.makeText(context, R.string.toast_selected_client, Toast.LENGTH_SHORT).show()
             }
         },
         colors = CardDefaults.cardColors(

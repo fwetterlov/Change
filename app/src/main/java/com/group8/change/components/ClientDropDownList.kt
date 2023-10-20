@@ -14,7 +14,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.group8.change.R
 import com.group8.change.api.DBApi
 import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.CurrentUser
@@ -29,11 +31,14 @@ import com.group8.change.api.viewmodel.MainViewModel
 
  */
 
+
 @Composable
 fun CreateDropDownList(viewModel: MainViewModel, dropDownActionViewModel: IsClickableViewModel) {
     var expanded by remember { mutableStateOf(false) }
-    var selectedClient by remember { mutableStateOf("Select a client") }
-    if(CurrentAppData.data.client.username != "cli1"){
+    var selectedClient by remember { mutableStateOf("") }
+    if(CurrentAppData.data.client.username == "cli1"){
+        selectedClient = stringResource(id = R.string.dropdown_menu_text)
+    } else if (CurrentAppData.data.client.username != "cli1"){
         selectedClient = CurrentAppData.data.client.username
     }
 
