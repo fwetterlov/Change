@@ -66,5 +66,7 @@
 
     <string name = "toast_selected_client">Du måste välja en klient</string>
 
+    <string name = "dropdown_menu_text">Välj en klient</string>
+
 
 </resources>
