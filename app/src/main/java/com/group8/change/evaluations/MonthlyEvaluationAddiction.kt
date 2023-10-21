@@ -35,6 +35,7 @@ import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.Evaluation
 import com.group8.change.api.models.SelfAssessment
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.HistoricalDataButton
 import com.group8.change.components.TextFieldWithLabel
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -61,10 +62,11 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
                 .background(Color.White)
-                .padding(start = 20.dp)
+                .padding(8.dp)
         ) {
-            Spacer(modifier = Modifier.height(90.dp))
-
+            Spacer(modifier = Modifier.height(65.dp))
+            HistoricalDataButton(navController = navController, route = "monthly-th")
+            Spacer(modifier = Modifier.height(10.dp))
             TextFieldWithLabel(
                 labelText = stringResource(id = R.string.month_title1),
                 textValue = text1,
@@ -148,7 +150,6 @@ fun Checkboxes(
     )
 
     Row(
-        modifier = Modifier.padding(top = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Checkbox(
@@ -163,7 +164,6 @@ fun Checkboxes(
     }
 
     Row(
-        modifier = Modifier.padding(top = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Checkbox(
@@ -184,8 +184,7 @@ fun NumberPicker(
     onValueChange: (Int) -> Unit
 ) {
     Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(bottom = 16.dp)
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Button(
             onClick = { if (value > 0) onValueChange(value - 1) },
@@ -194,8 +193,8 @@ fun NumberPicker(
         }
         Text(
             text = value.toString(),
-            modifier = Modifier.padding(8.dp), // Add padding to the text
-            fontSize = 25.sp, // Increase the font size
+            modifier = Modifier.padding(8.dp),
+            fontSize = 25.sp,
         )
         Button(
             onClick = { onValueChange(value + 1) },
