@@ -27,6 +27,7 @@ import com.group8.change.expectations.viewmodel.ExpectationsViewModel
 import com.group8.change.reflections.ReflectionScreen
 import com.group8.change.reflections.ReflectionScreenTherapist
 import com.group8.change.selfassessment.SelfAssessmentScreen
+import com.group8.change.selfassessment.TherapistSelfAssessment
 import com.group8.change.ui.design.LinearGradient
 import java.util.Locale
 
@@ -93,7 +94,7 @@ class MainActivity : ComponentActivity() {
                             monthlyEvaluationTherapist(navController)
                         }
                         composable("self-assessment-th"){
-                            ReflectionScreenTherapist(navController)
+                            TherapistSelfAssessment(navController)
                         }
 
                     }
