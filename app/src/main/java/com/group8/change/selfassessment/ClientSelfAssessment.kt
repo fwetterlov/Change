@@ -98,7 +98,7 @@ fun SubmitSelfAssessment(navController: NavController, selfImageValue: Float, se
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
+        Text(stringResource(id = R.string.submit_button_text),
             color = Color.White)
     }
 }

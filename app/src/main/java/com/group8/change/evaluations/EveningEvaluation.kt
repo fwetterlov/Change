@@ -133,7 +133,7 @@ fun SubmitEveningEvaluation(
         }
     ) {
         Text(
-            text = "Submit",
+            stringResource(id = R.string.submit_button_text),
             color = Color.White
         )
     }

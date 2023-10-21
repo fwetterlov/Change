@@ -155,7 +155,7 @@ fun SubmitReflection(startPosition: Float, textState: String,navController: NavC
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
+        Text(stringResource(id = R.string.submit_button_text),
             color = Color.White)
     }
 }

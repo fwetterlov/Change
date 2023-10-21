@@ -63,6 +63,8 @@
     <string name = "selfassessment_title3">Self confidence</string>
 
     <string name = "history_button_text">History</string>
+    <string name = "submit_button_text">Submit</string>
+    <string name = "logout_button_text">Logout</string>
 
     <string name = "toast_selected_client">You need to select a client</string>
 
