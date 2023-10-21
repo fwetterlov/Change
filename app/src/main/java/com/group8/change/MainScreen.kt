@@ -67,6 +67,7 @@ fun MainScreen(
 @Composable
 fun LogoutUser(navController: NavController) {
     Button(onClick = {
+        DBApi.logout()
         navController.navigate("login")
     }) {
         Text(stringResource(id = R.string.logout_button_text),

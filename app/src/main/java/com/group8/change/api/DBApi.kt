@@ -44,6 +44,19 @@ object DBApi {
 
     }
 
+    fun logout() {
+
+        // reset the user and appdata singletons to initial values
+
+        CurrentUser.data.username = "username1"
+        CurrentUser.data.role = "role1"
+        CurrentUser.data.password = "password1"
+
+        CurrentAppData.data = AppData()
+        CurrentAppData.allData = emptyList()
+
+    }
+
     fun setCurrentAppData(viewModel: MainViewModel, username: String) {
 
         var appDataList: List<AppData> = emptyList()
