@@ -67,7 +67,7 @@ fun MainScreen(
 @Composable
 fun LogoutUser(navController: NavController) {
     Button(onClick = {
-        // Function for logout or just a navigate?
+        navController.navigate("login")
     }) {
         Text(stringResource(id = R.string.logout_button_text),
             color = Color.White)

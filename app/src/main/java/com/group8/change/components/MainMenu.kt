@@ -169,7 +169,7 @@ fun MainMenu(
                     // Third row left card
                     CardClickable(
                         text = stringResource(id = R.string.card_title_monthly_evaluation),
-                        id = "monthly",
+                        id = routeIds[4],
                         drawableId = R.drawable.month,
                         navController = navController,
                         isClickable = isClickable
