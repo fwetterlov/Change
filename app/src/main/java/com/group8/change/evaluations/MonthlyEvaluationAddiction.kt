@@ -59,6 +59,7 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
     TopAppBarPlus(content = {
         Column(
             modifier = Modifier
+                .verticalScroll(rememberScrollState())
                 .fillMaxSize()
                 .background(Color.White)
                 .padding(8.dp)
@@ -83,8 +84,6 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
                 textValue = text3,
                 onTextChange = { newValue -> text3 = newValue }
             )
-
-            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
                 text = stringResource(id = R.string.month_addiction_title2),
@@ -151,7 +150,6 @@ fun Checkboxes(
     )
 
     Row(
-        modifier = Modifier.padding(top = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Checkbox(
@@ -166,7 +164,6 @@ fun Checkboxes(
     }
 
     Row(
-        modifier = Modifier.padding(top = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Checkbox(
@@ -187,8 +184,7 @@ fun NumberPicker(
     onValueChange: (Int) -> Unit
 ) {
     Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(bottom = 16.dp)
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Button(
             onClick = { if (value > 0) onValueChange(value - 1) },
@@ -197,8 +193,8 @@ fun NumberPicker(
         }
         Text(
             text = value.toString(),
-            modifier = Modifier.padding(8.dp), // Add padding to the text
-            fontSize = 25.sp, // Increase the font size
+            modifier = Modifier.padding(8.dp),
+            fontSize = 25.sp,
         )
         Button(
             onClick = { onValueChange(value + 1) },
