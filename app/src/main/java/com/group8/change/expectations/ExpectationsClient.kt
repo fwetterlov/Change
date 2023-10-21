@@ -64,7 +64,7 @@ fun SubmitButton(expectationsViewModel: ExpectationsViewModel, navController: Na
             navController.navigate("main-menu")
         }
     ) {
-        Text(text = "Submit",
+        Text(stringResource(id = R.string.submit_button_text),
             color = Color.White)
     }
 
