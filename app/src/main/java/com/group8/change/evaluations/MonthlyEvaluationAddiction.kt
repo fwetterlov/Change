@@ -35,6 +35,7 @@ import com.group8.change.api.models.CurrentAppData
 import com.group8.change.api.models.Evaluation
 import com.group8.change.api.models.SelfAssessment
 import com.group8.change.api.viewmodel.MainViewModel
+import com.group8.change.components.HistoricalDataButton
 import com.group8.change.components.TextFieldWithLabel
 import com.group8.change.ui.design.TopAppBarPlus
 import java.text.SimpleDateFormat
@@ -58,13 +59,13 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
     TopAppBarPlus(content = {
         Column(
             modifier = Modifier
-                .verticalScroll(rememberScrollState())
                 .fillMaxSize()
                 .background(Color.White)
-                .padding(start = 20.dp)
+                .padding(8.dp)
         ) {
-            Spacer(modifier = Modifier.height(90.dp))
-
+            Spacer(modifier = Modifier.height(65.dp))
+            HistoricalDataButton(navController = navController, route = "monthly-th")
+            Spacer(modifier = Modifier.height(10.dp))
             TextFieldWithLabel(
                 labelText = stringResource(id = R.string.month_title1),
                 textValue = text1,
@@ -82,6 +83,8 @@ fun MonthlyEvaluationAddiction(navController: NavController) {
                 textValue = text3,
                 onTextChange = { newValue -> text3 = newValue }
             )
+
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
                 text = stringResource(id = R.string.month_addiction_title2),
