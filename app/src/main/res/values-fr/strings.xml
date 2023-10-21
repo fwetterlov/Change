@@ -63,6 +63,8 @@
     <string name = "selfassessment_title3">Confiance en soi</string>
 
     <string name = "history_button_text">Histoire</string>
+    <string name = "submit_button_text">Soumettre</string>
+    <string name = "logout_button_text">Se déconnecter</string>
 
     <string name = "toast_selected_client">Vous devez sélectionner un client</string>
 

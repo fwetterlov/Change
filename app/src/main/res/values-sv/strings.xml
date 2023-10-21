@@ -63,6 +63,8 @@
     <string name = "selfassessment_title3">Självtillit</string>
 
     <string name = "history_button_text">Historik</string>
+    <string name = "submit_button_text">Spara</string>
+    <string name = "logout_button_text">Logga ut</string>
 
     <string name = "toast_selected_client">Du måste välja en klient</string>
 

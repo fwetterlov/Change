@@ -236,7 +236,7 @@ fun SubmitMonthEvaluationAddiction(navController: NavController, text1: String, 
 
         }
     ) {
-        Text(text = "Submit",
+        Text(stringResource(id = R.string.submit_button_text),
             color = Color.White)
     }
 }
