@@ -217,7 +217,7 @@ fun SubmitMonthEvaluationAddiction(navController: NavController, text1: String, 
                 aaMeetingsThisMonth.toString(),
                 relapse,
                 daysSober,
-                daysAbusing
+                daysAbusing.ifEmpty { "0" }
             )
             val newMonthEvaluationAddiction = Evaluation(valueList, currentDate)
 
