@@ -112,8 +112,8 @@ fun MainMenu(
 ) {
 
     var routeIds = arrayOf(
-        "reflections",
         "expectations",
+        "reflections",
         "morning",
         "evening",
         "monthly",
@@ -152,9 +152,9 @@ fun MainMenu(
                 Column {
                     // First row left card
                     CardClickable(
-                        text = stringResource(id = R.string.card_title_reflections),
+                        text = stringResource(id = R.string.card_title_expectations),
                         id = routeIds[0],
-                        drawableId = R.drawable.reflection,
+                        drawableId = R.drawable.expectation,
                         navController = navController,
                         isClickable = isClickable
                     )
@@ -178,9 +178,9 @@ fun MainMenu(
                 Column {
                     // First row right card
                     CardClickable(
-                        text = stringResource(id = R.string.card_title_expectations),
+                        text = stringResource(id = R.string.card_title_reflections),
                         id = routeIds[1],
-                        drawableId = R.drawable.expectation,
+                        drawableId = R.drawable.reflection,
                         navController = navController,
                         isClickable = isClickable
                     )
