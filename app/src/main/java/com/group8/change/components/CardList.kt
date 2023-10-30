@@ -110,14 +110,15 @@ fun CardList(
                             if (tempList != null) {
                                 for (i in 0 until titles.size) {
                                     Text(
-                                        text = titles[i],
-                                        fontSize = 20.sp,
+                                        text = "${titles[i]}:",
+                                        fontSize = 25.sp,
                                         fontWeight = FontWeight.Bold
                                     )
 
                                     Text(
                                         text = tempList[i].toString(),
-                                        fontSize = 20.sp
+                                        fontSize = 20.sp,
+                                        modifier = Modifier.padding(bottom = 15.dp)
                                     )
                                 }
                             }
@@ -128,31 +129,6 @@ fun CardList(
                                 fontSize = 20.sp
                             )
                         }
-
-
-
-                        /*Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(400.dp)
-                        ) {
-                            LazyColumn(
-                                modifier = Modifier.fillMaxSize()
-                            ) {
-                                items(dataSize) { answerIndex ->
-                                    Text(
-                                        text = titles[answerIndex],
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-
-                                    Text(
-                                        text = data[index],
-                                        fontSize = 20.sp
-                                    )
-                                }
-                            }
-                        }*/
                     }
                 }
             }
